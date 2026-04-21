@@ -285,6 +285,7 @@ logger.error = (msg, options) => {
 }
 
 export default defineConfig({
+	base: process.env.GITHUB_ACTIONS ? '/pagina-asimetrica/' : '/',
 	optimizeDeps: {
 		include: allDeps,
 	},
