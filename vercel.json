@@ -1,4 +1,0 @@
-{
-  "buildCommand": "npm install --legacy-peer-deps && VITE_OUT_DIR=../../../dist npm run build",
-  "outputDirectory": "dist"
-}
