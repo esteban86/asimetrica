@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Helmet } from 'react-helmet';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
@@ -36,18 +35,13 @@ const HomePage = () => {
     }
   };
   return <>
-      <Helmet>
-        <title>Asimétrica — Finanzas Estratégicas | CFO Fraccional Colombia</title>
-        <meta name="description" content="Dirección Financiera Estratégica para empresas colombianas que quieren crecer con inteligencia. CFO Fraccional, modelos financieros y dashboards accionables." />
-      </Helmet>
-
       <div className="min-h-screen bg-background text-foreground">
         {/* Header */}
         <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/[0.08]">
           <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-16">
               <button onClick={() => scrollToSection('hero')} className="flex items-center gap-3 transition-opacity hover:opacity-90 focus:outline-none" aria-label="Volver al inicio">
-                <img src="https://horizons-cdn.hostinger.com/722a4d5b-cce7-46ae-930c-becde7c62c18/66549477e96659f62ff60ba0adfbe9a5.png" alt="Asimétrica Logo" className="h-8 w-auto" />
+                <img src="/logo.png" alt="Asimétrica" width="120" height="32" className="h-8 w-auto" />
                 <span className="text-sm text-muted-foreground hidden sm:inline body-secondary border-l border-border/[0.2] pl-3">Finanzas estratégicas</span>
               </button>
               
@@ -64,6 +58,7 @@ const HomePage = () => {
           </nav>
         </header>
 
+        <main id="main">
         {/* Hero Section */}
         <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
           <div className="aurora-glow turquesa"></div>
@@ -379,6 +374,7 @@ const HomePage = () => {
             </div>
           </div>
         </section>
+        </main>
 
         {/* Footer */}
         <footer className="border-t border-border/[0.08] py-8 bg-card/30">

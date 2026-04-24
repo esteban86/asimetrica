@@ -151,10 +151,38 @@
   }
 
   .gradient-text-primary {
+    color: #3FFFC8;
     background: linear-gradient(to right, #3FFFC8, #49BFD3);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+  }
+
+  @media (forced-colors: active) {
+    .gradient-text-primary {
+      -webkit-text-fill-color: currentColor;
+      background: none;
+    }
+  }
+
+  .skip-link {
+    position: absolute;
+    top: -100px;
+    left: 1rem;
+    z-index: 100;
+    padding: 0.75rem 1rem;
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    border-radius: var(--radius);
+    font-weight: 500;
+    text-decoration: none;
+    transition: top 0.15s ease-out;
+  }
+
+  .skip-link:focus {
+    top: 1rem;
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
   }
 
   .gradient-separator {

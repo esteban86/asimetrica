@@ -48,7 +48,9 @@ const ContactFormModal = ({ open, onOpenChange }) => {
       setFormData({ nombre: '', email: '', empresa: '', telefono: '' });
       onOpenChange(false);
     } catch (error) {
-      console.error("Error submitting form:", error);
+      if (import.meta.env.DEV) {
+        console.error("Error submitting form:", error);
+      }
       toast.error("Hubo un error al enviar la solicitud. Por favor, intenta de nuevo.");
     } finally {
       setIsLoading(false);
