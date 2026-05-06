@@ -94,7 +94,7 @@ const HomePage = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="fade-in mb-12">
               <h2 className="text-3xl md:text-4xl heading-section mb-4">
-                El <span className="text-primary">Problema</span>
+                El <span style={{ color: '#FF9B7E' }}>Problema</span>
               </h2>
             </div>
 
@@ -122,7 +122,7 @@ const HomePage = () => {
             }].map((item, index) => <div key={index} className="fade-in flex gap-6 items-start" style={{
               transitionDelay: `${index * 100}ms`
             }}>
-                  <span className="text-6xl font-bold text-primary/20 leading-none heading-secondary">{item.num}</span>
+                  <span className="text-6xl font-bold leading-none heading-secondary" style={{ color: '#FF9B7E33' }}>{item.num}</span>
                   <div>
                     <h3 className="text-xl heading-tertiary mb-2">{item.title}</h3>
                     <p className="text-muted-foreground description">{item.desc}</p>
@@ -132,7 +132,7 @@ const HomePage = () => {
           </div>
         </section>
 
-        <div className="gradient-separator"></div>
+        <div className="gradient-separator" style={{ background: 'linear-gradient(90deg, #42EDCB 0%, #49BFD3 100%)' }}></div>
 
         {/* Qué es Asimétrica Section */}
         <section id="solucion" className="py-20">
@@ -252,7 +252,7 @@ const HomePage = () => {
           </div>
         </section>
 
-        <div className="gradient-separator"></div>
+        <div className="gradient-separator" style={{ background: 'linear-gradient(90deg, #42EDCB 0%, #49BFD3 100%)' }}></div>
 
         {/* Plataformas Propias Section */}
         <section id="plataformas" className="py-20 bg-card/30">
@@ -281,7 +281,7 @@ const HomePage = () => {
           </div>
         </section>
 
-        <div className="gradient-separator"></div>
+        <div className="gradient-separator" style={{ background: 'linear-gradient(90deg, #42EDCB 0%, #49BFD3 100%)' }}></div>
 
         {/* Proceso Section */}
         <section id="proceso" className="py-20">

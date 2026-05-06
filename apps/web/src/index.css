@@ -187,9 +187,9 @@
 
   .gradient-separator {
     height: 2px;
-    background: linear-gradient(90deg, 
-      hsl(var(--secondary)) 0%, 
-      hsl(var(--primary)) 50%, 
+    background: linear-gradient(90deg,
+      hsl(var(--secondary)) 0%,
+      hsl(var(--primary)) 50%,
       hsl(var(--accent)) 100%
     );
     width: 100%;
