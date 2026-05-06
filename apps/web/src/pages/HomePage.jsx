@@ -46,7 +46,7 @@ const HomePage = () => {
               </button>
               
               <div className="hidden md:flex items-center gap-6 text-sm body-text">
-                {['problema', 'solucion', 'herramientas', 'proceso', 'planes', 'contacto'].map(section => <button key={section} onClick={() => scrollToSection(section)} className={`capitalize transition-all duration-200 hover:text-primary ${activeSection === section ? 'text-primary font-medium' : 'text-muted-foreground'}`}>
+                {['problema', 'solucion', 'herramientas', 'plataformas', 'proceso', 'planes', 'contacto'].map(section =><button key={section} onClick={() => scrollToSection(section)} className={`capitalize transition-all duration-200 hover:text-primary ${activeSection === section ? 'text-primary font-medium' : 'text-muted-foreground'}`}>
                     {section === 'solucion' ? 'Solución' : section}
                   </button>)}
               </div>
@@ -242,12 +242,41 @@ const HomePage = () => {
             }].map((tool, index) => <Card key={index} className="fade-in card-hover bg-card p-6" style={{
               transitionDelay: `${index * 50}ms`
             }}>
-                  <div className="text-xs font-semibold text-primary uppercase tracking-wider mb-2 body-secondary">
+                  <div className="text-xs font-semibold uppercase tracking-wider mb-2 body-secondary" style={{ color: '#FF6B8A' }}>
                     {tool.category}
                   </div>
                   <h3 className="text-lg heading-tertiary mb-3">{tool.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed description">{tool.desc}</p>
                 </Card>)}
+            </div>
+          </div>
+        </section>
+
+        <div className="gradient-separator"></div>
+
+        {/* Plataformas Propias Section */}
+        <section id="plataformas" className="py-20 bg-card/30">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="fade-in">
+                <div className="text-xs font-semibold text-primary uppercase tracking-wider mb-3 body-secondary">
+                  Plataformas Propias
+                </div>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl heading-section mb-6">
+                  Tecnología e IA desde nuestro <span className="text-primary">origen</span>
+                </h2>
+                <ul className="space-y-3">
+                  {['Dashboards y KPIs en tiempo real', 'Desarrolladas in-house', 'Incluidas en todos los planes'].map((item, i) => <li key={i} className="flex items-start gap-3 body-text">
+                      <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-muted-foreground">{item}</span>
+                    </li>)}
+                </ul>
+              </div>
+              <div className="fade-in">
+                <div className="rounded-xl overflow-hidden border border-border/[0.12] shadow-2xl">
+                  <img src="/plataformas.png" alt="Plataforma Asimétrica - Dashboard Flujo de Caja 13 semanas" className="w-full h-auto block" />
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -314,35 +343,40 @@ const HomePage = () => {
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 items-stretch">
               {[{
               name: 'ESENCIAL',
-              features: ['Modelo 3 Estados', 'Dashboard KPIs', 'Árbol de Rentabilidad', 'Análisis de Deuda', 'Flujo de Caja 13 Sem.', 'Comité Financiero 2h', 'Respuesta 2 días']
+              price: '$1.900.000',
+              tagline: 'Asesoría + Plataforma FP&A',
+              desc: 'Ideal para startups y empresas listas para dar el siguiente paso. Tomamos tu información contable y la transformamos en inteligencia financiera para que logres organizar la casa, entender tu flujo de dinero y tomar tus decisiones con claridad y confianza.'
             }, {
               name: 'CRECIMIENTO',
+              price: '$4.900.000',
+              tagline: 'Asesoría + Plataforma FP&A',
               badge: 'Más Elegido',
               highlight: true,
-              features: ['Todo Esencial +', 'Capital de Trabajo', 'Flujo semanal', 'Presupuesto + 4h/mes', 'Sesión pre-junta', 'Valoración básica', 'Respuesta 1 día']
+              desc: 'Pensado para empresas maduras en expansión. Nos convertimos en tu respaldo experto para que escales con tranquilidad y responsabilidad, analizando a fondo tu operación para que entiendas las implicaciones financieras de cada decisión antes de ejecutarla, asegurando un crecimiento verdaderamente sostenible.'
             }, {
               name: 'ESTRATÉGICO',
-              features: ['Todo Crecimiento +', 'Investment Readiness', 'Valoración DCF', 'Data Room', 'Deck de junta', 'Analítica avanzada', 'Respuesta mismo día']
-            }].map((plan, index) => <Card key={index} className={`fade-in card-hover bg-card p-8 relative ${plan.highlight ? 'ring-2 ring-primary scale-105' : ''}`} style={{
+              price: '$7.900.000',
+              tagline: 'Asesoría + Plataforma FP&A',
+              desc: 'Creado para compañías que exigen una dirección financiera de alto nivel. Actuamos como tu CFO de cabecera, acompañándote hombro a hombro como aliados tanto en la trinchera de la operación diaria como en la mesa de las grandes decisiones, cuidando y maximizando el valor de tu empresa en todo momento.'
+            }].map((plan, index) => <Card key={index} className={`fade-in card-hover bg-card p-8 relative flex flex-col ${plan.highlight ? 'ring-2 ring-primary md:scale-105' : ''}`} style={{
               transitionDelay: `${index * 100}ms`
             }}>
                   {plan.badge && <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-semibold body-secondary">
                       {plan.badge}
                     </div>}
-                  
+
                   <div className="text-center mb-6">
-                    <h3 className="text-xl heading-tertiary">{plan.name}</h3>
+                    <h3 className="text-xl heading-tertiary mb-3">{plan.name}</h3>
+                    <div className="text-3xl font-bold text-primary heading-secondary">{plan.price}</div>
+                    <div className="text-xs text-muted-foreground mt-1 body-secondary uppercase tracking-wider">{plan.tagline}</div>
                   </div>
 
-                  <ul className="space-y-3 mb-8">
-                    {plan.features.map((feature, i) => <li key={i} className="flex items-start gap-2 text-sm body-text">
-                        <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                        <span className="text-muted-foreground">{feature}</span>
-                      </li>)}
-                  </ul>
+                  <p className="text-sm text-muted-foreground leading-relaxed description mb-8 flex-1">
+                    {plan.desc}
+                  </p>
 
                   <Button onClick={() => setModalOpen(true)} className={`w-full transition-all duration-200 active:scale-[0.98] body-text ${plan.highlight ? 'bg-primary text-primary-foreground hover:bg-primary/90' : 'bg-muted text-foreground hover:bg-muted/80'}`}>
                     Solicitar Diagnóstico
