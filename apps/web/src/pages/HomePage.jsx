@@ -345,6 +345,40 @@ const HomePage = () => {
               })}
               </div>
             </div>
+
+            {/* Galería de capturas */}
+            <div className="mt-16 fade-in">
+              <p className="text-center text-xs text-muted-foreground mb-8 body-secondary uppercase tracking-wider">
+                Un vistazo a la plataforma
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {[{
+                src: '/prisma-macro.webp',
+                title: 'Vista Macro',
+                desc: 'Panorama de +29.000 empresas por sector y región.'
+              }, {
+                src: '/prisma-empresa.webp',
+                title: 'Ficha de empresa',
+                desc: 'EBITDA, ROE, Z-Score y comparación con pares.'
+              }, {
+                src: '/prisma-screener.webp',
+                title: 'Screener',
+                desc: 'Filtra +2.000 empresas por rentabilidad y riesgo.'
+              }, {
+                src: '/prisma-scoring.webp',
+                title: 'Scoring y DuPont',
+                desc: 'Altman Z, Piotroski F-Score y Beneish M-Score.'
+              }].map((shot, index) => <a key={index} href="https://prisma.asimetrica.co" target="_blank" rel="noopener noreferrer" className="fade-in group block rounded-xl overflow-hidden border border-border/[0.12] shadow-2xl card-hover bg-card" style={{
+                transitionDelay: `${index * 80}ms`
+              }}>
+                    <img src={shot.src} alt={`Prisma — ${shot.title}`} loading="lazy" className="w-full h-auto block transition-transform duration-300 group-hover:scale-[1.02]" />
+                    <div className="p-4 border-t border-border/[0.08]">
+                      <h3 className="text-sm heading-tertiary mb-1">{shot.title}</h3>
+                      <p className="text-xs text-muted-foreground description">{shot.desc}</p>
+                    </div>
+                  </a>)}
+              </div>
+            </div>
           </div>
         </section>
 
