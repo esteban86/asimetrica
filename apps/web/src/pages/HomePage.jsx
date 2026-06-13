@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { ArrowRight, CheckCircle2, ExternalLink, BarChart3, ShieldCheck, Building2, LineChart } from 'lucide-react';
+import { ArrowRight, CheckCircle2, ExternalLink } from 'lucide-react';
 import ContactFormModal from '@/components/ContactFormModal.jsx';
 const HomePage = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -301,9 +301,12 @@ const HomePage = () => {
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6 body-text">
                   Nuestra plataforma de <strong className="text-foreground">inteligencia financiera</strong> con acceso libre a los estados financieros y el análisis de más de <strong className="text-foreground">145.000 empresas colombianas</strong>, a partir de fuentes públicas oficiales (Supersociedades, Superfinanciera, RUES).
                 </p>
-                <p className="text-lg text-muted-foreground leading-relaxed mb-8 body-text">
-                  Evalúa clientes, proveedores, competidores u oportunidades de inversión con datos confiables — antes de tomar la decisión.
-                </p>
+                <ul className="space-y-3 mb-8">
+                  {['Estados financieros NIIF: P&G, balance y flujos de caja', 'Ratios de liquidez, rentabilidad y apalancamiento', 'Scoring de riesgo: Altman Z, Piotroski y Beneish', 'Benchmarking sectorial por código CIIU'].map((item, i) => <li key={i} className="flex items-start gap-3 body-text">
+                      <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-muted-foreground">{item}</span>
+                    </li>)}
+                </ul>
                 <a href="https://prisma.asimetrica.co" target="_blank" rel="noopener noreferrer" className="inline-flex">
                   <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200 active:scale-[0.98] text-base px-8 body-text">
                     Explorar Prisma
@@ -315,67 +318,24 @@ const HomePage = () => {
                 </p>
               </div>
 
-              {/* Features */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {[{
-                icon: Building2,
-                title: '+145.000 empresas',
-                desc: 'Estados financieros NIIF: P&G, balance y flujos de caja.'
-              }, {
-                icon: BarChart3,
-                title: 'Ratios financieros',
-                desc: 'Liquidez, rentabilidad, apalancamiento y eficiencia.'
-              }, {
-                icon: ShieldCheck,
-                title: 'Scoring de riesgo',
-                desc: 'Altman Z-Score, Piotroski F-Score y más métricas.'
-              }, {
-                icon: LineChart,
-                title: 'Benchmark sectorial',
-                desc: 'Comparación por código CIIU y entre compañías.'
-              }].map((feature, index) => {
-                const Icon = feature.icon;
-                return <Card key={index} className="fade-in card-hover bg-card p-6" style={{
-                  transitionDelay: `${index * 80}ms`
-                }}>
-                    <Icon className="h-8 w-8 text-primary mb-4" />
-                    <h3 className="text-base heading-tertiary mb-2">{feature.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed description">{feature.desc}</p>
-                  </Card>;
-              })}
-              </div>
-            </div>
-
-            {/* Galería de capturas */}
-            <div className="mt-16 fade-in">
-              <p className="text-center text-xs text-muted-foreground mb-8 body-secondary uppercase tracking-wider">
-                Un vistazo a la plataforma
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Capturas (derecha, pequeñas) */}
+              <div className="grid grid-cols-2 gap-3 fade-in">
                 {[{
                 src: '/prisma-macro.webp',
-                title: 'Vista Macro',
-                desc: 'Panorama de +29.000 empresas por sector y región.'
+                title: 'Vista Macro'
               }, {
                 src: '/prisma-empresa.webp',
-                title: 'Ficha de empresa',
-                desc: 'EBITDA, ROE, Z-Score y comparación con pares.'
+                title: 'Ficha de empresa'
               }, {
                 src: '/prisma-screener.webp',
-                title: 'Screener',
-                desc: 'Filtra +2.000 empresas por rentabilidad y riesgo.'
+                title: 'Screener'
               }, {
                 src: '/prisma-scoring.webp',
-                title: 'Scoring y DuPont',
-                desc: 'Altman Z, Piotroski F-Score y Beneish M-Score.'
-              }].map((shot, index) => <a key={index} href="https://prisma.asimetrica.co" target="_blank" rel="noopener noreferrer" className="fade-in group block rounded-xl overflow-hidden border border-border/[0.12] shadow-2xl card-hover bg-card" style={{
-                transitionDelay: `${index * 80}ms`
+                title: 'Scoring y DuPont'
+              }].map((shot, index) => <a key={index} href="https://prisma.asimetrica.co" target="_blank" rel="noopener noreferrer" title={`Prisma — ${shot.title}`} className="group block rounded-lg overflow-hidden border border-border/[0.12] shadow-lg card-hover bg-card" style={{
+                transitionDelay: `${index * 60}ms`
               }}>
-                    <img src={shot.src} alt={`Prisma — ${shot.title}`} loading="lazy" className="w-full h-auto block transition-transform duration-300 group-hover:scale-[1.02]" />
-                    <div className="p-4 border-t border-border/[0.08]">
-                      <h3 className="text-sm heading-tertiary mb-1">{shot.title}</h3>
-                      <p className="text-xs text-muted-foreground description">{shot.desc}</p>
-                    </div>
+                    <img src={shot.src} alt={`Prisma — ${shot.title}`} loading="lazy" className="w-full h-auto block transition-transform duration-300 group-hover:scale-[1.04]" />
                   </a>)}
               </div>
             </div>
