@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, CheckCircle2, ExternalLink, BarChart3, ShieldCheck, Building2, LineChart } from 'lucide-react';
 import ContactFormModal from '@/components/ContactFormModal.jsx';
 const HomePage = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -46,7 +46,8 @@ const HomePage = () => {
               </button>
               
               <div className="hidden md:flex items-center gap-6 text-sm body-text">
-                {['problema', 'solucion', 'herramientas', 'plataformas', 'proceso', 'planes', 'contacto'].map(section =><button key={section} onClick={() => scrollToSection(section)} className={`capitalize transition-all duration-200 hover:text-primary ${activeSection === section ? 'text-primary font-medium' : 'text-muted-foreground'}`}>
+                {['problema', 'solucion', 'herramientas', 'plataformas', 'prisma', 'proceso', 'planes', 'contacto'].map(section => <button key={section} onClick={() => scrollToSection(section)} className={`capitalize transition-all duration-200 hover:text-primary ${activeSection === section ? 'text-primary font-medium' : 'text-muted-foreground'}`}>
+
                     {section === 'solucion' ? 'Solución' : section}
                   </button>)}
               </div>
@@ -282,6 +283,72 @@ const HomePage = () => {
         </section>
 
         <div className="gradient-separator" style={{ background: 'linear-gradient(90deg, #42EDCB 0%, #49BFD3 100%)' }}></div>
+
+        {/* Prisma Section */}
+        <section id="prisma" className="py-20 bg-card/30 relative overflow-hidden">
+          <div className="aurora-glow turquesa"></div>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              {/* Texto */}
+              <div className="fade-in">
+                <div className="inline-flex items-center gap-2 text-xs font-semibold text-primary uppercase tracking-wider mb-4 body-secondary">
+                  <span className="w-2 h-2 rounded-full bg-primary"></span>
+                  Plataforma gratuita
+                </div>
+                <h2 className="text-3xl md:text-4xl heading-section mb-6">
+                  <span className="gradient-text-primary">Prisma</span> by Asimétrica
+                </h2>
+                <p className="text-lg text-muted-foreground leading-relaxed mb-6 body-text">
+                  Nuestra plataforma de <strong className="text-foreground">inteligencia financiera</strong> con acceso libre a los estados financieros y el análisis de más de <strong className="text-foreground">145.000 empresas colombianas</strong>, a partir de fuentes públicas oficiales (Supersociedades, Superfinanciera, RUES).
+                </p>
+                <p className="text-lg text-muted-foreground leading-relaxed mb-8 body-text">
+                  Evalúa clientes, proveedores, competidores u oportunidades de inversión con datos confiables — antes de tomar la decisión.
+                </p>
+                <a href="https://prisma.asimetrica.co" target="_blank" rel="noopener noreferrer" className="inline-flex">
+                  <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200 active:scale-[0.98] text-base px-8 body-text">
+                    Explorar Prisma
+                    <ExternalLink className="ml-2 h-5 w-5" />
+                  </Button>
+                </a>
+                <p className="text-sm text-muted-foreground mt-4 body-secondary">
+                  prisma.asimetrica.co
+                </p>
+              </div>
+
+              {/* Features */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {[{
+                icon: Building2,
+                title: '+145.000 empresas',
+                desc: 'Estados financieros NIIF: P&G, balance y flujos de caja.'
+              }, {
+                icon: BarChart3,
+                title: 'Ratios financieros',
+                desc: 'Liquidez, rentabilidad, apalancamiento y eficiencia.'
+              }, {
+                icon: ShieldCheck,
+                title: 'Scoring de riesgo',
+                desc: 'Altman Z-Score, Piotroski F-Score y más métricas.'
+              }, {
+                icon: LineChart,
+                title: 'Benchmark sectorial',
+                desc: 'Comparación por código CIIU y entre compañías.'
+              }].map((feature, index) => {
+                const Icon = feature.icon;
+                return <Card key={index} className="fade-in card-hover bg-card p-6" style={{
+                  transitionDelay: `${index * 80}ms`
+                }}>
+                    <Icon className="h-8 w-8 text-primary mb-4" />
+                    <h3 className="text-base heading-tertiary mb-2">{feature.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed description">{feature.desc}</p>
+                  </Card>;
+              })}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div className="gradient-separator"></div>
 
         {/* Proceso Section */}
         <section id="proceso" className="py-20">
