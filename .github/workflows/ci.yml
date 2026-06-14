@@ -8,6 +8,10 @@ on:
 permissions:
   contents: read
 
+# Fuerza Node 24 en las actions (las que aún declaran Node 20, deprecado).
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   quality:
     runs-on: ubuntu-latest
