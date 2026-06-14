@@ -62,7 +62,7 @@ const plans = [
   { name: 'ESTRATÉGICO', price: '$7.900.000', tagline: 'Asesoría + Plataforma FP&A', desc: 'Creado para compañías que exigen una dirección financiera de alto nivel. Actuamos como tu CFO de cabecera, acompañándote hombro a hombro como aliados tanto en la trinchera de la operación diaria como en la mesa de las grandes decisiones, cuidando y maximizando el valor de tu empresa en todo momento.' },
 ];
 
-const btnPrimary = 'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md font-medium transition-all duration-200 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring bg-primary text-primary-foreground hover:bg-primary/90 cursor-pointer';
+const btnPrimary = 'group inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md font-medium transition-all duration-200 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring bg-primary text-primary-foreground hover:bg-primary/90 cursor-pointer';
 
 const iconArrow = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>';
 const iconExternal = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"/></svg>';
@@ -74,9 +74,9 @@ const iconChevron = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="
 <Layout>
   <div class="min-h-screen bg-background text-foreground">
     <!-- Header -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/[0.08]">
+    <header id="site-header" class="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/[0.08]">
       <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16">
+        <div class="nav-row flex items-center justify-between h-16">
           <button data-scroll="hero" class="flex items-center gap-3 transition-opacity hover:opacity-90 focus:outline-none" aria-label="Volver al inicio">
             <img src="/logo.png" alt="Asimétrica" width="120" height="32" class="h-8 w-auto" />
             <span class="text-sm text-muted-foreground hidden sm:inline body-secondary border-l border-border/[0.2] pl-3">Finanzas estratégicas</span>
@@ -135,9 +135,9 @@ const iconChevron = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="
               <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
                 <button data-open-contact class={`${btnPrimary} h-12 px-8 text-base body-text`}>
                   Solicitar Diagnóstico Gratis
-                  <span set:html={iconArrow} />
+                  <span class="transition-transform duration-200 group-hover:translate-x-1" set:html={iconArrow} />
                 </button>
-                <button data-scroll="planes" class="inline-flex items-center justify-center h-11 px-2 text-base text-foreground hover:text-primary transition-all duration-200 underline underline-offset-4 body-text">
+                <button data-scroll="planes" class="link-underline inline-flex items-center justify-center h-11 px-2 text-base text-foreground hover:text-primary transition-all duration-200 body-text">
                   Ver los planes
                 </button>
               </div>
@@ -261,10 +261,10 @@ const iconChevron = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="
             {steps.map((step, index) => (
               <div class="fade-in flex gap-6 items-start" style={`transition-delay:${index * 100}ms`}>
                 <div class="flex flex-col items-center">
-                  <div class="w-16 h-16 rounded-xl bg-primary/10 border-2 border-primary flex items-center justify-center flex-shrink-0">
+                  <div class="proc-circle w-16 h-16 rounded-xl bg-primary/10 border-2 border-primary flex items-center justify-center flex-shrink-0">
                     <span class="text-2xl font-bold text-primary heading-secondary">{step.num}</span>
                   </div>
-                  {index < steps.length - 1 && <div class="w-0.5 h-12 bg-gradient-to-b from-primary to-transparent mt-4"></div>}
+                  {index < steps.length - 1 && <div class="proc-line w-0.5 h-12 bg-gradient-to-b from-primary to-transparent mt-4"></div>}
                 </div>
                 <div class="flex-1 pt-2">
                   <div class="flex items-baseline gap-3 mb-2 flex-wrap">
@@ -342,7 +342,7 @@ const iconChevron = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="
                 <span class="gradient-text-primary">Prisma</span> by Asimétrica
               </h2>
               <p class="text-lg text-muted-foreground leading-relaxed mb-6 body-text">
-                Nuestra plataforma de <strong class="text-foreground">inteligencia financiera</strong> con acceso libre a los estados financieros y el análisis de más de <strong class="text-foreground">145.000 empresas colombianas</strong>, a partir de fuentes públicas oficiales (Supersociedades, Superfinanciera, RUES).
+                Nuestra plataforma de <strong class="text-foreground">inteligencia financiera</strong> con acceso libre a los estados financieros y el análisis de más de <strong class="text-foreground"><span data-countup="145000">145.000</span> empresas colombianas</strong>, a partir de fuentes públicas oficiales (Supersociedades, Superfinanciera, RUES).
               </p>
               <ul class="space-y-3 mb-8">
                 {prismaFeatures.map((item) => (
@@ -354,17 +354,18 @@ const iconChevron = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="
               </ul>
               <a href="https://prisma.asimetrica.co" target="_blank" rel="noopener noreferrer" class={`${btnPrimary} h-12 px-8 text-base body-text`}>
                 Explorar Prisma
-                <span set:html={iconExternal} />
+                <span class="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" set:html={iconExternal} />
               </a>
-              <p class="text-sm text-muted-foreground mt-4 body-secondary">
+              <a href="https://prisma.asimetrica.co" target="_blank" rel="noopener noreferrer" class="link-underline inline-block text-sm text-muted-foreground hover:text-primary mt-4 body-secondary transition-colors">
                 prisma.asimetrica.co
-              </p>
+              </a>
             </div>
 
             <div class="fade-in flex gap-3 overflow-x-auto snap-x snap-mandatory -mx-4 px-4 pb-2 md:mx-0 md:px-0 md:pb-0 md:grid md:grid-cols-2 md:overflow-visible">
               {prismaShots.map((shot, index) => (
-                <a href="https://prisma.asimetrica.co" target="_blank" rel="noopener noreferrer" title={`Prisma — ${shot.title}`} class="group block rounded-lg overflow-hidden border border-border/[0.12] shadow-lg card-hover bg-card min-w-[78%] snap-center md:min-w-0" style={`transition-delay:${index * 60}ms`}>
+                <a href="https://prisma.asimetrica.co" target="_blank" rel="noopener noreferrer" title={`Prisma — ${shot.title}`} class="group relative block rounded-lg overflow-hidden border border-border/[0.12] shadow-lg card-hover bg-card min-w-[78%] snap-center md:min-w-0" style={`transition-delay:${index * 60}ms`}>
                   <img src={shot.src} alt={`Prisma — ${shot.title}`} loading="lazy" decoding="async" class="w-full h-auto block transition-transform duration-300 group-hover:scale-[1.04]" />
+                  <span class="absolute top-2 right-2 inline-flex h-7 w-7 items-center justify-center rounded-md bg-background/70 backdrop-blur text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-200" set:html={iconExternal} />
                 </a>
               ))}
             </div>
@@ -482,6 +483,42 @@ const iconChevron = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="
     btn.addEventListener('click', () => {
       window.dispatchEvent(new Event('open-contact-modal'));
     });
+  });
+
+  // Header se condensa al hacer scroll
+  const header = document.getElementById('site-header');
+  if (header) {
+    const onHeaderScroll = () => header.classList.toggle('scrolled', window.scrollY > 24);
+    window.addEventListener('scroll', onHeaderScroll, { passive: true });
+    onHeaderScroll();
+  }
+
+  // Contador animado (cuenta hacia arriba al entrar en pantalla)
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('[data-countup]').forEach((el) => {
+    const target = parseInt(el.getAttribute('data-countup') || '0', 10);
+    if (reduceMotion) {
+      el.textContent = target.toLocaleString('es-CO');
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          io.unobserve(entry.target);
+          const dur = 1400;
+          const start = performance.now();
+          requestAnimationFrame(function tick(now) {
+            const p = Math.min(1, (now - start) / dur);
+            const eased = 1 - Math.pow(1 - p, 3);
+            el.textContent = Math.round(target * eased).toLocaleString('es-CO');
+            if (p < 1) requestAnimationFrame(tick);
+          });
+        });
+      },
+      { threshold: 0.6 }
+    );
+    io.observe(el);
   });
 
   // Menú móvil

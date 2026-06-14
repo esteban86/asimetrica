@@ -169,7 +169,7 @@
   .js .fade-in {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .js .fade-in.visible {
@@ -191,12 +191,24 @@
     background: hsl(var(--primary));
     top: -200px;
     right: -200px;
+    animation: aurora-drift-a 22s ease-in-out infinite;
   }
 
   .aurora-glow.purpura {
     background: hsl(var(--accent));
     bottom: -200px;
     left: -200px;
+    animation: aurora-drift-b 28s ease-in-out infinite;
+  }
+
+  @keyframes aurora-drift-a {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-36px, 24px) scale(1.06); }
+  }
+
+  @keyframes aurora-drift-b {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(30px, -28px) scale(1.05); }
   }
 }
 
@@ -225,5 +237,90 @@
   *::after {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
+  }
+}
+
+/* ── Coquetería de interacción ───────────────────────────── */
+
+/* Selección de texto con color de marca */
+::selection {
+  background: hsl(var(--primary) / 0.28);
+  color: hsl(var(--foreground));
+}
+
+/* Header que se condensa al hacer scroll */
+#site-header {
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+#site-header .nav-row {
+  transition: height 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+#site-header.scrolled {
+  background-color: hsl(var(--background) / 0.92);
+  box-shadow: 0 6px 24px -12px rgb(0 0 0 / 0.6);
+  border-color: hsl(var(--border) / 0.12);
+}
+#site-header.scrolled .nav-row {
+  height: 3.5rem;
+}
+
+/* Subrayado que crece desde la izquierda */
+.link-underline {
+  position: relative;
+}
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0.15rem;
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.link-underline:hover::after,
+.link-underline:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* Proceso: la línea se dibuja y los círculos "se encienden" al revelar */
+.js .proc-line {
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.55s ease 0.15s;
+}
+.js .fade-in.visible .proc-line {
+  transform: scaleY(1);
+}
+.js .proc-circle {
+  transform: scale(0.82);
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s;
+}
+.js .fade-in.visible .proc-circle {
+  transform: scale(1);
+}
+
+/* Scrollbar fina on-brand (solo punteros finos / desktop) */
+@media (pointer: fine) {
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--muted) / 0.3) transparent;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted) / 0.28);
+    border-radius: 9999px;
+    border: 2px solid hsl(var(--background));
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.5);
   }
 }
