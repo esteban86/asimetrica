@@ -33,6 +33,10 @@ jobs:
 
       - name: Build
         run: npm run build --prefix apps/web
+        env:
+          # Astro expone al cliente solo las variables con prefijo PUBLIC_.
+          # Reutilizamos el secret existente VITE_WEB3FORMS_KEY.
+          PUBLIC_WEB3FORMS_KEY: ${{ secrets.VITE_WEB3FORMS_KEY }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

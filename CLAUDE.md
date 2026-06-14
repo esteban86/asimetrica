@@ -1,42 +1,62 @@
 # Pagina Asimetrica
 
 ## Stack
-- **Frontend:** React 18 + Vite + Tailwind CSS + shadcn/ui
-- **Router:** react-router-dom v7
-- **Forms:** react-hook-form + zod
-- **Animaciones:** framer-motion
-- **Backend:** ~~PocketBase~~ eliminado — reemplazado por Web3Forms
+- **Framework:** Astro 5 (output `static` / SSG) — HTML estático, JS mínimo
+- **UI interactiva:** React 18 como *islands* (`@astrojs/react`) + shadcn/ui (Radix)
+- **Estilos:** Tailwind CSS 3 (`@astrojs/tailwind`) + tokens HSL en `src/styles/global.css`
+- **Fuentes:** Inter self-host (`@fontsource-variable/inter`) + Satoshi (Fontshare)
+- **Iconos:** lucide-react (en islands) / SVG inline (en markup estático)
+- **Animaciones:** CSS + IntersectionObserver (sin framer-motion)
+- **Analítica:** Plausible (sin cookies) — requiere crear el sitio `asimetrica.co` en Plausible
+- **Backend:** sin backend — formulario vía Web3Forms
+
+> La página es una sola ruta (`src/pages/index.astro`). No hay router ni react-hook-form/zod.
 
 ## Estructura
 ```
-apps/web/          # Frontend React/Vite
-apps/pocketbase/   # Legado — ya no se usa en producción
+apps/web/
+  src/
+    pages/index.astro        # La landing (markup estático + scripts cliente)
+    layouts/Layout.astro     # <head>: meta/OG, fuentes, JSON-LD, analítica
+    components/ContactModal.jsx   # Island (client:idle): modal de contacto + toasts
+    components/ui/*          # shadcn/ui (Button, Card, Dialog, Input, Label, Sonner)
+    styles/global.css        # Tokens de color, tipografía, utilidades
+  public/                    # Imágenes (logo, prisma-*.webp...), CNAME, robots.txt
+apps/pocketbase/             # Legado — ya no se usa
 ```
 
 ## Comandos
 ```bash
-npm run dev        # Dev server en localhost:3000
+npm run dev        # Dev server (Astro) en localhost:3000
 npm run build      # Build de producción → dist/apps/web
-npm run lint       # Lint
+npm run preview    # Sirve el build de producción
+npm run check      # astro check (type-check de .astro/.jsx)
+npm run lint       # ESLint (.astro + .jsx)
 ```
+(El root reenvía a `apps/web`; o usar `--prefix apps/web`.)
 
 ## Formulario de contacto
-- Colección `diagnosticos` migrada a **Web3Forms**
-- Key en variable de entorno `VITE_WEB3FORMS_KEY`
-- Archivo: `apps/web/src/components/ContactFormModal.jsx`
+- Envío a **Web3Forms** (`https://api.web3forms.com/submit`)
+- Key en `import.meta.env.PUBLIC_WEB3FORMS_KEY` (Astro solo expone vars `PUBLIC_*` al cliente)
+- Archivo: `apps/web/src/components/ContactModal.jsx` (island)
+- Los botones estáticos abren el modal disparando el evento `open-contact-modal`
 
 ## Variables de entorno
 ```
-VITE_WEB3FORMS_KEY=<key>   # API key de web3forms.com
+PUBLIC_WEB3FORMS_KEY=<key>   # API key de web3forms.com
 ```
+En GitHub Actions se inyecta desde el secret `VITE_WEB3FORMS_KEY` (reusado) → `PUBLIC_WEB3FORMS_KEY`.
 
 ## Hosting
-- **Repo:** https://github.com/miguelrpo/pagina-asimetrica (privado)
-- **Deploy:** GitHub Pages via GitHub Actions
-- **URL:** https://miguelrpo.github.io/pagina-asimetrica
-- **Workflow:** `.github/workflows/deploy.yml` — corre en cada push a `main`
+- **Repo:** https://github.com/esteban86/asimetrica
+- **Deploy:** GitHub Pages vía Actions (`.github/workflows/deploy.yml`) en cada push a `main`
+- **CI:** `.github/workflows/ci.yml` en cada PR — lint + astro check + build + Lighthouse CI (`lighthouserc.json`)
+- **Dominio:** `asimetrica.co` (custom domain; `CNAME` en `apps/web/public/`)
 - El secret `VITE_WEB3FORMS_KEY` debe estar en Settings → Secrets → Actions
 
 ## Notas
-- `vite.config.js` usa `base: '/pagina-asimetrica/'` cuando corre en GitHub Actions
+- `astro.config.mjs`: `base: '/'`, `site: 'https://asimetrica.co'`, `outDir: '../../dist/apps/web'`
+- Sitemap generado por `@astrojs/sitemap` (`/sitemap-index.xml`)
+- Progressive enhancement: el contenido `.fade-in` es visible por defecto; solo se anima si hay JS (clase `.js` en `<html>`)
+- Pendiente: falta `public/og-image.png` (la meta OG/Twitter lo referencia)
 - El `.env` local no se sube al repo (está en `.gitignore`)

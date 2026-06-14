@@ -1,43 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Satoshi:wght@400;500;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/*
+ * Fuentes:
+ *  - Inter  -> self-host vía @fontsource-variable/inter (importado en Layout.astro)
+ *  - Satoshi -> Fontshare (cargado en Layout.astro; antes venía de Google Fonts y NO existía allí)
+ */
+
 @layer base {
   :root {
-    --background: 213 28% 7%;
-    --foreground: 0 0% 100%;
-    --card: 225 28% 14%;
-    --card-foreground: 0 0% 100%;
-    --popover: 225 28% 14%;
-    --popover-foreground: 0 0% 100%;
-    --primary: 163 100% 62%;
-    --primary-foreground: 213 28% 7%;
-    --secondary: 4 92% 69%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 220 13% 65%;
-    --muted-foreground: 220 13% 65%;
-    --accent: 252 96% 67%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 100%;
-    --input: 0 0% 100%;
-    --ring: 163 100% 62%;
-    --radius: 0.5rem;
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
     --background: 217 33% 11%;
     --foreground: 0 0% 100%;
     --card: 225 28% 14%;
@@ -57,14 +29,7 @@
     --border: 0 0% 100%;
     --input: 0 0% 100%;
     --ring: 163 100% 62%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --radius: 0.5rem;
   }
 
   * {
@@ -77,7 +42,7 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', 'DM Sans', sans-serif;
+    font-family: 'Inter Variable', 'Inter', sans-serif;
     font-weight: 400;
     overflow-x: clip;
   }
@@ -115,44 +80,32 @@
 }
 
 @layer components {
-  .heading-primary {
-    font-family: 'Satoshi', sans-serif;
-    font-weight: 700;
-  }
-  
+  .heading-primary,
   .heading-secondary {
-    font-family: 'Satoshi', sans-serif;
+    font-family: 'Satoshi', 'Inter Variable', sans-serif;
     font-weight: 700;
   }
-  
+
   .heading-tertiary {
-    font-family: 'Satoshi', sans-serif;
+    font-family: 'Satoshi', 'Inter Variable', sans-serif;
     font-weight: 600;
   }
-  
+
   .heading-section {
-    font-family: 'Satoshi', sans-serif;
+    font-family: 'Satoshi', 'Inter Variable', sans-serif;
     font-weight: 500;
   }
-  
-  .body-text {
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-  }
-  
-  .body-secondary {
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-  }
-  
+
+  .body-text,
+  .body-secondary,
   .description {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter Variable', 'Inter', sans-serif;
     font-weight: 400;
   }
 
   .gradient-text-primary {
-    color: #3FFFC8;
-    background: linear-gradient(to right, #3FFFC8, #49BFD3);
+    color: hsl(var(--primary));
+    background: linear-gradient(to right, hsl(var(--primary)), hsl(189 60% 55%));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -205,13 +158,15 @@
     box-shadow: 0 10px 40px -10px hsl(var(--primary) / 0.2);
   }
 
-  .fade-in {
+  /* Progressive enhancement: el contenido es visible por defecto.
+     Solo se oculta para animar cuando hay JS (clase .js en <html>). */
+  .js .fade-in {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
   }
 
-  .fade-in.visible {
+  .js .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
   }
@@ -242,5 +197,27 @@
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+/* Respeta la preferencia del usuario por menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .js .fade-in {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .card-hover,
+  .card-hover:hover,
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
   }
 }

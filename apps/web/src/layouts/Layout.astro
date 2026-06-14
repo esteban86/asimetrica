@@ -1,0 +1,78 @@
+---
+// Inter self-host (variable). Satoshi se carga desde Fontshare en el <head>.
+import '@fontsource-variable/inter';
+import '@/styles/global.css';
+
+const {
+  title = 'Asimétrica — Finanzas Estratégicas | CFO Fraccional Colombia',
+  description = 'Dirección Financiera Estratégica para empresas colombianas que quieren crecer con inteligencia. CFO Fraccional, modelos financieros y dashboards accionables.',
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImage = new URL('/og-image.png', Astro.site).href;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'Asimétrica',
+  description,
+  url: 'https://asimetrica.co',
+  areaServed: 'CO',
+  knowsLanguage: 'es',
+  serviceType: ['CFO Fraccional', 'Dirección Financiera Estratégica', 'Modelos Financieros'],
+};
+---
+
+<!doctype html>
+<html lang="es" class="dark">
+  <head>
+    <!-- Marca .js cuanto antes: el contenido animado (.fade-in) solo se oculta si hay JS -->
+    <script is:inline>document.documentElement.classList.add('js');</script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0a0a0a" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Satoshi (Fontshare). Inter llega self-host vía @fontsource-variable/inter. -->
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,600,700&display=swap"
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="es_CO" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Datos estructurados -->
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+    <!-- Analítica respetuosa con la privacidad (sin cookies). Empieza a registrar
+         cuando se cree el sitio "asimetrica.co" en Plausible. -->
+    <script
+      is:inline
+      defer
+      data-domain="asimetrica.co"
+      src="https://plausible.io/js/script.js"></script>
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Saltar al contenido principal</a>
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,455 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import ContactModal from '@/components/ContactModal.jsx';
+
+const navSections = ['problema', 'solucion', 'herramientas', 'plataformas', 'prisma', 'proceso', 'planes', 'contacto'];
+const navLabel = (s: string) => (s === 'solucion' ? 'Solución' : s);
+
+const problemas = [
+  { num: '01', title: 'Contabilidad de espejo retrovisor.', desc: 'Solo miras el pasado, nunca el camino que viene.' },
+  { num: '02', title: 'Caja estrecha a pesar de las ventas.', desc: 'Vendes pero el dinero no aparece.' },
+  { num: '03', title: 'Decisiones a ciegas.', desc: 'Sin datos confiables, cada decisión es una apuesta.' },
+  { num: '04', title: 'Sin acceso real al crédito o inversión.', desc: 'Los bancos piden lo que no tienes estructurado.' },
+  { num: '05', title: 'Deterioro del patrimonio.', desc: 'La empresa genera ingresos pero destruye valor.' },
+];
+
+const pilares = [
+  { num: '01', title: 'CLARIDAD', color: 'secondary', desc: 'Sabes exactamente dónde estás parado: cuánto generas, cuánto gastas, cuánto queda y por qué.' },
+  { num: '02', title: 'DIRECCIÓN', color: 'primary', desc: 'Tienes un modelo que proyecta escenarios, anticipa crisis y guía cada decisión con datos confiables.' },
+  { num: '03', title: 'CRECIMIENTO', color: 'accent', desc: 'Liberas caja, optimizas capital de trabajo y estructuras la empresa para escalar o atraer inversión.' },
+];
+
+const tools = [
+  { title: 'Modelo de 3 Estados', category: 'Herramienta base', desc: 'P&G + Balance + Caja integrado, histórico y proyectado.' },
+  { title: 'Flujo de Caja 13 Semanas', category: 'Control de liquidez', desc: 'Control operativo semana a semana. Anticipas la crisis antes de que llegue.' },
+  { title: 'Dashboard de KPIs', category: 'Visibilidad ejecutiva', desc: 'EBITDA, margen bruto, rotación de cartera, cobertura de deuda.' },
+  { title: 'Capital de Trabajo', category: 'Liberación de caja', desc: 'Optimización del ciclo cartera–inventario–proveedores.' },
+  { title: 'Presupuesto y Forecast', category: 'Dirección financiera', desc: 'Plan anual + rolling forecast trimestral con análisis de variaciones.' },
+  { title: 'Árbol de Rentabilidad', category: 'Qué negocio conviene', desc: 'Descomposición por producto, cliente, canal o unidad.' },
+  { title: 'Análisis de Deuda y Capital', category: 'Optimización financiera', desc: 'Revisión de pasivos, tasas, plazos y covenants.' },
+  { title: 'Investment Readiness Pack', category: 'Solo plan Estratégico', desc: 'Information memorandum, modelo a 5 años, valoración y data room.' },
+];
+
+const prismaFeatures = [
+  'Estados financieros NIIF: P&G, balance y flujos de caja',
+  'Ratios de liquidez, rentabilidad y apalancamiento',
+  'Scoring de riesgo: Altman Z, Piotroski y Beneish',
+  'Benchmarking sectorial por código CIIU',
+];
+const prismaShots = [
+  { src: '/prisma-macro.webp', title: 'Vista Macro' },
+  { src: '/prisma-empresa.webp', title: 'Ficha de empresa' },
+  { src: '/prisma-screener.webp', title: 'Screener' },
+  { src: '/prisma-scoring.webp', title: 'Scoring y DuPont' },
+];
+
+const steps = [
+  { num: '00', title: 'Diagnóstico Flash', time: '48h · Sin costo', desc: 'Revisamos tus estados financieros e identificamos 3–5 ineficiencias concretas con su impacto en COP.' },
+  { num: '01', title: 'Inmersión y Diagnóstico', time: 'Semanas 1–4', desc: 'Conocemos el negocio a fondo: ingresos, costos, caja, deuda. Construimos el modelo base y la hoja de ruta de 90 días.' },
+  { num: '02', title: 'Quick Wins', time: 'Meses 2–3', desc: 'Activamos las herramientas de mayor impacto. Generamos los primeros resultados cuantificables.' },
+  { num: '03', title: 'Dirección Continua', time: 'Mes 4 en adelante', desc: 'Cadencia mensual: modelo actualizado, comité financiero, informe ejecutivo y soporte constante.' },
+];
+
+const plans = [
+  { name: 'ESENCIAL', price: '$1.900.000', tagline: 'Asesoría + Plataforma FP&A', desc: 'Ideal para startups y empresas listas para dar el siguiente paso. Tomamos tu información contable y la transformamos en inteligencia financiera para que logres organizar la casa, entender tu flujo de dinero y tomar tus decisiones con claridad y confianza.' },
+  { name: 'CRECIMIENTO', price: '$4.900.000', tagline: 'Asesoría + Plataforma FP&A', badge: 'Más Elegido', highlight: true, desc: 'Pensado para empresas maduras en expansión. Nos convertimos en tu respaldo experto para que escales con tranquilidad y responsabilidad, analizando a fondo tu operación para que entiendas las implicaciones financieras de cada decisión antes de ejecutarla, asegurando un crecimiento verdaderamente sostenible.' },
+  { name: 'ESTRATÉGICO', price: '$7.900.000', tagline: 'Asesoría + Plataforma FP&A', desc: 'Creado para compañías que exigen una dirección financiera de alto nivel. Actuamos como tu CFO de cabecera, acompañándote hombro a hombro como aliados tanto en la trinchera de la operación diaria como en la mesa de las grandes decisiones, cuidando y maximizando el valor de tu empresa en todo momento.' },
+];
+
+const btnPrimary = 'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md font-medium transition-all duration-200 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring bg-primary text-primary-foreground hover:bg-primary/90 cursor-pointer';
+
+const iconArrow = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>';
+const iconExternal = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"/></svg>';
+const iconCheck = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-primary flex-shrink-0 mt-0.5" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>';
+---
+
+<Layout>
+  <div class="min-h-screen bg-background text-foreground">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/[0.08]">
+      <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <button data-scroll="hero" class="flex items-center gap-3 transition-opacity hover:opacity-90 focus:outline-none" aria-label="Volver al inicio">
+            <img src="/logo.png" alt="Asimétrica" width="120" height="32" class="h-8 w-auto" />
+            <span class="text-sm text-muted-foreground hidden sm:inline body-secondary border-l border-border/[0.2] pl-3">Finanzas estratégicas</span>
+          </button>
+
+          <div class="hidden md:flex items-center gap-6 text-sm body-text">
+            {navSections.map((section) => (
+              <button data-scroll={section} data-nav={section} class="capitalize transition-all duration-200 hover:text-primary text-muted-foreground">
+                {navLabel(section)}
+              </button>
+            ))}
+          </div>
+
+          <button data-open-contact class={`${btnPrimary} h-9 px-4 py-2 text-sm body-text`}>
+            Contáctanos
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <!-- Hero -->
+      <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+        <div class="aurora-glow turquesa"></div>
+        <div class="aurora-glow purpura"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+          <div class="text-center max-w-4xl mx-auto fade-in">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl heading-primary mb-6">
+              La contabilidad registra el pasado.{' '}
+              <span class="gradient-text-primary">Asimétrica construye el futuro.</span>
+            </h1>
+
+            <p class="text-lg md:text-xl text-muted-foreground mb-8 mx-auto leading-relaxed body-text">
+              Dirección Financiera Estratégica para empresas colombianas que quieren crecer con inteligencia.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <button data-open-contact class={`${btnPrimary} h-12 px-8 text-base body-text`}>
+                Solicitar Diagnóstico Gratis
+                <span set:html={iconArrow} />
+              </button>
+
+              <button data-scroll="planes" class="text-base text-foreground hover:text-primary transition-all duration-200 underline underline-offset-4 body-text">
+                Conocer los planes
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- El Problema -->
+      <section id="problema" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="fade-in mb-12">
+            <h2 class="text-3xl md:text-4xl heading-section mb-4">
+              El <span class="text-secondary">Problema</span>
+            </h2>
+          </div>
+
+          <div class="space-y-8 max-w-4xl">
+            {problemas.map((item, index) => (
+              <div class="fade-in flex gap-6 items-start" style={`transition-delay:${index * 100}ms`}>
+                <span class="text-6xl font-bold leading-none heading-secondary text-secondary/20">{item.num}</span>
+                <div>
+                  <h3 class="text-xl heading-tertiary mb-2">{item.title}</h3>
+                  <p class="text-muted-foreground description">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <div class="gradient-separator"></div>
+
+      <!-- Qué es Asimétrica -->
+      <section id="solucion" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="fade-in mb-8">
+            <h2 class="text-3xl md:text-4xl heading-section mb-6">
+              ¿Qué es <span class="text-primary">Asimétrica</span>?
+            </h2>
+          </div>
+
+          <div class="fade-in max-w-4xl">
+            <p class="text-lg text-muted-foreground leading-relaxed mb-6 body-text">
+              Somos tu equipo de <strong class="text-foreground">dirección financiera estratégica</strong> — con la experiencia y las herramientas de un gerente financiero, pero sin el costo fijo de tenerlo en nómina. Eso es lo que se conoce como <strong class="text-foreground">CFO Fraccional</strong>: accedes a la función financiera completa, adaptada al ritmo y la realidad de tu empresa.
+            </p>
+            <p class="text-lg text-muted-foreground leading-relaxed mb-6 body-text">
+              Construimos <strong class="text-foreground">inteligencia financiera</strong> para tu empresa: modelos integrados que proyectan el futuro, dashboards ejecutivos que revelan dónde se crea y se destruye valor, y estrategias concretas que liberan caja, fortalecen la estructura de capital y construyen patrimonio real. Para que cada decisión estratégica esté respaldada por datos, no solo por instinto.
+            </p>
+            <p class="text-lg text-muted-foreground leading-relaxed body-text">
+              Trabajamos con empresas que facturan entre $500M y $50.000M COP anuales y que están listas para dejar de adivinar y empezar a dirigir.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tres Pilares -->
+      <section class="py-20 bg-card/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="fade-in text-center mb-12">
+            <h2 class="text-3xl md:text-4xl heading-section mb-4">
+              Convertimos tu empresa en una que <span class="text-primary">construye patrimonio</span>.
+            </h2>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {pilares.map((pilar, index) => (
+              <div class="fade-in card-hover bg-card border-t-4 p-6 rounded-lg" style={`border-top-color: hsl(var(--${pilar.color})); transition-delay:${index * 100}ms`}>
+                <div class="text-4xl font-bold text-muted-foreground/30 mb-4 heading-secondary">{pilar.num}</div>
+                <h3 class="text-xl heading-tertiary mb-3">{pilar.title}</h3>
+                <p class="text-muted-foreground leading-relaxed description">{pilar.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- Herramientas -->
+      <section id="herramientas" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="fade-in mb-4">
+            <h2 class="text-3xl md:text-4xl heading-section mb-4">
+              Las herramientas que activamos para tu empresa
+            </h2>
+            <p class="text-lg text-muted-foreground max-w-3xl body-text">
+              No solo asesoría — modelos concretos y dashboards accionables según el plan que elijas.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+            {tools.map((tool, index) => (
+              <div class="fade-in card-hover bg-card p-6 rounded-lg" style={`transition-delay:${index * 50}ms`}>
+                <div class="text-xs font-semibold uppercase tracking-wider mb-2 body-secondary text-secondary">
+                  {tool.category}
+                </div>
+                <h3 class="text-lg heading-tertiary mb-3">{tool.title}</h3>
+                <p class="text-sm text-muted-foreground leading-relaxed description">{tool.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <div class="gradient-separator"></div>
+
+      <!-- Plataformas Propias -->
+      <section id="plataformas" class="py-20 bg-card/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="fade-in">
+              <div class="text-xs font-semibold text-primary uppercase tracking-wider mb-3 body-secondary">
+                Plataformas Propias
+              </div>
+              <h2 class="text-4xl md:text-5xl lg:text-6xl heading-section mb-6">
+                Tecnología e IA desde nuestro <span class="text-primary">origen</span>
+              </h2>
+              <ul class="space-y-3">
+                {['Dashboards y KPIs en tiempo real', 'Desarrolladas in-house', 'Incluidas en todos los planes'].map((item) => (
+                  <li class="flex items-start gap-3 body-text">
+                    <span set:html={iconCheck} />
+                    <span class="text-muted-foreground">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div class="fade-in">
+              <div class="rounded-xl overflow-hidden border border-border/[0.12] shadow-2xl">
+                <img src="/plataformas.png" alt="Plataforma Asimétrica - Dashboard Flujo de Caja 13 semanas" loading="lazy" decoding="async" class="w-full h-auto block" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="gradient-separator"></div>
+
+      <!-- Prisma -->
+      <section id="prisma" class="py-20 bg-card/30 relative overflow-hidden">
+        <div class="aurora-glow turquesa"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="fade-in">
+              <div class="inline-flex items-center gap-2 text-xs font-semibold text-primary uppercase tracking-wider mb-4 body-secondary">
+                <span class="w-2 h-2 rounded-full bg-primary"></span>
+                Plataforma gratuita
+              </div>
+              <h2 class="text-3xl md:text-4xl heading-section mb-6">
+                <span class="gradient-text-primary">Prisma</span> by Asimétrica
+              </h2>
+              <p class="text-lg text-muted-foreground leading-relaxed mb-6 body-text">
+                Nuestra plataforma de <strong class="text-foreground">inteligencia financiera</strong> con acceso libre a los estados financieros y el análisis de más de <strong class="text-foreground">145.000 empresas colombianas</strong>, a partir de fuentes públicas oficiales (Supersociedades, Superfinanciera, RUES).
+              </p>
+              <ul class="space-y-3 mb-8">
+                {prismaFeatures.map((item) => (
+                  <li class="flex items-start gap-3 body-text">
+                    <span set:html={iconCheck} />
+                    <span class="text-muted-foreground">{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <a href="https://prisma.asimetrica.co" target="_blank" rel="noopener noreferrer" class={`${btnPrimary} h-12 px-8 text-base body-text`}>
+                Explorar Prisma
+                <span set:html={iconExternal} />
+              </a>
+              <p class="text-sm text-muted-foreground mt-4 body-secondary">
+                prisma.asimetrica.co
+              </p>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3 fade-in">
+              {prismaShots.map((shot, index) => (
+                <a href="https://prisma.asimetrica.co" target="_blank" rel="noopener noreferrer" title={`Prisma — ${shot.title}`} class="group block rounded-lg overflow-hidden border border-border/[0.12] shadow-lg card-hover bg-card" style={`transition-delay:${index * 60}ms`}>
+                  <img src={shot.src} alt={`Prisma — ${shot.title}`} loading="lazy" decoding="async" class="w-full h-auto block transition-transform duration-300 group-hover:scale-[1.04]" />
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="gradient-separator"></div>
+
+      <!-- Proceso -->
+      <section id="proceso" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="fade-in mb-12">
+            <h2 class="text-3xl md:text-4xl heading-section mb-4">
+              Cómo <span class="text-primary">Trabajamos</span>
+            </h2>
+          </div>
+
+          <div class="space-y-12 max-w-4xl">
+            {steps.map((step, index) => (
+              <div class="fade-in flex gap-6 items-start" style={`transition-delay:${index * 100}ms`}>
+                <div class="flex flex-col items-center">
+                  <div class="w-16 h-16 rounded-xl bg-primary/10 border-2 border-primary flex items-center justify-center flex-shrink-0">
+                    <span class="text-2xl font-bold text-primary heading-secondary">{step.num}</span>
+                  </div>
+                  {index < steps.length - 1 && <div class="w-0.5 h-12 bg-gradient-to-b from-primary to-transparent mt-4"></div>}
+                </div>
+                <div class="flex-1 pt-2">
+                  <div class="flex items-baseline gap-3 mb-2">
+                    <h3 class="text-xl heading-tertiary">{step.title}</h3>
+                    <span class="text-sm text-primary font-medium body-secondary">{step.time}</span>
+                  </div>
+                  <p class="text-muted-foreground leading-relaxed description">{step.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- Planes -->
+      <section id="planes" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="fade-in text-center mb-12">
+            <h2 class="text-3xl md:text-4xl heading-section mb-4">
+              Tres Planes. Un Solo Estándar de <span class="text-primary">Excelencia</span>.
+            </h2>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 items-stretch">
+            {plans.map((plan, index) => (
+              <div class={`fade-in card-hover bg-card p-8 relative flex flex-col rounded-lg ${plan.highlight ? 'ring-2 ring-primary md:scale-105' : ''}`} style={`transition-delay:${index * 100}ms`}>
+                {plan.badge && (
+                  <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-semibold body-secondary">
+                    {plan.badge}
+                  </div>
+                )}
+
+                <div class="text-center mb-6">
+                  <h3 class="text-xl heading-tertiary mb-3">{plan.name}</h3>
+                  <div class="text-3xl font-bold text-primary heading-secondary">{plan.price}</div>
+                  <div class="text-xs text-muted-foreground mt-1 body-secondary uppercase tracking-wider">{plan.tagline}</div>
+                </div>
+
+                <p class="text-sm text-muted-foreground leading-relaxed description mb-8 flex-1">
+                  {plan.desc}
+                </p>
+
+                <button data-open-contact class={`w-full inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md h-9 px-4 py-2 font-medium transition-all duration-200 active:scale-[0.98] cursor-pointer body-text ${plan.highlight ? 'bg-primary text-primary-foreground hover:bg-primary/90' : 'bg-muted text-foreground hover:bg-muted/80'}`}>
+                  Solicitar Diagnóstico
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <div class="gradient-separator"></div>
+
+      <!-- Final CTA -->
+      <section id="contacto" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="fade-in text-center max-w-3xl mx-auto">
+            <h2 class="text-3xl md:text-4xl heading-section mb-6">
+              ¿Listo para dejar de adivinar y empezar a <span class="text-primary">dirigir</span>?
+            </h2>
+            <p class="text-lg text-muted-foreground mb-8 leading-relaxed body-text">
+              Solicita tu Diagnóstico Flash sin costo. En 48 horas sabrás exactamente dónde están las oportunidades.
+            </p>
+            <button data-open-contact class={`${btnPrimary} h-14 px-12 text-lg body-text mx-auto`}>
+              Contáctanos
+              <span set:html={iconArrow} />
+            </button>
+            <p class="text-sm text-muted-foreground mt-6 body-secondary">
+              www.asimetrica.co
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-border/[0.08] py-8 bg-card/30">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center text-sm text-muted-foreground body-secondary">
+          <p>© 2026 Asimétrica · Finanzas Estratégicas · Colombia</p>
+        </div>
+      </div>
+    </footer>
+
+    <ContactModal client:idle />
+  </div>
+</Layout>
+
+<script>
+  // Scroll suave para nav y botones con data-scroll
+  const OFFSET = 80;
+  document.querySelectorAll('[data-scroll]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const id = btn.getAttribute('data-scroll');
+      const el = id && document.getElementById(id);
+      if (!el) return;
+      const top = el.getBoundingClientRect().top + window.scrollY - OFFSET;
+      window.scrollTo({ top, behavior: 'smooth' });
+    });
+  });
+
+  // Abrir el modal de contacto (island de React escucha este evento)
+  document.querySelectorAll('[data-open-contact]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      window.dispatchEvent(new Event('open-contact-modal'));
+    });
+  });
+
+  // Reveal on scroll (.fade-in)
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15, rootMargin: '0px 0px -50px 0px' }
+  );
+  document.querySelectorAll('.fade-in').forEach((el) => revealObserver.observe(el));
+
+  // Scroll-spy para resaltar el nav
+  const navButtons = Array.from(document.querySelectorAll('[data-nav]'));
+  const setActive = (id: string) => {
+    navButtons.forEach((b) => {
+      const active = b.getAttribute('data-nav') === id;
+      b.classList.toggle('text-primary', active);
+      b.classList.toggle('font-medium', active);
+      b.classList.toggle('text-muted-foreground', !active);
+    });
+  };
+  const spyObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && entry.target.id) setActive(entry.target.id);
+      });
+    },
+    { threshold: 0.2, rootMargin: '-100px 0px -55% 0px' }
+  );
+  document.querySelectorAll('main section[id]').forEach((s) => spyObserver.observe(s));
+</script>

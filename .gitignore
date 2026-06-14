@@ -4,6 +4,13 @@ node_modules/
 # Build output
 dist/
 
+# Astro generated types/cache
+.astro/
+apps/web/.astro/
+
+# Lighthouse CI
+.lighthouseci/
+
 # Environment variables
 .env
 .env.local
