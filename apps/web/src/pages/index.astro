@@ -2,15 +2,20 @@
 import Layout from '@/layouts/Layout.astro';
 import ContactModal from '@/components/ContactModal.jsx';
 
-const navSections = ['problema', 'solucion', 'herramientas', 'plataformas', 'prisma', 'proceso', 'planes', 'contacto'];
-const navLabel = (s: string) => (s === 'solucion' ? 'Solución' : s);
+const navSections = ['problema', 'solucion', 'proceso', 'herramientas', 'prisma', 'planes', 'contacto'];
+
+const heroBullets = ['Dashboards en tiempo real', 'Desarrollados in-house', 'Incluidos en todos los planes'];
 
 const problemas = [
   { num: '01', title: 'Contabilidad de espejo retrovisor.', desc: 'Solo miras el pasado, nunca el camino que viene.' },
-  { num: '02', title: 'Caja estrecha a pesar de las ventas.', desc: 'Vendes pero el dinero no aparece.' },
-  { num: '03', title: 'Decisiones a ciegas.', desc: 'Sin datos confiables, cada decisión es una apuesta.' },
-  { num: '04', title: 'Sin acceso real al crédito o inversión.', desc: 'Los bancos piden lo que no tienes estructurado.' },
-  { num: '05', title: 'Deterioro del patrimonio.', desc: 'La empresa genera ingresos pero destruye valor.' },
+  { num: '02', title: 'Caja estrecha a pesar de las ventas.', desc: 'Vendes pero el dinero nunca aparece cuando lo necesitas.' },
+  { num: '03', title: 'Decisiones a ciegas.', desc: 'Sin datos confiables, cada decisión grande es una apuesta.' },
+];
+
+const successPoints = [
+  'Entras a la junta sabiendo tu caja de las próximas 13 semanas.',
+  'Sabes qué línea de negocio crea valor — y cuál lo destruye.',
+  'Cuando el banco o un inversionista pide cifras, las tienes en un clic.',
 ];
 
 const pilares = [
@@ -19,15 +24,16 @@ const pilares = [
   { num: '03', title: 'CRECIMIENTO', color: 'accent', desc: 'Liberas caja, optimizas capital de trabajo y estructuras la empresa para escalar o atraer inversión.' },
 ];
 
+// Herramientas redactadas como BENEFICIO (qué gana el cliente), no como feature.
 const tools = [
-  { title: 'Modelo de 3 Estados', category: 'Herramienta base', desc: 'P&G + Balance + Caja integrado, histórico y proyectado.' },
-  { title: 'Flujo de Caja 13 Semanas', category: 'Control de liquidez', desc: 'Control operativo semana a semana. Anticipas la crisis antes de que llegue.' },
-  { title: 'Dashboard de KPIs', category: 'Visibilidad ejecutiva', desc: 'EBITDA, margen bruto, rotación de cartera, cobertura de deuda.' },
-  { title: 'Capital de Trabajo', category: 'Liberación de caja', desc: 'Optimización del ciclo cartera–inventario–proveedores.' },
-  { title: 'Presupuesto y Forecast', category: 'Dirección financiera', desc: 'Plan anual + rolling forecast trimestral con análisis de variaciones.' },
-  { title: 'Árbol de Rentabilidad', category: 'Qué negocio conviene', desc: 'Descomposición por producto, cliente, canal o unidad.' },
-  { title: 'Análisis de Deuda y Capital', category: 'Optimización financiera', desc: 'Revisión de pasivos, tasas, plazos y covenants.' },
-  { title: 'Investment Readiness Pack', category: 'Solo plan Estratégico', desc: 'Information memorandum, modelo a 5 años, valoración y data room.' },
+  { title: 'Modelo de 3 Estados', category: 'Tu base financiera', desc: 'Ves de dónde viene y a dónde va cada peso — histórico y proyectado, todo conectado.' },
+  { title: 'Flujo de Caja 13 Semanas', category: 'Duermes tranquilo', desc: 'Nunca más te agarra desprevenido un viernes de nómina: ves la crisis antes de que llegue.' },
+  { title: 'Dashboard de KPIs', category: 'Tus números, a la vista', desc: 'EBITDA, margen, cartera y deuda en una pantalla — sin esperar al cierre contable.' },
+  { title: 'Capital de Trabajo', category: 'Liberas caja', desc: 'Recuperas el dinero atrapado en cartera, inventario y proveedores.' },
+  { title: 'Presupuesto y Forecast', category: 'Sabes a dónde vas', desc: 'Plan anual + ajuste trimestral: detectas la desviación antes, no en el balance de fin de año.' },
+  { title: 'Árbol de Rentabilidad', category: 'Qué te da plata', desc: 'Descubres qué cliente, producto o canal te hace ganar — y cuál te la está quitando.' },
+  { title: 'Análisis de Deuda y Capital', category: 'Pagas menos', desc: 'Revisamos pasivos, tasas y plazos para que pagues menos intereses y negocies mejor.' },
+  { title: 'Investment Readiness Pack', category: 'Listo para crecer', desc: 'Memo de inversión, valoración y data room: listo para levantar capital o vender.' },
 ];
 
 const prismaFeatures = [
@@ -61,6 +67,7 @@ const btnPrimary = 'inline-flex items-center justify-center gap-2 whitespace-now
 const iconArrow = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>';
 const iconExternal = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"/></svg>';
 const iconCheck = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-primary flex-shrink-0 mt-0.5" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>';
+const iconMenu = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>';
 ---
 
 <Layout>
@@ -77,56 +84,115 @@ const iconCheck = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20
           <div class="hidden md:flex items-center gap-6 text-sm body-text">
             {navSections.map((section) => (
               <button data-scroll={section} data-nav={section} class="capitalize transition-all duration-200 hover:text-primary text-muted-foreground">
-                {navLabel(section)}
+                {section === 'solucion' ? 'Solución' : section}
               </button>
             ))}
           </div>
 
-          <button data-open-contact class={`${btnPrimary} h-9 px-4 py-2 text-sm body-text`}>
-            Contáctanos
-          </button>
+          <div class="flex items-center gap-2">
+            <button data-open-contact class={`${btnPrimary} h-9 px-4 py-2 text-sm body-text`}>
+              Contáctanos
+            </button>
+            <button id="menu-toggle" class="md:hidden inline-flex items-center justify-center h-9 w-9 rounded-md text-muted-foreground hover:text-primary hover:bg-card transition-colors" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+              <span set:html={iconMenu} />
+            </button>
+          </div>
         </div>
       </nav>
+
+      <!-- Menú móvil -->
+      <div id="mobile-menu" class="md:hidden hidden border-t border-border/[0.08] bg-background/95 backdrop-blur-lg">
+        <nav class="flex flex-col px-4 py-3 gap-1 max-w-7xl mx-auto">
+          {navSections.map((section) => (
+            <button data-scroll={section} class="capitalize text-left py-2.5 px-2 rounded-md text-muted-foreground hover:text-primary hover:bg-card transition-colors body-text">
+              {section === 'solucion' ? 'Solución' : section}
+            </button>
+          ))}
+        </nav>
+      </div>
     </header>
 
     <main id="main">
       <!-- Hero -->
-      <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+      <section id="hero" class="relative min-h-screen flex items-center overflow-hidden pt-24 pb-16">
         <div class="aurora-glow turquesa"></div>
         <div class="aurora-glow purpura"></div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
-          <div class="text-center max-w-4xl mx-auto fade-in">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl heading-primary mb-6">
-              La contabilidad registra el pasado.{' '}
-              <span class="gradient-text-primary">Asimétrica construye el futuro.</span>
-            </h1>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="fade-in text-center lg:text-left">
+              <div class="inline-flex items-center gap-2 text-xs font-semibold text-primary uppercase tracking-wider mb-5 body-secondary">
+                <span class="w-2 h-2 rounded-full bg-primary"></span>
+                CFO Fraccional · Colombia
+              </div>
+              <h1 class="text-4xl md:text-5xl lg:text-6xl heading-primary mb-6">
+                Deja de dirigir tu empresa por el <span class="gradient-text-primary">retrovisor</span>.
+              </h1>
+              <p class="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed body-text max-w-xl mx-auto lg:mx-0">
+                Libera caja, anticipa las crisis y respalda cada decisión con datos — con un equipo de dirección financiera estratégica, sin el costo de un CFO en nómina.
+              </p>
+              <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
+                <button data-open-contact class={`${btnPrimary} h-12 px-8 text-base body-text`}>
+                  Solicitar Diagnóstico Gratis
+                  <span set:html={iconArrow} />
+                </button>
+                <button data-scroll="planes" class="text-base text-foreground hover:text-primary transition-all duration-200 underline underline-offset-4 body-text">
+                  Ver los planes
+                </button>
+              </div>
+            </div>
 
-            <p class="text-lg md:text-xl text-muted-foreground mb-8 mx-auto leading-relaxed body-text">
-              Dirección Financiera Estratégica para empresas colombianas que quieren crecer con inteligencia.
-            </p>
-
-            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button data-open-contact class={`${btnPrimary} h-12 px-8 text-base body-text`}>
-                Solicitar Diagnóstico Gratis
-                <span set:html={iconArrow} />
-              </button>
-
-              <button data-scroll="planes" class="text-base text-foreground hover:text-primary transition-all duration-200 underline underline-offset-4 body-text">
-                Conocer los planes
-              </button>
+            <div class="fade-in">
+              <div class="rounded-xl overflow-hidden border border-border/[0.12] shadow-2xl">
+                <img src="/plataformas.webp" alt="Dashboard de Asimétrica — Flujo de Caja 13 semanas" width="1400" height="788" fetchpriority="high" decoding="async" class="w-full h-auto block" />
+              </div>
+              <div class="flex flex-wrap justify-center lg:justify-start gap-x-5 gap-y-2 mt-4">
+                {heroBullets.map((b) => (
+                  <span class="inline-flex items-center gap-2 text-xs text-muted-foreground body-secondary">
+                    <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>{b}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <!-- Prueba social (PLACEHOLDER — reemplazar con material real) -->
+      <section id="clientes" class="py-14 border-y border-border/[0.08] bg-card/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 fade-in">
+          <p class="text-center text-xs uppercase tracking-wider text-muted-foreground mb-8 body-secondary">
+            Empresas que ya dirigen con datos
+          </p>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-4xl mx-auto opacity-80">
+            {[1, 2, 3, 4].map(() => (
+              <div class="h-12 rounded-md border border-dashed border-border/[0.18] flex items-center justify-center text-[11px] text-muted-foreground body-secondary">
+                [ Logo cliente ]
+              </div>
+            ))}
+          </div>
+          <figure class="max-w-3xl mx-auto mt-12 text-center">
+            <blockquote class="text-xl md:text-2xl heading-tertiary text-foreground leading-snug">
+              “En 90 días pasamos de no saber nuestra caja a proyectarla a 13 semanas. Liberamos $—— MM de capital de trabajo.”
+            </blockquote>
+            <figcaption class="mt-4 text-sm text-muted-foreground body-secondary">
+              — Nombre Apellido · CEO, Empresa
+              <span class="text-secondary"> (ejemplo — reemplazar con testimonio real)</span>
+            </figcaption>
+          </figure>
         </div>
       </section>
 
       <!-- El Problema -->
       <section id="problema" class="py-20 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="fade-in mb-12">
-            <h2 class="text-3xl md:text-4xl heading-section mb-4">
+          <div class="fade-in mb-10 max-w-3xl">
+            <h2 class="text-3xl md:text-4xl heading-section mb-5">
               El <span class="text-secondary">Problema</span>
             </h2>
+            <p class="text-xl md:text-2xl text-foreground heading-tertiary leading-snug">
+              Trabajas más que nunca, vendes más que nunca… y aun así no sabes si tu empresa vale más hoy que hace un año.
+            </p>
           </div>
 
           <div class="space-y-8 max-w-4xl">
@@ -145,7 +211,7 @@ const iconCheck = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20
 
       <div class="gradient-separator"></div>
 
-      <!-- Qué es Asimétrica -->
+      <!-- Qué es Asimétrica + Visión de éxito -->
       <section id="solucion" class="py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="fade-in mb-8">
@@ -154,16 +220,60 @@ const iconCheck = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20
             </h2>
           </div>
 
-          <div class="fade-in max-w-4xl">
+          <div class="fade-in max-w-4xl mb-16">
             <p class="text-lg text-muted-foreground leading-relaxed mb-6 body-text">
-              Somos tu equipo de <strong class="text-foreground">dirección financiera estratégica</strong> — con la experiencia y las herramientas de un gerente financiero, pero sin el costo fijo de tenerlo en nómina. Eso es lo que se conoce como <strong class="text-foreground">CFO Fraccional</strong>: accedes a la función financiera completa, adaptada al ritmo y la realidad de tu empresa.
-            </p>
-            <p class="text-lg text-muted-foreground leading-relaxed mb-6 body-text">
-              Construimos <strong class="text-foreground">inteligencia financiera</strong> para tu empresa: modelos integrados que proyectan el futuro, dashboards ejecutivos que revelan dónde se crea y se destruye valor, y estrategias concretas que liberan caja, fortalecen la estructura de capital y construyen patrimonio real. Para que cada decisión estratégica esté respaldada por datos, no solo por instinto.
+              Somos tu equipo de <strong class="text-foreground">dirección financiera estratégica</strong> — la experiencia y las herramientas de un gerente financiero, sin el costo fijo de tenerlo en nómina. Eso es un <strong class="text-foreground">CFO Fraccional</strong>: la función financiera completa, al ritmo de tu empresa.
             </p>
             <p class="text-lg text-muted-foreground leading-relaxed body-text">
-              Trabajamos con empresas que facturan entre $500M y $50.000M COP anuales y que están listas para dejar de adivinar y empezar a dirigir.
+              Trabajamos con empresas que facturan entre <strong class="text-foreground">$500M y $50.000M COP</strong> al año y que están listas para dejar de adivinar y empezar a dirigir.
             </p>
+          </div>
+
+          <div class="fade-in">
+            <h3 class="text-2xl heading-tertiary mb-8">Así se ve dirigir con Asimétrica</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {successPoints.map((point, index) => (
+                <div class="bg-card rounded-lg p-6 border-l-2 border-primary" style={`transition-delay:${index * 80}ms`}>
+                  <p class="text-base text-foreground leading-relaxed body-text">{point}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="gradient-separator"></div>
+
+      <!-- Proceso (el plan) -->
+      <section id="proceso" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="fade-in mb-12 max-w-3xl">
+            <h2 class="text-3xl md:text-4xl heading-section mb-4">
+              Cómo <span class="text-primary">Trabajamos</span>
+            </h2>
+            <p class="text-lg text-muted-foreground body-text">
+              Un camino claro, con un primer paso sin riesgo. Empezamos con un diagnóstico gratis.
+            </p>
+          </div>
+
+          <div class="space-y-12 max-w-4xl">
+            {steps.map((step, index) => (
+              <div class="fade-in flex gap-6 items-start" style={`transition-delay:${index * 100}ms`}>
+                <div class="flex flex-col items-center">
+                  <div class="w-16 h-16 rounded-xl bg-primary/10 border-2 border-primary flex items-center justify-center flex-shrink-0">
+                    <span class="text-2xl font-bold text-primary heading-secondary">{step.num}</span>
+                  </div>
+                  {index < steps.length - 1 && <div class="w-0.5 h-12 bg-gradient-to-b from-primary to-transparent mt-4"></div>}
+                </div>
+                <div class="flex-1 pt-2">
+                  <div class="flex items-baseline gap-3 mb-2 flex-wrap">
+                    <h3 class="text-xl heading-tertiary">{step.title}</h3>
+                    <span class="text-sm text-primary font-medium body-secondary">{step.time}</span>
+                  </div>
+                  <p class="text-muted-foreground leading-relaxed description">{step.desc}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -189,59 +299,28 @@ const iconCheck = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20
         </div>
       </section>
 
-      <!-- Herramientas -->
+      <!-- Herramientas (como beneficios) -->
       <section id="herramientas" class="py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="fade-in mb-4">
             <h2 class="text-3xl md:text-4xl heading-section mb-4">
-              Las herramientas que activamos para tu empresa
+              Lo que cambia en tu día a día
             </h2>
             <p class="text-lg text-muted-foreground max-w-3xl body-text">
-              No solo asesoría — modelos concretos y dashboards accionables según el plan que elijas.
+              No solo asesoría — herramientas concretas que resuelven un dolor real, según el plan que elijas.
             </p>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
             {tools.map((tool, index) => (
               <div class="fade-in card-hover bg-card p-6 rounded-lg" style={`transition-delay:${index * 50}ms`}>
-                <div class="text-xs font-semibold uppercase tracking-wider mb-2 body-secondary text-secondary">
+                <div class="text-xs font-semibold uppercase tracking-wider mb-2 body-secondary text-primary">
                   {tool.category}
                 </div>
                 <h3 class="text-lg heading-tertiary mb-3">{tool.title}</h3>
                 <p class="text-sm text-muted-foreground leading-relaxed description">{tool.desc}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <div class="gradient-separator"></div>
-
-      <!-- Plataformas Propias -->
-      <section id="plataformas" class="py-20 bg-card/30">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div class="fade-in">
-              <div class="text-xs font-semibold text-primary uppercase tracking-wider mb-3 body-secondary">
-                Plataformas Propias
-              </div>
-              <h2 class="text-4xl md:text-5xl lg:text-6xl heading-section mb-6">
-                Tecnología e IA desde nuestro <span class="text-primary">origen</span>
-              </h2>
-              <ul class="space-y-3">
-                {['Dashboards y KPIs en tiempo real', 'Desarrolladas in-house', 'Incluidas en todos los planes'].map((item) => (
-                  <li class="flex items-start gap-3 body-text">
-                    <span set:html={iconCheck} />
-                    <span class="text-muted-foreground">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div class="fade-in">
-              <div class="rounded-xl overflow-hidden border border-border/[0.12] shadow-2xl">
-                <img src="/plataformas.png" alt="Plataforma Asimétrica - Dashboard Flujo de Caja 13 semanas" loading="lazy" decoding="async" class="w-full h-auto block" />
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -293,37 +372,6 @@ const iconCheck = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20
       </section>
 
       <div class="gradient-separator"></div>
-
-      <!-- Proceso -->
-      <section id="proceso" class="py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="fade-in mb-12">
-            <h2 class="text-3xl md:text-4xl heading-section mb-4">
-              Cómo <span class="text-primary">Trabajamos</span>
-            </h2>
-          </div>
-
-          <div class="space-y-12 max-w-4xl">
-            {steps.map((step, index) => (
-              <div class="fade-in flex gap-6 items-start" style={`transition-delay:${index * 100}ms`}>
-                <div class="flex flex-col items-center">
-                  <div class="w-16 h-16 rounded-xl bg-primary/10 border-2 border-primary flex items-center justify-center flex-shrink-0">
-                    <span class="text-2xl font-bold text-primary heading-secondary">{step.num}</span>
-                  </div>
-                  {index < steps.length - 1 && <div class="w-0.5 h-12 bg-gradient-to-b from-primary to-transparent mt-4"></div>}
-                </div>
-                <div class="flex-1 pt-2">
-                  <div class="flex items-baseline gap-3 mb-2">
-                    <h3 class="text-xl heading-tertiary">{step.title}</h3>
-                    <span class="text-sm text-primary font-medium body-secondary">{step.time}</span>
-                  </div>
-                  <p class="text-muted-foreground leading-relaxed description">{step.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <!-- Planes -->
       <section id="planes" class="py-20">
@@ -400,7 +448,6 @@ const iconCheck = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20
 </Layout>
 
 <script>
-  // Scroll suave para nav y botones con data-scroll
   const OFFSET = 80;
   document.querySelectorAll('[data-scroll]').forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -412,14 +459,29 @@ const iconCheck = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20
     });
   });
 
-  // Abrir el modal de contacto (island de React escucha este evento)
   document.querySelectorAll('[data-open-contact]').forEach((btn) => {
     btn.addEventListener('click', () => {
       window.dispatchEvent(new Event('open-contact-modal'));
     });
   });
 
-  // Reveal on scroll (.fade-in)
+  // Menú móvil
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener('click', () => {
+      const isOpen = !mobileMenu.classList.toggle('hidden');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+    mobileMenu.querySelectorAll('[data-scroll]').forEach((b) => {
+      b.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  // Reveal on scroll
   const revealObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -433,20 +495,19 @@ const iconCheck = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20
   );
   document.querySelectorAll('.fade-in').forEach((el) => revealObserver.observe(el));
 
-  // Scroll-spy para resaltar el nav
+  // Scroll-spy
   const navButtons = Array.from(document.querySelectorAll('[data-nav]'));
-  const setActive = (id: string) => {
-    navButtons.forEach((b) => {
-      const active = b.getAttribute('data-nav') === id;
-      b.classList.toggle('text-primary', active);
-      b.classList.toggle('font-medium', active);
-      b.classList.toggle('text-muted-foreground', !active);
-    });
-  };
   const spyObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting && entry.target.id) setActive(entry.target.id);
+        const id = entry.target.id;
+        if (!entry.isIntersecting || !id) return;
+        navButtons.forEach((b) => {
+          const active = b.getAttribute('data-nav') === id;
+          b.classList.toggle('text-primary', active);
+          b.classList.toggle('font-medium', active);
+          b.classList.toggle('text-muted-foreground', !active);
+        });
       });
     },
     { threshold: 0.2, rootMargin: '-100px 0px -55% 0px' }
