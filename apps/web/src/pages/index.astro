@@ -91,10 +91,10 @@ const iconChevron = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="
           </div>
 
           <div class="flex items-center gap-2">
-            <button data-open-contact class={`${btnPrimary} h-9 px-4 py-2 text-sm body-text`}>
+            <button data-open-contact class={`${btnPrimary} h-11 md:h-9 px-4 text-sm body-text`}>
               Contáctanos
             </button>
-            <button id="menu-toggle" class="md:hidden inline-flex items-center justify-center h-9 w-9 rounded-md text-muted-foreground hover:text-primary hover:bg-card transition-colors" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+            <button id="menu-toggle" class="md:hidden inline-flex items-center justify-center h-11 w-11 rounded-md text-muted-foreground hover:text-primary hover:bg-card transition-colors" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
               <span set:html={iconMenu} />
             </button>
           </div>
@@ -137,7 +137,7 @@ const iconChevron = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="
                   Solicitar Diagnóstico Gratis
                   <span set:html={iconArrow} />
                 </button>
-                <button data-scroll="planes" class="text-base text-foreground hover:text-primary transition-all duration-200 underline underline-offset-4 body-text">
+                <button data-scroll="planes" class="inline-flex items-center justify-center h-11 px-2 text-base text-foreground hover:text-primary transition-all duration-200 underline underline-offset-4 body-text">
                   Ver los planes
                 </button>
               </div>
@@ -403,7 +403,7 @@ const iconChevron = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="
                 </p>
 
                 <details class="md:hidden mb-6 group/d">
-                  <summary class="cursor-pointer list-none flex items-center justify-center gap-1 text-sm text-primary body-text">
+                  <summary class="cursor-pointer list-none flex items-center justify-center gap-1 py-2 text-sm text-primary body-text">
                     Ver detalle
                     <span class="transition-transform group-open/d:rotate-180" set:html={iconChevron} />
                   </summary>
@@ -412,7 +412,7 @@ const iconChevron = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="
                   </p>
                 </details>
 
-                <button data-open-contact class={`w-full inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md h-9 px-4 py-2 font-medium transition-all duration-200 active:scale-[0.98] cursor-pointer body-text ${plan.highlight ? 'bg-primary text-primary-foreground hover:bg-primary/90' : 'bg-muted text-foreground hover:bg-muted/80'}`}>
+                <button data-open-contact class={`w-full inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md h-11 md:h-10 px-4 font-medium transition-all duration-200 active:scale-[0.98] cursor-pointer body-text ${plan.highlight ? 'bg-primary text-primary-foreground hover:bg-primary/90' : 'bg-muted text-foreground hover:bg-muted/80'}`}>
                   Solicitar Diagnóstico
                 </button>
               </div>
@@ -492,23 +492,51 @@ const iconChevron = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="
       const isOpen = !mobileMenu.classList.toggle('hidden');
       menuToggle.setAttribute('aria-expanded', String(isOpen));
     });
+    const closeMenu = () => {
+      mobileMenu.classList.add('hidden');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    };
     mobileMenu.querySelectorAll('[data-scroll]').forEach((b) => {
-      b.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-        menuToggle.setAttribute('aria-expanded', 'false');
-      });
+      b.addEventListener('click', closeMenu);
+    });
+    // Cerrar al tocar fuera
+    document.addEventListener('click', (e) => {
+      const target = e.target;
+      if (
+        !mobileMenu.classList.contains('hidden') &&
+        target instanceof Node &&
+        !mobileMenu.contains(target) &&
+        !menuToggle.contains(target)
+      ) {
+        closeMenu();
+      }
+    });
+    // Cerrar con Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMenu();
     });
   }
 
   // CTA fija móvil: aparece tras pasar ~70% del primer viewport
   const mobileCta = document.getElementById('mobile-cta');
   if (mobileCta) {
-    const onScroll = () => {
-      if (window.scrollY > window.innerHeight * 0.7) mobileCta.classList.remove('translate-y-full');
-      else mobileCta.classList.add('translate-y-full');
+    let contactoVisible = false;
+    const update = () => {
+      const show = window.scrollY > window.innerHeight * 0.7 && !contactoVisible;
+      mobileCta.classList.toggle('translate-y-full', !show);
     };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+    const contacto = document.getElementById('contacto');
+    if (contacto) {
+      new IntersectionObserver(
+        (entries) => {
+          contactoVisible = entries.some((e) => e.isIntersecting);
+          update();
+        },
+        { rootMargin: '0px 0px -20% 0px' }
+      ).observe(contacto);
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    update();
   }
 
   // Reveal on scroll
