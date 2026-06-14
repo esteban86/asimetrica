@@ -11,6 +11,9 @@ const {
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const ogImage = new URL('/og-image.png', Astro.site).href;
 
+// Cloudflare Web Analytics (sin cookies). Se renderiza solo si hay token.
+const cfBeacon = import.meta.env.PUBLIC_CF_BEACON_TOKEN;
+
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',
@@ -63,13 +66,15 @@ const jsonLd = {
     <!-- Datos estructurados -->
     <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
-    <!-- Analítica respetuosa con la privacidad (sin cookies). Empieza a registrar
-         cuando se cree el sitio "asimetrica.co" en Plausible. -->
-    <script
-      is:inline
-      defer
-      data-domain="asimetrica.co"
-      src="https://plausible.io/js/script.js"></script>
+    <!-- Cloudflare Web Analytics (sin cookies). Define PUBLIC_CF_BEACON_TOKEN
+         (token del panel de Cloudflare → Web Analytics) para activarla. -->
+    {cfBeacon && (
+      <script
+        is:inline
+        defer
+        src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon={`{"token": "${cfBeacon}"}`}></script>
+    )}
   </head>
   <body>
     <a href="#main" class="skip-link">Saltar al contenido principal</a>

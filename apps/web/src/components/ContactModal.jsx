@@ -53,10 +53,6 @@ const ContactModal = () => {
       toast.success("¡Solicitud enviada! Te contactamos en menos de 48 horas.");
       setFormData({ nombre: '', email: '', empresa: '', telefono: '' });
       setOpen(false);
-
-      if (typeof window !== 'undefined' && typeof window.plausible === 'function') {
-        window.plausible('Diagnostico solicitado');
-      }
     } catch (error) {
       if (import.meta.env.DEV) {
         console.error("Error submitting form:", error);

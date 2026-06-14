@@ -37,6 +37,8 @@ jobs:
           # Astro expone al cliente solo las variables con prefijo PUBLIC_.
           # Reutilizamos el secret existente VITE_WEB3FORMS_KEY.
           PUBLIC_WEB3FORMS_KEY: ${{ secrets.VITE_WEB3FORMS_KEY }}
+          # Token de Cloudflare Web Analytics (opcional; vacío = sin analítica).
+          PUBLIC_CF_BEACON_TOKEN: ${{ secrets.CF_BEACON_TOKEN }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

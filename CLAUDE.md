@@ -7,7 +7,7 @@
 - **Fuentes:** Inter self-host (`@fontsource-variable/inter`) + Satoshi (Fontshare)
 - **Iconos:** lucide-react (en islands) / SVG inline (en markup estático)
 - **Animaciones:** CSS + IntersectionObserver (sin framer-motion)
-- **Analítica:** Plausible (sin cookies) — requiere crear el sitio `asimetrica.co` en Plausible
+- **Analítica:** Cloudflare Web Analytics (sin cookies) — activa con `PUBLIC_CF_BEACON_TOKEN`
 - **Backend:** sin backend — formulario vía Web3Forms
 
 > La página es una sola ruta (`src/pages/index.astro`). No hay router ni react-hook-form/zod.
@@ -43,9 +43,11 @@ npm run lint       # ESLint (.astro + .jsx)
 
 ## Variables de entorno
 ```
-PUBLIC_WEB3FORMS_KEY=<key>   # API key de web3forms.com
+PUBLIC_WEB3FORMS_KEY=<key>     # API key de web3forms.com
+PUBLIC_CF_BEACON_TOKEN=<token> # Cloudflare Web Analytics (opcional)
 ```
-En GitHub Actions se inyecta desde el secret `VITE_WEB3FORMS_KEY` (reusado) → `PUBLIC_WEB3FORMS_KEY`.
+En GitHub Actions: `PUBLIC_WEB3FORMS_KEY` ← secret `VITE_WEB3FORMS_KEY` (reusado);
+`PUBLIC_CF_BEACON_TOKEN` ← secret `CF_BEACON_TOKEN`.
 
 ## Hosting
 - **Repo:** https://github.com/esteban86/asimetrica
@@ -58,5 +60,5 @@ En GitHub Actions se inyecta desde el secret `VITE_WEB3FORMS_KEY` (reusado) → 
 - `astro.config.mjs`: `base: '/'`, `site: 'https://asimetrica.co'`, `outDir: '../../dist/apps/web'`
 - Sitemap generado por `@astrojs/sitemap` (`/sitemap-index.xml`)
 - Progressive enhancement: el contenido `.fade-in` es visible por defecto; solo se anima si hay JS (clase `.js` en `<html>`)
-- Pendiente: falta `public/og-image.png` (la meta OG/Twitter lo referencia)
+- `public/og-image.png` (1200×630) es la imagen de compartir (OG/Twitter)
 - El `.env` local no se sube al repo (está en `.gitignore`)
