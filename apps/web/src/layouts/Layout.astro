@@ -14,15 +14,45 @@ const ogImage = new URL('/og-image.png', Astro.site).href;
 // Cloudflare Web Analytics (sin cookies). Se renderiza solo si hay token.
 const cfBeacon = import.meta.env.PUBLIC_CF_BEACON_TOKEN;
 
+// Grafo de marca: une asimetrica.co (Organization + servicio) con
+// prisma.asimetrica.co (la plataforma) para que Google los lea como una entidad.
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'ProfessionalService',
-  name: 'Asimétrica',
-  description,
-  url: 'https://asimetrica.co',
-  areaServed: 'CO',
-  knowsLanguage: 'es',
-  serviceType: ['CFO Fraccional', 'Dirección Financiera Estratégica', 'Modelos Financieros'],
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': 'https://asimetrica.co/#organization',
+      name: 'Asimétrica',
+      url: 'https://asimetrica.co',
+      logo: 'https://asimetrica.co/logo.png',
+      description,
+      areaServed: 'CO',
+      knowsLanguage: 'es',
+      owns: { '@id': 'https://prisma.asimetrica.co/#prisma' },
+    },
+    {
+      '@type': 'ProfessionalService',
+      '@id': 'https://asimetrica.co/#service',
+      name: 'Asimétrica — Dirección Financiera Estratégica',
+      url: 'https://asimetrica.co',
+      provider: { '@id': 'https://asimetrica.co/#organization' },
+      areaServed: 'CO',
+      serviceType: ['CFO Fraccional', 'Dirección Financiera Estratégica', 'Modelos Financieros'],
+    },
+    {
+      '@type': 'WebApplication',
+      '@id': 'https://prisma.asimetrica.co/#prisma',
+      name: 'Prisma by Asimétrica',
+      url: 'https://prisma.asimetrica.co',
+      applicationCategory: 'FinanceApplication',
+      operatingSystem: 'Web',
+      isAccessibleForFree: true,
+      offers: { '@type': 'Offer', price: '0', priceCurrency: 'COP' },
+      description:
+        'Inteligencia financiera con acceso libre a los estados financieros y el análisis de más de 145.000 empresas colombianas.',
+      publisher: { '@id': 'https://asimetrica.co/#organization' },
+    },
+  ],
 };
 ---
 
