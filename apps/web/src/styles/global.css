@@ -146,7 +146,13 @@
       hsl(var(--accent)) 100%
     );
     width: 100%;
-    margin: 4rem 0;
+    margin: 2.25rem 0;
+  }
+
+  @media (min-width: 768px) {
+    .gradient-separator {
+      margin: 4rem 0;
+    }
   }
 
   .card-hover {

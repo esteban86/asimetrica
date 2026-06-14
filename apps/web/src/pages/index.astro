@@ -68,6 +68,7 @@ const iconArrow = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20
 const iconExternal = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"/></svg>';
 const iconCheck = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-primary flex-shrink-0 mt-0.5" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>';
 const iconMenu = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>';
+const iconChevron = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>';
 ---
 
 <Layout>
@@ -114,7 +115,7 @@ const iconMenu = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
 
     <main id="main">
       <!-- Hero -->
-      <section id="hero" class="relative min-h-screen flex items-center overflow-hidden pt-24 pb-16">
+      <section id="hero" class="relative md:min-h-screen flex items-center overflow-hidden pt-24 pb-12 md:pb-16">
         <div class="aurora-glow turquesa"></div>
         <div class="aurora-glow purpura"></div>
 
@@ -184,7 +185,7 @@ const iconMenu = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
       </section>
 
       <!-- El Problema -->
-      <section id="problema" class="py-20 relative">
+      <section id="problema" class="py-12 md:py-20 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="fade-in mb-10 max-w-3xl">
             <h2 class="text-3xl md:text-4xl heading-section mb-5">
@@ -212,7 +213,7 @@ const iconMenu = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
       <div class="gradient-separator"></div>
 
       <!-- Qué es Asimétrica + Visión de éxito -->
-      <section id="solucion" class="py-20">
+      <section id="solucion" class="py-12 md:py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="fade-in mb-8">
             <h2 class="text-3xl md:text-4xl heading-section mb-6">
@@ -245,7 +246,7 @@ const iconMenu = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
       <div class="gradient-separator"></div>
 
       <!-- Proceso (el plan) -->
-      <section id="proceso" class="py-20">
+      <section id="proceso" class="py-12 md:py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="fade-in mb-12 max-w-3xl">
             <h2 class="text-3xl md:text-4xl heading-section mb-4">
@@ -279,7 +280,7 @@ const iconMenu = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
       </section>
 
       <!-- Tres Pilares -->
-      <section class="py-20 bg-card/30">
+      <section class="py-12 md:py-20 bg-card/30">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="fade-in text-center mb-12">
             <h2 class="text-3xl md:text-4xl heading-section mb-4">
@@ -300,7 +301,7 @@ const iconMenu = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
       </section>
 
       <!-- Herramientas (como beneficios) -->
-      <section id="herramientas" class="py-20">
+      <section id="herramientas" class="py-12 md:py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="fade-in mb-4">
             <h2 class="text-3xl md:text-4xl heading-section mb-4">
@@ -311,13 +312,13 @@ const iconMenu = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
             </p>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 mt-8 md:mt-12">
             {tools.map((tool, index) => (
-              <div class="fade-in card-hover bg-card p-6 rounded-lg" style={`transition-delay:${index * 50}ms`}>
+              <div class="fade-in card-hover bg-card p-4 md:p-6 rounded-lg" style={`transition-delay:${index * 50}ms`}>
                 <div class="text-xs font-semibold uppercase tracking-wider mb-2 body-secondary text-primary">
                   {tool.category}
                 </div>
-                <h3 class="text-lg heading-tertiary mb-3">{tool.title}</h3>
+                <h3 class="text-base md:text-lg heading-tertiary mb-2 md:mb-3">{tool.title}</h3>
                 <p class="text-sm text-muted-foreground leading-relaxed description">{tool.desc}</p>
               </div>
             ))}
@@ -328,7 +329,7 @@ const iconMenu = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
       <div class="gradient-separator"></div>
 
       <!-- Prisma -->
-      <section id="prisma" class="py-20 bg-card/30 relative overflow-hidden">
+      <section id="prisma" class="py-12 md:py-20 bg-card/30 relative overflow-hidden">
         <div class="aurora-glow turquesa"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -360,9 +361,9 @@ const iconMenu = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
               </p>
             </div>
 
-            <div class="grid grid-cols-2 gap-3 fade-in">
+            <div class="fade-in flex gap-3 overflow-x-auto snap-x snap-mandatory -mx-4 px-4 pb-2 md:mx-0 md:px-0 md:pb-0 md:grid md:grid-cols-2 md:overflow-visible">
               {prismaShots.map((shot, index) => (
-                <a href="https://prisma.asimetrica.co" target="_blank" rel="noopener noreferrer" title={`Prisma — ${shot.title}`} class="group block rounded-lg overflow-hidden border border-border/[0.12] shadow-lg card-hover bg-card" style={`transition-delay:${index * 60}ms`}>
+                <a href="https://prisma.asimetrica.co" target="_blank" rel="noopener noreferrer" title={`Prisma — ${shot.title}`} class="group block rounded-lg overflow-hidden border border-border/[0.12] shadow-lg card-hover bg-card min-w-[78%] snap-center md:min-w-0" style={`transition-delay:${index * 60}ms`}>
                   <img src={shot.src} alt={`Prisma — ${shot.title}`} loading="lazy" decoding="async" class="w-full h-auto block transition-transform duration-300 group-hover:scale-[1.04]" />
                 </a>
               ))}
@@ -374,7 +375,7 @@ const iconMenu = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
       <div class="gradient-separator"></div>
 
       <!-- Planes -->
-      <section id="planes" class="py-20">
+      <section id="planes" class="py-12 md:py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="fade-in text-center mb-12">
             <h2 class="text-3xl md:text-4xl heading-section mb-4">
@@ -397,9 +398,19 @@ const iconMenu = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                   <div class="text-xs text-muted-foreground mt-1 body-secondary uppercase tracking-wider">{plan.tagline}</div>
                 </div>
 
-                <p class="text-sm text-muted-foreground leading-relaxed description mb-8 flex-1">
+                <p class="hidden md:block text-sm text-muted-foreground leading-relaxed description mb-8 flex-1">
                   {plan.desc}
                 </p>
+
+                <details class="md:hidden mb-6 group/d">
+                  <summary class="cursor-pointer list-none flex items-center justify-center gap-1 text-sm text-primary body-text">
+                    Ver detalle
+                    <span class="transition-transform group-open/d:rotate-180" set:html={iconChevron} />
+                  </summary>
+                  <p class="mt-3 text-sm text-muted-foreground leading-relaxed description text-left">
+                    {plan.desc}
+                  </p>
+                </details>
 
                 <button data-open-contact class={`w-full inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md h-9 px-4 py-2 font-medium transition-all duration-200 active:scale-[0.98] cursor-pointer body-text ${plan.highlight ? 'bg-primary text-primary-foreground hover:bg-primary/90' : 'bg-muted text-foreground hover:bg-muted/80'}`}>
                   Solicitar Diagnóstico
@@ -413,7 +424,7 @@ const iconMenu = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
       <div class="gradient-separator"></div>
 
       <!-- Final CTA -->
-      <section id="contacto" class="py-20">
+      <section id="contacto" class="py-12 md:py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="fade-in text-center max-w-3xl mx-auto">
             <h2 class="text-3xl md:text-4xl heading-section mb-6">
@@ -435,13 +446,21 @@ const iconMenu = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-border/[0.08] py-8 bg-card/30">
+    <footer class="border-t border-border/[0.08] pt-8 pb-28 md:py-8 bg-card/30">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center text-sm text-muted-foreground body-secondary">
           <p>© 2026 Asimétrica · Finanzas Estratégicas · Colombia</p>
         </div>
       </div>
     </footer>
+
+    <!-- CTA fija inferior (solo móvil), aparece al hacer scroll -->
+    <div id="mobile-cta" class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-background/90 backdrop-blur-lg border-t border-border/[0.08] px-4 pt-3 translate-y-full transition-transform duration-300" style="padding-bottom: calc(0.75rem + env(safe-area-inset-bottom));">
+      <button data-open-contact class={`${btnPrimary} w-full h-12 text-base body-text`}>
+        Solicitar Diagnóstico Gratis
+        <span set:html={iconArrow} />
+      </button>
+    </div>
 
     <ContactModal client:idle />
   </div>
@@ -479,6 +498,17 @@ const iconMenu = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
         menuToggle.setAttribute('aria-expanded', 'false');
       });
     });
+  }
+
+  // CTA fija móvil: aparece tras pasar ~70% del primer viewport
+  const mobileCta = document.getElementById('mobile-cta');
+  if (mobileCta) {
+    const onScroll = () => {
+      if (window.scrollY > window.innerHeight * 0.7) mobileCta.classList.remove('translate-y-full');
+      else mobileCta.classList.add('translate-y-full');
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
   }
 
   // Reveal on scroll
