@@ -1,11 +1,12 @@
 ---
 import ContactModal from '@/components/ContactModal.jsx';
+import Visual from '@/components/Visual.astro';
 
 /**
  * @typedef {{ heading: string, paragraphs: string[], bullets?: string[] }} Section
  * @typedef {{ q: string, a: string }} FaqItem
  * @typedef {{ label: string, href: string }} LinkItem
- * @typedef {{ type: string, slug: string, primaryKeyword: string, metaTitle: string, metaDescription: string, breadcrumbLabel: string, h1: string, heroSubhead: string, sections: Section[], faq: FaqItem[], internalLinks: LinkItem[], cta: { heading: string, text: string } }} PageData
+ * @typedef {{ type: string, slug: string, primaryKeyword: string, metaTitle: string, metaDescription: string, breadcrumbLabel: string, h1: string, heroSubhead: string, sections: Section[], faq: FaqItem[], internalLinks: LinkItem[], cta: { heading: string, text: string }, keyStats?: {value:string,label:string}[], visuals?: any[] }} PageData
  */
 
 /** @type {PageData} */
@@ -65,25 +66,53 @@ const iconCheck = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20
       </div>
     </section>
 
-    <!-- Cuerpo -->
-    <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
-      {page.sections.map((s) => (
-        <section class="mt-12">
-          <h2 class="text-2xl md:text-3xl heading-section mb-4">{s.heading}</h2>
-          {s.paragraphs.map((p) => (
-            <p class="text-base md:text-lg text-muted-foreground leading-relaxed body-text mb-4">{p}</p>
+    <!-- Tira de cifras clave -->
+    {page.keyStats && page.keyStats.length > 0 && (
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          {page.keyStats.map((k) => (
+            <div class="card-surface p-4 text-center">
+              <div class="text-2xl md:text-3xl heading-secondary text-primary tnum leading-none">{k.value}</div>
+              <div class="text-xs text-muted-foreground body-secondary mt-1.5 leading-snug">{k.label}</div>
+            </div>
           ))}
-          {s.bullets && (
-            <ul class="space-y-3 mt-4">
-              {s.bullets.map((b) => (
-                <li class="flex items-start gap-3 body-text">
-                  <span set:html={iconCheck} />
-                  <span class="text-muted-foreground leading-relaxed">{b}</span>
-                </li>
-              ))}
-            </ul>
-          )}
-        </section>
+        </div>
+      </div>
+    )}
+
+    <!-- Índice + Cuerpo -->
+    <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+      <nav class="card-surface p-5 mt-10" aria-label="Contenido de la página">
+        <p class="text-xs uppercase tracking-[0.14em] font-semibold text-primary mb-3 body-secondary">En esta página</p>
+        <ol class="grid sm:grid-cols-2 gap-x-6 gap-y-2 text-sm">
+          {page.sections.map((s, i) => (
+            <li>
+              <a href={`#s-${i}`} class="link-underline text-muted-foreground hover:text-primary transition-colors body-text">{s.heading}</a>
+            </li>
+          ))}
+        </ol>
+      </nav>
+
+      {page.sections.map((s, i) => (
+        <>
+          <section id={`s-${i}`} class="mt-12 scroll-mt-24">
+            <h2 class="text-2xl md:text-3xl heading-section mb-4">{s.heading}</h2>
+            {s.paragraphs.map((p) => (
+              <p class="text-base md:text-lg text-muted-foreground leading-relaxed body-text mb-4">{p}</p>
+            ))}
+            {s.bullets && (
+              <ul class="space-y-3 mt-4">
+                {s.bullets.map((b) => (
+                  <li class="flex items-start gap-3 body-text">
+                    <span set:html={iconCheck} />
+                    <span class="text-muted-foreground leading-relaxed">{b}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </section>
+          {(page.visuals ?? []).filter((vv) => vv.afterSection === i).map((vv) => <Visual v={vv} />)}
+        </>
       ))}
     </article>
 

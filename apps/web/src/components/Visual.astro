@@ -1,0 +1,124 @@
+---
+/**
+ * Bloque visual reutilizable para las páginas de contenido.
+ * @typedef {{ label: string, value: number }} Pt
+ * @typedef {{ type: string, title?: string, caption?: string, variant?: string, unit?: string, series?: Pt[], steps?: {label:string,note?:string}[], colA?: string, colB?: string, rows?: {label:string,a:string,b:string}[], tone?: string, text?: string }} Block
+ */
+/** @type {Block} */
+const v = Astro.props.v;
+
+const toneColor = v.tone === 'warning' ? 'secondary' : v.tone === 'tip' ? 'accent' : 'primary';
+
+// Para gráfica de línea: normalizar series a un viewBox 0..100
+let linePts = '';
+let areaPts = '';
+let dots = [];
+if (v.type === 'chart' && v.variant === 'line' && v.series && v.series.length > 1) {
+  const vals = v.series.map((d) => d.value);
+  const max = Math.max(...vals);
+  const min = Math.min(...vals);
+  const range = max - min || 1;
+  const coords = v.series.map((d, i) => {
+    const x = (i / (v.series.length - 1)) * 100;
+    const y = 96 - ((d.value - min) / range) * 88;
+    return { x, y };
+  });
+  linePts = coords.map((c) => `${c.x.toFixed(1)},${c.y.toFixed(1)}`).join(' ');
+  areaPts = `0,100 ${linePts} 100,100`;
+  dots = coords;
+}
+
+const barMax = v.type === 'chart' && v.variant === 'bars' && v.series ? Math.max(...v.series.map((d) => d.value)) : 0;
+---
+
+{v.type === 'chart' && v.variant === 'bars' && v.series && (
+  <figure class="card-surface p-5 md:p-6 my-8">
+    {v.title && <figcaption class="text-sm heading-tertiary text-foreground mb-4">{v.title}</figcaption>}
+    <div class="space-y-3">
+      {v.series.map((d) => (
+        <div>
+          <div class="flex items-baseline justify-between gap-3 mb-1">
+            <span class="text-sm text-foreground body-text">{d.label}</span>
+            <span class="text-sm font-semibold text-primary tnum whitespace-nowrap">{d.value.toLocaleString('es-CO')}{v.unit ? ' ' + v.unit : ''}</span>
+          </div>
+          <div class="h-2.5 w-full rounded-full" style="background: hsl(var(--primary) / 0.10);">
+            <div class="h-full rounded-full bg-primary" style={`width:${barMax > 0 ? Math.max(2, Math.round((d.value / barMax) * 100)) : 0}%`}></div>
+          </div>
+        </div>
+      ))}
+    </div>
+    {v.caption && <p class="text-xs text-muted-foreground mt-4 body-secondary">{v.caption}</p>}
+  </figure>
+)}
+
+{v.type === 'chart' && v.variant === 'line' && v.series && (
+  <figure class="card-surface p-5 md:p-6 my-8">
+    {v.title && <figcaption class="text-sm heading-tertiary text-foreground mb-4">{v.title}</figcaption>}
+    <svg viewBox="0 0 100 100" preserveAspectRatio="none" class="w-full h-32 md:h-40" aria-hidden="true">
+      <defs>
+        <linearGradient id={`g-${v.title}`} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="hsl(var(--primary))" stop-opacity="0.28" />
+          <stop offset="1" stop-color="hsl(var(--primary))" stop-opacity="0" />
+        </linearGradient>
+      </defs>
+      <polygon points={areaPts} fill={`url(#g-${v.title})`} />
+      <polyline points={linePts} fill="none" stroke="hsl(var(--primary))" stroke-width="1.5" vector-effect="non-scaling-stroke" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+    <div class="flex justify-between mt-2 text-[0.7rem] text-muted-foreground body-secondary">
+      <span>{v.series[0].label}</span>
+      <span>{v.series[v.series.length - 1].label}</span>
+    </div>
+    {v.caption && <p class="text-xs text-muted-foreground mt-3 body-secondary">{v.caption}</p>}
+  </figure>
+)}
+
+{v.type === 'diagram' && v.steps && (
+  <figure class="card-surface p-5 md:p-6 my-8">
+    {v.title && <figcaption class="text-sm heading-tertiary text-foreground mb-4">{v.title}</figcaption>}
+    <div class="flex flex-col sm:flex-row items-stretch gap-2">
+      {v.steps.map((st, i) => (
+        <>
+          <div class="flex-1 rounded-lg border border-white/[0.07] bg-white/[0.03] p-3 text-center">
+            <div class="text-sm heading-tertiary text-foreground">{st.label}</div>
+            {st.note && <div class="text-xs text-muted-foreground mt-1 body-secondary">{st.note}</div>}
+          </div>
+          {i < v.steps.length - 1 && (
+            <div class="flex items-center justify-center text-primary text-lg rotate-90 sm:rotate-0">&rarr;</div>
+          )}
+        </>
+      ))}
+    </div>
+    {v.caption && <p class="text-xs text-muted-foreground mt-4 body-secondary">{v.caption}</p>}
+  </figure>
+)}
+
+{v.type === 'comparison' && v.rows && (
+  <figure class="card-surface my-8 overflow-hidden">
+    {v.title && <figcaption class="text-sm heading-tertiary text-foreground p-5 pb-0">{v.title}</figcaption>}
+    <table class="w-full text-sm mt-4 border-collapse">
+      <thead>
+        <tr class="text-xs uppercase tracking-wider text-muted-foreground body-secondary">
+          <th class="text-left font-medium p-3"></th>
+          <th class="text-left font-medium p-3">{v.colA}</th>
+          <th class="text-left font-medium p-3 text-primary">{v.colB}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {v.rows.map((r) => (
+          <tr class="border-t border-white/[0.06]">
+            <td class="p-3 text-foreground body-text">{r.label}</td>
+            <td class="p-3 text-muted-foreground body-text">{r.a}</td>
+            <td class="p-3 text-foreground body-text">{r.b}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </figure>
+)}
+
+{v.type === 'callout' && v.text && (
+  <aside class="my-8 rounded-xl bg-card/60 border-l-2 p-5" style={`border-left-color: hsl(var(--${toneColor}));`}>
+    {v.title && <p class="text-xs uppercase tracking-[0.14em] font-semibold mb-1.5 body-secondary" style={`color: hsl(var(--${toneColor}));`}>{v.title}</p>}
+    <p class="text-base text-foreground leading-relaxed body-text">{v.text}</p>
+  </aside>
+)}

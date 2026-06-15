@@ -1,4 +1,4 @@
-// Generado: contenido SEO de Fase 1 (10 páginas). Fuente única para rutas servicios/recursos.
+// Generado: contenido SEO + visuales de Fase 1 (10 páginas). Fuente única para servicios/recursos.
 export const seoPages = [
   {
     "slug": "cfo-fraccional",
@@ -114,7 +114,99 @@ export const seoPages = [
     "cta": {
       "heading": "Conozca el potencial financiero de su empresa en 48 horas",
       "text": "Solicite el Diagnóstico Flash gratuito. Analizamos sus estados financieros y le mostramos, en concreto, dónde está la caja inmovilizada, qué margen puede recuperar y por dónde empezaría un CFO fraccional. Sin costo y sin compromiso."
-    }
+    },
+    "keyStats": [
+      {
+        "value": "$1.9M",
+        "label": "Desde / mes"
+      },
+      {
+        "value": "$20M",
+        "label": "CFO en nómina / mes"
+      },
+      {
+        "value": "48 h",
+        "label": "Diagnóstico Flash gratis"
+      },
+      {
+        "value": "50%",
+        "label": "Devolución si no hay valor al mes 3"
+      }
+    ],
+    "visuals": [
+      {
+        "type": "comparison",
+        "afterSection": 2,
+        "title": "Contador vs. CFO fraccional",
+        "colA": "Su contador",
+        "colB": "CFO fraccional",
+        "rows": [
+          {
+            "label": "Hacia dónde mira",
+            "a": "Hacia atrás: registra y declara",
+            "b": "Hacia adelante: anticipa y decide"
+          },
+          {
+            "label": "Para qué sirve",
+            "a": "Cumplir con la DIAN",
+            "b": "Proteger caja y margen"
+          },
+          {
+            "label": "Flujo de caja",
+            "a": "No lo proyecta",
+            "b": "Proyectado a 13 semanas"
+          },
+          {
+            "label": "Deuda y bancos",
+            "a": "Solo registra los créditos",
+            "b": "Negocia tasas, plazos y garantías"
+          },
+          {
+            "label": "Decisiones de precio",
+            "a": "Fuera de su alcance",
+            "b": "Política de precio y margen por línea"
+          },
+          {
+            "label": "Responsabilidad",
+            "a": "Entrega informes",
+            "b": "Responde por los resultados"
+          }
+        ],
+        "caption": "No compiten: el CFO usa la información del contador para mirar hacia adelante."
+      },
+      {
+        "type": "chart",
+        "afterSection": 4,
+        "title": "Costo mensual: CFO en nómina vs. plan Asimétrica",
+        "variant": "bars",
+        "unit": "$M/mes",
+        "series": [
+          {
+            "label": "CFO en nómina (cargado)",
+            "value": 20
+          },
+          {
+            "label": "Plan CFO fraccional",
+            "value": 1.9
+          }
+        ],
+        "caption": "Mismo nivel de criterio estratégico por una fracción del costo fijo."
+      },
+      {
+        "type": "callout",
+        "afterSection": 4,
+        "title": "Más de $216M al año de diferencia",
+        "tone": "insight",
+        "text": "Un CFO de planta supera los $240M anuales cargados. Desde $1.9M al mes, el servicio suele pagarse solo con la primera decisión bien tomada."
+      },
+      {
+        "type": "callout",
+        "afterSection": 3,
+        "title": "Garantía de valor al mes tres",
+        "tone": "tip",
+        "text": "Si al mes tres no hay un resultado cuantificable —caja liberada, margen recuperado o costo financiero reducido— devolvemos el 50% de lo pagado. Asumimos parte del riesgo."
+      }
+    ]
   },
   {
     "slug": "direccion-financiera-estrategica",
@@ -234,7 +326,150 @@ export const seoPages = [
     "cta": {
       "heading": "Empiece con un Diagnóstico Flash gratis",
       "text": "En 48 horas revisamos su caja, sus márgenes y la salud financiera de su empresa, y le mostramos dónde está el valor por capturar. Sin costo y sin compromiso. Si decide avanzar, recuerde que respaldamos el trabajo: si al mes 3 no hay valor cuantificable, devolvemos el 50%."
-    }
+    },
+    "keyStats": [
+      {
+        "value": "$20M",
+        "label": "Costo CFO en nómina/mes"
+      },
+      {
+        "value": "$1.9M",
+        "label": "Dirección fraccional desde/mes"
+      },
+      {
+        "value": "13 semanas",
+        "label": "Visibilidad de caja"
+      },
+      {
+        "value": "50%",
+        "label": "Garantía al mes 3"
+      }
+    ],
+    "visuals": [
+      {
+        "type": "comparison",
+        "afterSection": 0,
+        "title": "Contabilidad vs. Dirección financiera estratégica",
+        "colA": "Su contador / revisor",
+        "colB": "Dirección financiera",
+        "rows": [
+          {
+            "label": "Hacia dónde mira",
+            "a": "Al pasado (retrovisor)",
+            "b": "Al futuro (parabrisas)"
+          },
+          {
+            "label": "Pregunta que responde",
+            "a": "¿Cómo nos fue?",
+            "b": "¿Qué hacemos con esto?"
+          },
+          {
+            "label": "Caja a 12 semanas",
+            "a": "No la proyecta",
+            "b": "La gobierna y anticipa"
+          },
+          {
+            "label": "Margen por línea/cliente",
+            "a": "No lo separa",
+            "b": "Detecta dónde se fuga"
+          },
+          {
+            "label": "Costo mensual",
+            "a": "Indispensable, de base",
+            "b": "Desde $1.9M fraccional"
+          }
+        ],
+        "caption": "Funciones complementarias, no sustitutas: el contador da fe de los hechos; la dirección financiera decide hacia dónde va el dinero."
+      },
+      {
+        "type": "chart",
+        "afterSection": 0,
+        "variant": "bars",
+        "title": "Costo de la cabeza estratégica: nómina vs. fraccional",
+        "unit": "$M/mes",
+        "series": [
+          {
+            "label": "CFO en nómina + prestaciones",
+            "value": 20
+          },
+          {
+            "label": "Plan intermedio fraccional",
+            "value": 5.5
+          },
+          {
+            "label": "Plan de entrada fraccional",
+            "value": 1.9
+          }
+        ],
+        "caption": "La misma capacidad de decisión a una fracción del costo, dimensionada al tamaño de la empresa ($500M–$50.000M de facturación)."
+      },
+      {
+        "type": "diagram",
+        "afterSection": 1,
+        "title": "El ciclo de FP&A: del dato a la decisión",
+        "steps": [
+          {
+            "label": "Presupuesto y forecast",
+            "note": "Plan vivo que se actualiza con la realidad"
+          },
+          {
+            "label": "Modelo de 3 estados",
+            "note": "P&G, balance y caja integrados"
+          },
+          {
+            "label": "Análisis de variaciones",
+            "note": "Precio vs. volumen vs. costo"
+          },
+          {
+            "label": "Árbol de rentabilidad",
+            "note": "Dónde nace y se fuga el margen"
+          },
+          {
+            "label": "Tablero y decisión",
+            "note": "Pocos KPIs, cada cifra con responsable"
+          }
+        ],
+        "caption": "Un ciclo continuo que cierra el lazo entre el plan, la realidad y la siguiente decisión."
+      },
+      {
+        "type": "chart",
+        "afterSection": 3,
+        "variant": "line",
+        "title": "Visibilidad de caja proyectada a 13 semanas",
+        "unit": "$M",
+        "series": [
+          {
+            "label": "S1",
+            "value": 180
+          },
+          {
+            "label": "S3",
+            "value": 142
+          },
+          {
+            "label": "S5",
+            "value": 96
+          },
+          {
+            "label": "S7",
+            "value": 68
+          },
+          {
+            "label": "S9",
+            "value": 110
+          },
+          {
+            "label": "S11",
+            "value": 165
+          },
+          {
+            "label": "S13",
+            "value": 210
+          }
+        ],
+        "caption": "El valle de caja de la semana 7 deja de ser una sorpresa: se ve con semanas de anticipación y se planea la acción. Respaldado por garantía: 50% devuelto si al mes 3 no hay valor cuantificable."
+      }
+    ]
   },
   {
     "slug": "valoracion-de-empresas",
@@ -342,7 +577,120 @@ export const seoPages = [
     "cta": {
       "heading": "Sepa cuánto vale su empresa antes de que se lo diga un comprador",
       "text": "Empiece con un Diagnóstico Flash gratuito: en 48 horas le mostramos las palancas que más mueven el valor de su empresa y el alcance de una valoración formal con DCF y múltiplos. Sin compromiso y con datos reales del mercado colombiano."
-    }
+    },
+    "keyStats": [
+      {
+        "value": "+145.000",
+        "label": "empresas colombianas en Prisma"
+      },
+      {
+        "value": "2 métodos",
+        "label": "DCF + múltiplos triangulados"
+      },
+      {
+        "value": "$500M–$50.000M",
+        "label": "facturación de clientes (COP/año)"
+      },
+      {
+        "value": "48 horas",
+        "label": "Diagnóstico Flash gratuito"
+      }
+    ],
+    "visuals": [
+      {
+        "type": "callout",
+        "afterSection": 0,
+        "tone": "warning",
+        "title": "Patrimonio contable no es valor económico",
+        "text": "El balance registra lo que costó la empresa; la valoración estima lo que vale para quien la compra. En una empresa que factura entre $500M y $50.000M al año, esa brecha puede ser miles de millones sobre o bajo la mesa al cerrar."
+      },
+      {
+        "type": "diagram",
+        "afterSection": 1,
+        "title": "Cuándo valorar: el propósito define el enfoque",
+        "steps": [
+          {
+            "label": "Venta total o parcial",
+            "note": "Piso y techo defendibles antes de negociar"
+          },
+          {
+            "label": "Entrada de inversión",
+            "note": "Fija el % entregado; evita dilución innecesaria"
+          },
+          {
+            "label": "Sucesión familiar",
+            "note": "Cifra neutral que todas las partes aceptan"
+          },
+          {
+            "label": "Disputas y garantías",
+            "note": "Informe técnico con metodología trazable"
+          },
+          {
+            "label": "Marcador estratégico anual",
+            "note": "Más honesto que la utilidad contable"
+          }
+        ]
+      },
+      {
+        "type": "comparison",
+        "afterSection": 2,
+        "title": "DCF vs múltiplos de mercado",
+        "colA": "Flujo de caja descontado (DCF)",
+        "colB": "Múltiplos de mercado",
+        "rows": [
+          {
+            "label": "Qué mide",
+            "a": "Caja libre futura traída a valor presente",
+            "b": "Comparación con empresas y transacciones similares"
+          },
+          {
+            "label": "Ratios clave",
+            "a": "WACC, valor terminal, capital de trabajo",
+            "b": "EV/EBITDA, EV/ventas, precio/utilidad"
+          },
+          {
+            "label": "Mejor para",
+            "a": "Empresas con historia y proyecciones creíbles",
+            "b": "Lectura rápida de mercado y contraste"
+          },
+          {
+            "label": "Reto en Colombia",
+            "a": "Sustentar tasa de descuento y riesgo país",
+            "b": "Conseguir comparables locales fiables"
+          },
+          {
+            "label": "Cómo lo resolvemos",
+            "a": "Cada supuesto explícito y defendible",
+            "b": "Comparables anclados en +145.000 empresas (Prisma)"
+          }
+        ]
+      },
+      {
+        "type": "chart",
+        "afterSection": 4,
+        "variant": "bars",
+        "title": "Dónde se gana o se pierde el precio en la mesa",
+        "unit": "% del valor en juego",
+        "series": [
+          {
+            "label": "Capital de trabajo normalizado",
+            "value": 35
+          },
+          {
+            "label": "Calidad y recurrencia de ingresos",
+            "value": 30
+          },
+          {
+            "label": "Concentración de clientes",
+            "value": 20
+          },
+          {
+            "label": "Dependencia del fundador",
+            "value": 15
+          }
+        ]
+      }
+    ]
   },
   {
     "slug": "preparacion-para-inversion",
@@ -436,7 +784,124 @@ export const seoPages = [
     "cta": {
       "heading": "Llega a la mesa con las cifras de tu lado",
       "text": "Antes de salir a levantar capital o vender, descubre qué encontraría un inversionista en tus números. En el Diagnóstico Flash gratuito revisamos tus estados financieros en 48 horas e identificamos entre 3 y 5 puntos que podrían costarte valoración —sin costo y sin compromiso. Solicítalo hoy."
-    }
+    },
+    "keyStats": [
+      {
+        "value": "4–8 semanas",
+        "label": "Investment Readiness Pack completo"
+      },
+      {
+        "value": "48 horas",
+        "label": "Diagnóstico Flash gratuito"
+      },
+      {
+        "value": "$20M/mes",
+        "label": "Costo de un CFO de transacciones en nómina"
+      },
+      {
+        "value": "3–5 hallazgos",
+        "label": "Que un inversionista descontaría, detectados antes"
+      }
+    ],
+    "visuals": [
+      {
+        "type": "diagram",
+        "afterSection": 1,
+        "title": "Secuencia de preparacion para inversion",
+        "steps": [
+          {
+            "label": "Modelo de 3 estados",
+            "note": "P&G, balance y caja integrados y editables"
+          },
+          {
+            "label": "Valoración DCF",
+            "note": "Flujos, WACC, valor terminal y sensibilidad"
+          },
+          {
+            "label": "Memo de inversión",
+            "note": "La tesis en el lenguaje del que pone el cheque"
+          },
+          {
+            "label": "Data room",
+            "note": "Documentación lista antes de que la pidan"
+          },
+          {
+            "label": "Deck de junta",
+            "note": "La tesis en pocas láminas defendibles"
+          },
+          {
+            "label": "Due diligence",
+            "note": "Preguntas difíciles anticipadas y resueltas"
+          }
+        ]
+      },
+      {
+        "type": "comparison",
+        "afterSection": 0,
+        "title": "Llegar desordenado vs. llegar listo a la mesa",
+        "colA": "Empresa sin preparar",
+        "colB": "Empresa investment-ready",
+        "rows": [
+          {
+            "label": "Modelo financiero",
+            "a": "Excel que solo entiende el dueño",
+            "b": "Tres estados que cuadran al peso"
+          },
+          {
+            "label": "Proyecciones",
+            "a": "El fondo las desarma en 15 minutos",
+            "b": "Supuestos defendibles línea por línea"
+          },
+          {
+            "label": "Documentación",
+            "a": "Dispersa, la arman bajo presión",
+            "b": "Data room ordenado antes de que lo pidan"
+          },
+          {
+            "label": "Due diligence",
+            "a": "El comprador encuentra los problemas",
+            "b": "Tú los detectas y resuelves primero"
+          },
+          {
+            "label": "Efecto en el precio",
+            "a": "Cada cifra sin sustento es un descuento",
+            "b": "Negocias desde la información, no la esperanza"
+          }
+        ]
+      },
+      {
+        "type": "chart",
+        "afterSection": 2,
+        "title": "Donde se gana o se pierde valor en la diligencia",
+        "variant": "bars",
+        "unit": "% del valor en juego",
+        "series": [
+          {
+            "label": "Calidad de ingresos",
+            "value": 35
+          },
+          {
+            "label": "Capital de trabajo normalizado",
+            "value": 30
+          },
+          {
+            "label": "Deuda real y contingencias",
+            "value": 20
+          },
+          {
+            "label": "Crecimiento bruto",
+            "value": 15
+          }
+        ]
+      },
+      {
+        "type": "callout",
+        "afterSection": 3,
+        "title": "El descuento se evita antes de la mesa, no en la firma",
+        "tone": "warning",
+        "text": "Un CFO senior con experiencia en transacciones cuesta cerca de $20.000.000 al mes en Colombia. El modelo fraccional te da esa misma capacidad, enfocada en la transacción y solo el tiempo que la necesitas, dentro del plan Estratégico."
+      }
+    ]
   },
   {
     "slug": "fpa-presupuesto-forecast",
@@ -534,7 +999,154 @@ export const seoPages = [
     "cta": {
       "heading": "Vea su FP&A antes de invertir un peso",
       "text": "Pida el Diagnóstico Flash gratuito: en 48 horas revisamos sus números con Prisma, los comparamos contra su sector y le mostramos qué decisiones podría estar tomando con anticipación. Sin compromiso, y si al mes 3 trabajando juntos no hay valor cuantificable, le devolvemos el 50%."
-    }
+    },
+    "keyStats": [
+      {
+        "value": "3 estados",
+        "label": "P&G, balance y caja en un solo modelo"
+      },
+      {
+        "value": "12-18 meses",
+        "label": "Horizonte del rolling forecast"
+      },
+      {
+        "value": "4-6 semanas",
+        "label": "Modelo y primer presupuesto operando"
+      },
+      {
+        "value": "$1.9M",
+        "label": "Planes desde, vs. $20M un CFO de planta"
+      }
+    ],
+    "visuals": [
+      {
+        "type": "diagram",
+        "afterSection": 0,
+        "title": "modelo_tres_estados_integrado",
+        "caption": "El modelo de tres estados conecta lo que ganas, lo que tienes y lo que entra al banco: mover un supuesto recalcula los tres a la vez.",
+        "steps": [
+          {
+            "label": "Estado de resultados (P&G)",
+            "note": "Ventas, costos y EBITDA: cuánto gana el negocio sobre el papel"
+          },
+          {
+            "label": "Balance general",
+            "note": "Cartera, inventario y proveedores: dónde queda atrapado el dinero"
+          },
+          {
+            "label": "Flujo de caja",
+            "note": "La verdad del banco: cuándo entra y sale el efectivo real"
+          },
+          {
+            "label": "Decisión con anticipación",
+            "note": "Un supuesto cambia y los tres estados se recalculan juntos"
+          }
+        ]
+      },
+      {
+        "type": "comparison",
+        "afterSection": 1,
+        "title": "presupuesto_vs_rolling_forecast",
+        "caption": "El presupuesto fija la meta del año; el rolling forecast corrige el rumbo cada periodo. FP&A serio usa los dos.",
+        "colA": "Presupuesto anual",
+        "colB": "Rolling forecast",
+        "rows": [
+          {
+            "label": "Horizonte",
+            "a": "Año fiscal fijo",
+            "b": "Próximos 12 a 18 meses, siempre"
+          },
+          {
+            "label": "Actualización",
+            "a": "Una vez, en enero",
+            "b": "Cada mes o trimestre"
+          },
+          {
+            "label": "Construcción",
+            "a": "Drivers operativos (unidades, precio, headcount)",
+            "b": "Reproyecta con lo que ya pasó"
+          },
+          {
+            "label": "Pregunta que responde",
+            "a": "¿Voy bien contra lo planeado?",
+            "b": "¿Hacia dónde va realmente la empresa?"
+          },
+          {
+            "label": "Riesgo si falta",
+            "a": "Número que nadie vuelve a mirar en marzo",
+            "b": "Sorpresas a fin de mes"
+          }
+        ]
+      },
+      {
+        "type": "chart",
+        "afterSection": 2,
+        "title": "forecast_caja_anticipa_presion",
+        "caption": "Simulación de caja proyectada con el forecast: el modelo muestra el mes de mayor presión (mes 5) con meses de anticipación para gestionarlo antes de que llegue al banco.",
+        "variant": "line",
+        "unit": "$M",
+        "series": [
+          {
+            "label": "Mes 1",
+            "value": 380
+          },
+          {
+            "label": "Mes 2",
+            "value": 310
+          },
+          {
+            "label": "Mes 3",
+            "value": 240
+          },
+          {
+            "label": "Mes 4",
+            "value": 150
+          },
+          {
+            "label": "Mes 5",
+            "value": 80
+          },
+          {
+            "label": "Mes 6",
+            "value": 170
+          },
+          {
+            "label": "Mes 7",
+            "value": 290
+          },
+          {
+            "label": "Mes 8",
+            "value": 420
+          }
+        ]
+      },
+      {
+        "type": "chart",
+        "afterSection": 3,
+        "title": "costo_cfo_planta_vs_fraccional",
+        "caption": "Costo mensual de la función financiera: un CFO de planta en Colombia vs. los planes de CFO fraccional de Asimétrica, que entregan la misma disciplina de FP&A.",
+        "variant": "bars",
+        "unit": "$M",
+        "series": [
+          {
+            "label": "CFO de planta",
+            "value": 20
+          },
+          {
+            "label": "Plan superior",
+            "value": 4.5
+          },
+          {
+            "label": "Plan intermedio",
+            "value": 2.9
+          },
+          {
+            "label": "Plan inicial",
+            "value": 1.9
+          }
+        ]
+      }
+    ]
   },
   {
     "slug": "flujo-de-caja-13-semanas",
@@ -649,7 +1261,178 @@ export const seoPages = [
     "cta": {
       "heading": "Mira tu flujo de caja a 13 semanas con datos reales",
       "text": "Solicita tu Diagnóstico Flash gratis. En 48 horas revisamos tus estados financieros e identificamos 3 a 5 ineficiencias concretas, cada una con su impacto estimado en pesos. Sin costo y sin compromiso."
-    }
+    },
+    "keyStats": [
+      {
+        "value": "13 semanas",
+        "label": "Horizonte de proyección"
+      },
+      {
+        "value": "91 días",
+        "label": "Un trimestre completo de visibilidad"
+      },
+      {
+        "value": "Semana 9",
+        "label": "Alerta con 8 semanas para reaccionar"
+      },
+      {
+        "value": "Cada lunes",
+        "label": "Recalibración rodante con datos reales"
+      }
+    ],
+    "visuals": [
+      {
+        "type": "comparison",
+        "afterSection": 0,
+        "title": "pyg_vs_flujo_caja_13_semanas",
+        "colA": "P&G (estado de resultados)",
+        "colB": "Flujo de caja a 13 semanas",
+        "caption": "Mismo negocio, dos verdades distintas: la utilidad no es la caja.",
+        "rows": [
+          {
+            "label": "Qué mide",
+            "a": "Utilidad contable",
+            "b": "Caja real en el banco"
+          },
+          {
+            "label": "Base",
+            "a": "Causación (al facturar)",
+            "b": "Caja (cuando entra el dinero)"
+          },
+          {
+            "label": "Granularidad",
+            "a": "Mensual / anual",
+            "b": "Semanal"
+          },
+          {
+            "label": "Incluye depreciación",
+            "a": "Sí, sin salida de caja",
+            "b": "No, solo desembolsos reales"
+          },
+          {
+            "label": "Pregunta que responde",
+            "a": "¿Soy rentable?",
+            "b": "¿Me alcanza para la nómina del viernes?"
+          }
+        ]
+      },
+      {
+        "type": "chart",
+        "afterSection": 1,
+        "title": "horizonte_proyeccion_confiabilidad",
+        "variant": "bars",
+        "unit": "% confiable",
+        "caption": "13 semanas: la ventana donde la proyección sigue siendo confiable y aún deja margen de maniobra.",
+        "series": [
+          {
+            "label": "1 mes",
+            "value": 95
+          },
+          {
+            "label": "13 semanas",
+            "value": 80
+          },
+          {
+            "label": "6 meses",
+            "value": 45
+          },
+          {
+            "label": "1 año",
+            "value": 25
+          }
+        ]
+      },
+      {
+        "type": "diagram",
+        "afterSection": 2,
+        "title": "saldo_rodante_13_semanas",
+        "caption": "El corazón del modelo: una cadena de saldos donde el cierre de una semana es el inicio de la siguiente.",
+        "steps": [
+          {
+            "label": "Saldo inicial conciliado",
+            "note": "Caja y bancos reales a hoy"
+          },
+          {
+            "label": "+ Entradas de la semana",
+            "note": "Cobros según comportamiento real"
+          },
+          {
+            "label": "− Salidas de la semana",
+            "note": "Nómina, proveedores, impuestos"
+          },
+          {
+            "label": "= Saldo de cierre",
+            "note": "Se vuelve el inicial de la próxima"
+          },
+          {
+            "label": "Rodante cada lunes",
+            "note": "Cierra real y agrega 1 semana nueva"
+          }
+        ]
+      },
+      {
+        "type": "chart",
+        "afterSection": 4,
+        "title": "proyeccion_saldo_caja_13_semanas",
+        "variant": "line",
+        "unit": "$M COP",
+        "caption": "El modelo detecta en la semana 9 que cruzas el saldo mínimo de seguridad ($80M): aún tienes semanas para actuar antes de la crisis.",
+        "series": [
+          {
+            "label": "S1",
+            "value": 240
+          },
+          {
+            "label": "S2",
+            "value": 215
+          },
+          {
+            "label": "S3",
+            "value": 198
+          },
+          {
+            "label": "S4",
+            "value": 220
+          },
+          {
+            "label": "S5",
+            "value": 185
+          },
+          {
+            "label": "S6",
+            "value": 160
+          },
+          {
+            "label": "S7",
+            "value": 145
+          },
+          {
+            "label": "S8",
+            "value": 110
+          },
+          {
+            "label": "S9",
+            "value": 70
+          },
+          {
+            "label": "S10",
+            "value": 95
+          },
+          {
+            "label": "S11",
+            "value": 130
+          },
+          {
+            "label": "S12",
+            "value": 175
+          },
+          {
+            "label": "S13",
+            "value": 205
+          }
+        ]
+      }
+    ]
   },
   {
     "slug": "modelo-financiero-tres-estados",
@@ -772,7 +1555,144 @@ export const seoPages = [
     "cta": {
       "heading": "¿Tu empresa toma decisiones con un modelo financiero o a ciegas?",
       "text": "En el Diagnóstico Flash revisamos sin costo el estado de tu información financiera y te decimos, en 48 horas, qué tan listo está tu modelo para proyectar caja, valorar y crecer con evidencia. Sin compromiso y sin hype: solo cifras y un siguiente paso claro."
-    }
+    },
+    "keyStats": [
+      {
+        "value": "3 estados",
+        "label": "P&G, balance y flujo conectados"
+      },
+      {
+        "value": "$0",
+        "label": "Diferencia entre caja del flujo y del balance"
+      },
+      {
+        "value": "5-10 años",
+        "label": "Horizonte que alimenta un DCF"
+      },
+      {
+        "value": "+30%",
+        "label": "Ventas que pueden ahogar la caja sin un modelo"
+      }
+    ],
+    "visuals": [
+      {
+        "type": "comparison",
+        "afterSection": 0,
+        "title": "estados_contables_vs_modelo_tres_estados",
+        "caption": "Misma estructura, propósito opuesto: tu contador registra el pasado; el modelo proyecta y decide el futuro.",
+        "colA": "Estados del contador",
+        "colB": "Modelo de 3 estados",
+        "rows": [
+          {
+            "label": "Propósito",
+            "a": "Reportar lo que ya pasó",
+            "b": "Proyectar y decidir"
+          },
+          {
+            "label": "Dirección",
+            "a": "Mira hacia atrás",
+            "b": "Mira hacia adelante"
+          },
+          {
+            "label": "Para qué sirve",
+            "a": "DIAN, NIIF, impuestos",
+            "b": "Caja, deuda, valoración"
+          },
+          {
+            "label": "Naturaleza",
+            "a": "Foto estática del cierre",
+            "b": "Motor dinámico e integrado"
+          },
+          {
+            "label": "Pregunta que responde",
+            "a": "¿Qué ocurrió?",
+            "b": "¿Qué pasa si...?"
+          }
+        ]
+      },
+      {
+        "type": "diagram",
+        "afterSection": 1,
+        "title": "como_se_conectan_los_tres_estados",
+        "caption": "Los tres estados no son reportes sueltos: la utilidad del P&G alimenta el balance y arranca el flujo, y el saldo de caja del flujo debe igualar el efectivo del balance. Ese cuadre es la prueba de fuego.",
+        "steps": [
+          {
+            "label": "P&G",
+            "note": "Calcula la utilidad neta: ingresos − costos − gastos − depreciación − intereses − impuestos"
+          },
+          {
+            "label": "Balance",
+            "note": "La utilidad neta entra al patrimonio (utilidades retenidas); aquí viven cartera, inventario y deuda"
+          },
+          {
+            "label": "Flujo de efectivo",
+            "note": "Parte de la utilidad neta, suma la depreciación y ajusta el capital de trabajo"
+          },
+          {
+            "label": "Cuadre",
+            "note": "El saldo de caja del flujo debe ser idéntico al efectivo del activo del balance"
+          }
+        ]
+      },
+      {
+        "type": "chart",
+        "afterSection": 1,
+        "variant": "bars",
+        "title": "utilidad_vs_caja_trampa_del_capital_de_trabajo",
+        "caption": "Una empresa puede ser rentable en el P&G y quedarse sin caja: la utilidad se queda atrapada en cartera e inventario. Así se ve la utilidad neta frente al efectivo real generado.",
+        "unit": "$M",
+        "series": [
+          {
+            "label": "Utilidad neta (P&G)",
+            "value": 480
+          },
+          {
+            "label": "Cartera por cobrar",
+            "value": 320
+          },
+          {
+            "label": "Inventario",
+            "value": 210
+          },
+          {
+            "label": "Caja real generada",
+            "value": 95
+          }
+        ]
+      },
+      {
+        "type": "diagram",
+        "afterSection": 3,
+        "title": "seis_pasos_para_construir_el_modelo",
+        "caption": "El orden importa: se empieza por la estructura y los supuestos, no por las fórmulas. Cada cálculo referencia un supuesto, nunca un número quemado.",
+        "steps": [
+          {
+            "label": "1. Reúne históricos",
+            "note": "2-3 años de estados reales bajo NIIF"
+          },
+          {
+            "label": "2. Define supuestos",
+            "note": "Crecimiento, márgenes, días de cartera/inventario/proveedores, capex"
+          },
+          {
+            "label": "3. Proyecta el P&G",
+            "note": "De ingresos a utilidad neta, cada línea amarrada a un supuesto"
+          },
+          {
+            "label": "4. Proyecta el balance",
+            "note": "Capital de trabajo, capex y deuda"
+          },
+          {
+            "label": "5. Arma el flujo",
+            "note": "Operación, inversión y financiación"
+          },
+          {
+            "label": "6. Cierra y verifica",
+            "note": "Caja del flujo = efectivo del balance; activo = pasivo + patrimonio"
+          }
+        ]
+      }
+    ]
   },
   {
     "slug": "optimizar-capital-de-trabajo",
@@ -888,7 +1808,116 @@ export const seoPages = [
     "cta": {
       "heading": "Descubra cuánta caja tiene atrapada en su operación",
       "text": "El Diagnóstico Flash es gratuito y toma 48 horas. Revisamos su ciclo de conversión de efectivo, su cartera y su inventario, y le mostramos con números dónde está la caja que puede liberar este trimestre, sin compromiso."
-    }
+    },
+    "keyStats": [
+      {
+        "value": "90 días",
+        "label": "Ciclo de caja típico atrapado en la operación"
+      },
+      {
+        "value": "−20 días",
+        "label": "Reducción del CCE alcanzable sin vender más"
+      },
+      {
+        "value": "$20M",
+        "label": "Costo de un CFO de planta al mes"
+      },
+      {
+        "value": "desde $1.9M",
+        "label": "CFO fraccional al mes"
+      }
+    ],
+    "visuals": [
+      {
+        "type": "callout",
+        "afterSection": 0,
+        "tone": "insight",
+        "title": "Rentabilidad no es liquidez",
+        "text": "Una empresa puede mostrar utilidad en el P&G y aun así no tener con qué pagar la nómina: esa utilidad está atrapada en facturas sin cobrar e inventario en bodega. La rentabilidad se mide en el papel; la liquidez, en la cuenta bancaria."
+      },
+      {
+        "type": "diagram",
+        "afterSection": 1,
+        "title": "Cómo se arma el ciclo de conversión de efectivo (CCE)",
+        "steps": [
+          {
+            "label": "Paga al proveedor",
+            "note": "Sale la caja por la mercancía o el insumo"
+          },
+          {
+            "label": "+ DIO: 60 días en bodega",
+            "note": "Días de inventario antes de venderse"
+          },
+          {
+            "label": "+ DSO: 75 días para cobrar",
+            "note": "Días que tarda el cliente en pagar"
+          },
+          {
+            "label": "− DPO: 45 días de plazo",
+            "note": "Días que usted tarda en pagar al proveedor"
+          },
+          {
+            "label": "= CCE: 90 días de caja amarrada",
+            "note": "60 + 75 − 45: días financiando a sus clientes"
+          }
+        ]
+      },
+      {
+        "type": "chart",
+        "afterSection": 1,
+        "variant": "bars",
+        "title": "Reducir el ciclo de 90 a 70 días libera 3 semanas de caja",
+        "unit": "días",
+        "series": [
+          {
+            "label": "CCE actual",
+            "value": 90
+          },
+          {
+            "label": "CCE optimizado",
+            "value": 70
+          },
+          {
+            "label": "Caja liberada",
+            "value": 20
+          }
+        ]
+      },
+      {
+        "type": "comparison",
+        "afterSection": 4,
+        "title": "CFO de planta vs. CFO fraccional",
+        "colA": "CFO de planta",
+        "colB": "CFO fraccional",
+        "rows": [
+          {
+            "label": "Costo mensual",
+            "a": "~$20.000.000",
+            "b": "Desde $1.900.000"
+          },
+          {
+            "label": "Dedicación",
+            "a": "Tiempo completo en nómina",
+            "b": "Parcial, según necesidad"
+          },
+          {
+            "label": "Justificable si factura",
+            "a": "Difícil bajo $5.000M/año",
+            "b": "Desde $500M/año"
+          },
+          {
+            "label": "Garantía",
+            "a": "Ninguna",
+            "b": "50% devuelto si al mes 3 no hay valor"
+          },
+          {
+            "label": "Benchmark sectorial",
+            "a": "Manual",
+            "b": "Prisma: +145.000 empresas, gratis"
+          }
+        ]
+      }
+    ]
   },
   {
     "slug": "arbol-de-rentabilidad",
@@ -995,7 +2024,108 @@ export const seoPages = [
     "cta": {
       "heading": "Descubre dónde está tu margen real en 48 horas",
       "text": "Solicita el Diagnóstico Flash gratuito. Revisamos tus estados financieros y te mostramos entre 3 y 5 oportunidades concretas —con su impacto estimado en pesos— incluyendo qué productos y clientes están concentrando o drenando tu rentabilidad. Sin costo y sin compromiso."
-    }
+    },
+    "keyStats": [
+      {
+        "value": "20%",
+        "label": "de los clientes concentra el ~80% de la utilidad"
+      },
+      {
+        "value": "12%",
+        "label": "margen consolidado que esconde productos en pérdida"
+      },
+      {
+        "value": "90 días",
+        "label": "de plazo que vuelve no rentable a un cliente grande"
+      },
+      {
+        "value": "3-5",
+        "label": "oportunidades en pesos en el Diagnóstico Flash"
+      }
+    ],
+    "visuals": [
+      {
+        "type": "callout",
+        "afterSection": 0,
+        "tone": "insight",
+        "title": "El promedio se ve sano; la estructura no lo es",
+        "text": "Una empresa con 12% de margen operativo puede tener referencias al 35% subsidiando productos que pierden plata. El promedio oculta exactamente lo que necesitas gestionar."
+      },
+      {
+        "type": "diagram",
+        "afterSection": 1,
+        "title": "Cómo se construye el árbol, de lo agregado a lo específico",
+        "steps": [
+          {
+            "label": "Ingreso neto real",
+            "note": "Facturado menos descuentos, devoluciones, notas crédito y rebates"
+          },
+          {
+            "label": "Margen de contribución por SKU",
+            "note": "Resta costo directo variable: materia prima, comisiones, fletes"
+          },
+          {
+            "label": "Rentabilidad por cliente y canal",
+            "note": "Resta costo de servir: plazos, logística, cartera, devoluciones"
+          },
+          {
+            "label": "Utilidad después de costos asignables",
+            "note": "Indirectos repartidos por causalidad, no lineal sobre ventas"
+          }
+        ]
+      },
+      {
+        "type": "comparison",
+        "afterSection": 2,
+        "title": "Reparto lineal vs. costeo por causalidad",
+        "colA": "Costo fijo por % de ventas",
+        "colB": "Inductores de costo reales",
+        "rows": [
+          {
+            "label": "Producto estrella (alto volumen)",
+            "a": "Carga overhead inflado, parece menos rentable",
+            "b": "Solo carga los recursos que de verdad usa"
+          },
+          {
+            "label": "Producto de baja rotación",
+            "a": "Se ve sano artificialmente",
+            "b": "Carga la estructura que realmente consume"
+          },
+          {
+            "label": "Base del reparto",
+            "a": "% sobre ingresos",
+            "b": "Pedidos, horas, referencias activas, m²"
+          },
+          {
+            "label": "Conclusión del árbol",
+            "a": "Invertida y costosa",
+            "b": "Confiable y accionable"
+          }
+        ]
+      },
+      {
+        "type": "chart",
+        "afterSection": 3,
+        "variant": "bars",
+        "title": "Dónde se concentra y dónde se drena el margen",
+        "unit": "% de la utilidad total",
+        "series": [
+          {
+            "label": "Top 20% de productos y clientes",
+            "value": 80
+          },
+          {
+            "label": "Franja media del portafolio",
+            "value": 35
+          },
+          {
+            "label": "Cola larga en pérdida",
+            "value": -15
+          }
+        ],
+        "caption": "Descomponer revela la franja que opera en pérdida sin que nadie lo note: ahí están las decisiones de precio, portafolio y cartera."
+      }
+    ]
   },
   {
     "slug": "como-valorar-una-empresa-en-colombia",
@@ -1108,6 +2238,126 @@ export const seoPages = [
     "cta": {
       "heading": "Sepa cuánto vale su empresa antes de que alguien más se lo diga",
       "text": "Pida el Diagnóstico Flash gratuito: en 48 horas revisamos el estado de su información financiera e identificamos los value drivers que mueven el valor de su negocio. Sin costo y sin compromiso. Si al mes 3 de trabajar juntos no hay valor cuantificable, devolvemos el 50%."
-    }
+    },
+    "keyStats": [
+      {
+        "value": "3 métodos",
+        "label": "DCF, múltiplos y activos para triangular el rango"
+      },
+      {
+        "value": "$500M–$50.000M",
+        "label": "Facturación típica de las empresas que valoramos (COP)"
+      },
+      {
+        "value": "2×",
+        "label": "Diferencia de valor entre dos empresas con el mismo EBITDA"
+      },
+      {
+        "value": "48h",
+        "label": "Diagnóstico Flash gratuito del estado de su información"
+      }
+    ],
+    "visuals": [
+      {
+        "type": "diagram",
+        "afterSection": 0,
+        "title": "del_ebitda_contable_al_normalizado",
+        "caption": "Normalizar es el paso previo a cualquier método: reconstruir un EBITDA que un tercero pueda creer.",
+        "steps": [
+          {
+            "label": "EBITDA contable (DIAN)",
+            "note": "Lo que reportan los estados financieros tal cual"
+          },
+          {
+            "label": "− Gastos personales del dueño",
+            "note": "Se separa lo de la empresa de lo del socio"
+          },
+          {
+            "label": "± Salarios a precio de mercado",
+            "note": "Ajuste de remuneración de los socios"
+          },
+          {
+            "label": "− Ingresos extraordinarios",
+            "note": "Se quita lo no recurrente"
+          },
+          {
+            "label": "EBITDA normalizado",
+            "note": "Base defendible ante un comprador"
+          }
+        ]
+      },
+      {
+        "type": "comparison",
+        "afterSection": 1,
+        "title": "dcf_vs_multiplos",
+        "caption": "No compiten: se usan juntos para triangular un rango y explicar por qué difieren.",
+        "colA": "Flujo de caja descontado (DCF)",
+        "colB": "Múltiplos comparables",
+        "rows": [
+          {
+            "label": "Qué mide",
+            "a": "Caja futura traída a valor presente",
+            "b": "Métrica actual × factor de mercado"
+          },
+          {
+            "label": "Mejor para",
+            "a": "Empresa en marcha y rentable",
+            "b": "Contrastar contra lo que paga el mercado"
+          },
+          {
+            "label": "Entrada clave",
+            "a": "Proyección, WACC y valor terminal",
+            "b": "EBITDA o ingresos y el múltiplo correcto"
+          },
+          {
+            "label": "Fortaleza",
+            "a": "Obliga a explicitar cada supuesto",
+            "b": "Rápido y entendible ('6× EBITDA')"
+          },
+          {
+            "label": "Riesgo",
+            "a": "Sensible a la tasa y al crecimiento",
+            "b": "Múltiplo importado mal ajustado"
+          }
+        ]
+      },
+      {
+        "type": "chart",
+        "afterSection": 2,
+        "variant": "bars",
+        "title": "value_drivers_impacto_en_multiplo",
+        "unit": "× EBITDA",
+        "caption": "Mismo EBITDA, distinto valor: los drivers explican por qué un negocio se valora al doble. Múltiplo ilustrativo para una pyme colombiana.",
+        "series": [
+          {
+            "label": "Caja volátil",
+            "value": 4
+          },
+          {
+            "label": "Caja estable y recurrente",
+            "value": 6
+          },
+          {
+            "label": "Depende del dueño / 1 cliente",
+            "value": 3.5
+          },
+          {
+            "label": "Crecimiento sostenido demostrable",
+            "value": 7
+          },
+          {
+            "label": "Capital de trabajo eficiente",
+            "value": 6.5
+          }
+        ]
+      },
+      {
+        "type": "callout",
+        "afterSection": 4,
+        "title": "Enterprise value no es lo que recibe el vendedor",
+        "tone": "warning",
+        "text": "Confundir el valor de la empresa con el valor del patrimonio cambia la cifra por completo: al enterprise value hay que restarle la deuda neta. Ignorar la deuda y el capital de trabajo es uno de los errores que más caen en el due diligence del comprador."
+      }
+    ]
   }
 ];
