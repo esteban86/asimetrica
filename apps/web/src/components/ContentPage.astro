@@ -5,6 +5,9 @@ import WorkingCapitalExplorer from '@/components/WorkingCapitalExplorer.jsx';
 import DcfExplorer from '@/components/DcfExplorer.jsx';
 import CashFlow13Explorer from '@/components/CashFlow13Explorer.jsx';
 import IncomeStatementWaterfall from '@/components/IncomeStatementWaterfall.jsx';
+import BalanceSheetComposition from '@/components/BalanceSheetComposition.jsx';
+import CashFlowBridge from '@/components/CashFlowBridge.jsx';
+import DuPontTree from '@/components/DuPontTree.jsx';
 
 /**
  * @typedef {{ heading: string, paragraphs: string[], bullets?: string[] }} Section
@@ -100,8 +103,15 @@ const iconCheck = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20
       </div>
     )}
     {page.slug === 'modelo-financiero-tres-estados' && (
-      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 space-y-6">
         <IncomeStatementWaterfall client:visible />
+        <BalanceSheetComposition client:visible />
+        <CashFlowBridge client:visible />
+      </div>
+    )}
+    {page.slug === 'arbol-de-rentabilidad' && (
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
+        <DuPontTree client:visible />
       </div>
     )}
 
