@@ -57,9 +57,9 @@ const steps = [
 ];
 
 const plans = [
-  { name: 'ESENCIAL', price: '$1.900.000', tagline: 'Asesoría + Plataforma FP&A', lead: 'Para startups y empresas listas para dar el siguiente paso.', features: ['Modelo de 3 Estados', 'Dashboard de KPIs', 'Árbol de Rentabilidad', 'Análisis de Deuda', 'Flujo de Caja 13 semanas', 'Comité Financiero · 2h/mes', 'Respuesta en 2 días'] },
-  { name: 'CRECIMIENTO', price: '$4.900.000', tagline: 'Asesoría + Plataforma FP&A', badge: 'Más Elegido', highlight: true, lead: 'Para empresas maduras en plena expansión.', features: ['Todo lo de Esencial, más:', 'Capital de Trabajo', 'Flujo de caja semanal', 'Presupuesto + 4h/mes', 'Sesión pre-junta', 'Valoración básica', 'Respuesta en 1 día'] },
-  { name: 'ESTRATÉGICO', price: '$7.900.000', tagline: 'Asesoría + Plataforma FP&A', lead: 'Para compañías que exigen dirección financiera de alto nivel.', features: ['Todo lo de Crecimiento, más:', 'Investment Readiness Pack', 'Valoración DCF', 'Data Room', 'Deck de junta directiva', 'Analítica avanzada', 'Respuesta el mismo día'] },
+  { name: 'ESENCIAL', price: '$1.900.000', period: '/mes', tagline: 'Asesoría + Plataforma FP&A', outcome: 'Pon la casa en orden y deja de decidir a ciegas.', forWho: 'Startups y empresas dando el siguiente paso', features: ['Modelo de 3 Estados', 'Dashboard de KPIs', 'Árbol de Rentabilidad', 'Análisis de Deuda', 'Flujo de Caja 13 semanas', 'Comité Financiero · 2h/mes', 'Respuesta en 2 días'] },
+  { name: 'CRECIMIENTO', price: '$4.900.000', period: '/mes', tagline: 'Asesoría + Plataforma FP&A', badge: 'Más Elegido', highlight: true, outcome: 'Escala sin que el crecimiento te ahogue la caja.', forWho: 'Empresas maduras en plena expansión', features: ['Todo lo de Esencial, más:', 'Capital de Trabajo', 'Flujo de caja semanal', 'Presupuesto + 4h/mes', 'Sesión pre-junta', 'Valoración básica', 'Respuesta en 1 día'] },
+  { name: 'ESTRATÉGICO', price: '$7.900.000', period: '/mes', tagline: 'Asesoría + Plataforma FP&A', outcome: 'Dirige como una compañía lista para invertir o vender.', forWho: 'Compañías que exigen alto nivel', features: ['Todo lo de Crecimiento, más:', 'Investment Readiness Pack', 'Valoración DCF', 'Data Room', 'Deck de junta directiva', 'Analítica avanzada', 'Respuesta el mismo día'] },
 ];
 
 const btnPrimary = 'group inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md font-medium transition-all duration-200 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring bg-primary text-primary-foreground hover:bg-primary/90 cursor-pointer';
@@ -420,14 +420,19 @@ const iconAster = '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" f
                   </div>
                 )}
 
-                <div class="text-center mb-6">
+                <div class="text-center mb-5">
                   <h3 class="text-xl heading-tertiary mb-3">{plan.name}</h3>
-                  <div class="text-3xl font-bold text-primary heading-secondary tnum">{plan.price}</div>
+                  <div class="heading-secondary">
+                    <span class="text-3xl font-bold text-primary tnum">{plan.price}</span><span class="text-sm text-muted-foreground"> {plan.period}</span>
+                  </div>
                   <div class="text-xs text-muted-foreground mt-1 body-secondary uppercase tracking-wider">{plan.tagline}</div>
                 </div>
 
-                <p class="text-sm text-foreground/90 leading-relaxed body-text text-center mb-5">
-                  {plan.lead}
+                <p class="text-base text-foreground heading-tertiary text-center leading-snug mb-1.5">
+                  {plan.outcome}
+                </p>
+                <p class="text-xs text-muted-foreground text-center body-secondary mb-6">
+                  {plan.forWho}
                 </p>
 
                 <ul class="space-y-3 mb-8">
@@ -449,6 +454,10 @@ const iconAster = '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" f
               </div>
             ))}
           </div>
+
+          <p class="fade-in text-center text-sm text-muted-foreground mt-10 max-w-2xl mx-auto body-text">
+            Todo empieza con un <strong class="text-foreground">Diagnóstico Flash gratis</strong> (48h, sin compromiso) — y cuesta una fracción de un director financiero senior de tiempo completo.
+          </p>
         </div>
       </section>
 
