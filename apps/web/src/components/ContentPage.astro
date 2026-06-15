@@ -1,6 +1,7 @@
 ---
 import ContactModal from '@/components/ContactModal.jsx';
 import Visual from '@/components/Visual.astro';
+import WorkingCapitalExplorer from '@/components/WorkingCapitalExplorer.jsx';
 
 /**
  * @typedef {{ heading: string, paragraphs: string[], bullets?: string[] }} Section
@@ -77,6 +78,12 @@ const iconCheck = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20
             </div>
           ))}
         </div>
+      </div>
+    )}
+
+    {page.slug === 'optimizar-capital-de-trabajo' && (
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
+        <WorkingCapitalExplorer client:visible />
       </div>
     )}
 
