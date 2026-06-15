@@ -1,0 +1,59 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import ContentPage from '@/components/ContentPage.astro';
+import { seoPages } from '@/data/seoPages.js';
+
+export function getStaticPaths() {
+  return seoPages
+    .filter((p) => p.type === 'recurso')
+    .map((page) => ({ params: { slug: page.slug }, props: { page } }));
+}
+
+const { page } = Astro.props;
+const base = 'https://asimetrica.co';
+const pageUrl = `${base}/recursos/${page.slug}`;
+const crumbs = [
+  { label: 'Inicio', href: '/' },
+  { label: 'Recursos', href: null },
+  { label: page.breadcrumbLabel, href: null },
+];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Article',
+      '@id': `${pageUrl}#article`,
+      headline: page.h1,
+      description: page.metaDescription,
+      about: page.primaryKeyword,
+      inLanguage: 'es-CO',
+      author: { '@id': `${base}/#organization` },
+      publisher: { '@id': `${base}/#organization` },
+      url: pageUrl,
+      mainEntityOfPage: pageUrl,
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: crumbs.map((c, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: c.label,
+        item: i === 0 ? base : pageUrl,
+      })),
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: page.faq.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    },
+  ],
+};
+---
+
+<Layout title={page.metaTitle} description={page.metaDescription} jsonLd={jsonLd} preloadImage={null}>
+  <ContentPage page={page} crumbs={crumbs} />
+</Layout>

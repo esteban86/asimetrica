@@ -615,7 +615,7 @@ const iconAster = '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" f
     <!-- Footer -->
     <footer class="border-t border-border/[0.08] pt-16 pb-28 md:pb-12 bg-card/30">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
           <div class="col-span-2 md:col-span-1">
             <img src="/logo.png" alt="Asimétrica" width="120" height="32" class="h-7 w-auto mb-4" />
             <p class="text-sm text-muted-foreground leading-relaxed body-secondary">Dirección financiera estratégica · CFO Fraccional.</p>
@@ -623,12 +623,42 @@ const iconAster = '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" f
           </div>
 
           <div>
+            <p class="text-xs uppercase tracking-wider text-foreground/70 mb-3 body-secondary font-semibold">Servicios</p>
+            <ul class="space-y-2.5 text-sm">
+              {[
+                ['/servicios/cfo-fraccional', 'CFO Fraccional'],
+                ['/servicios/direccion-financiera-estrategica', 'Dirección financiera'],
+                ['/servicios/valoracion-de-empresas', 'Valoración de empresas'],
+                ['/servicios/preparacion-para-inversion', 'Preparación para inversión'],
+                ['/servicios/fpa-presupuesto-forecast', 'Presupuesto y forecast'],
+              ].map((s) => (
+                <li><a href={s[0]} class="link-underline text-muted-foreground hover:text-primary transition-colors body-text">{s[1]}</a></li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <p class="text-xs uppercase tracking-wider text-foreground/70 mb-3 body-secondary font-semibold">Recursos</p>
+            <ul class="space-y-2.5 text-sm">
+              {[
+                ['/recursos/flujo-de-caja-13-semanas', 'Flujo de caja 13 semanas'],
+                ['/recursos/modelo-financiero-tres-estados', 'Modelo de 3 estados'],
+                ['/recursos/optimizar-capital-de-trabajo', 'Capital de trabajo'],
+                ['/recursos/arbol-de-rentabilidad', 'Árbol de rentabilidad'],
+                ['/recursos/como-valorar-una-empresa-en-colombia', 'Cómo valorar tu empresa'],
+              ].map((r) => (
+                <li><a href={r[0]} class="link-underline text-muted-foreground hover:text-primary transition-colors body-text">{r[1]}</a></li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
             <p class="text-xs uppercase tracking-wider text-foreground/70 mb-3 body-secondary font-semibold">Navega</p>
             <ul class="space-y-2.5 text-sm">
-              {['solucion', 'proceso', 'herramientas', 'planes'].map((s) => (
+              {['solucion', 'proceso', 'planes', 'faq'].map((s) => (
                 <li>
                   <button data-scroll={s} class="link-underline capitalize text-muted-foreground hover:text-primary transition-colors body-text">
-                    {s === 'solucion' ? 'Solución' : s}
+                    {s === 'solucion' ? 'Solución' : s === 'faq' ? 'FAQ' : s}
                   </button>
                 </li>
               ))}
@@ -636,26 +666,12 @@ const iconAster = '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" f
           </div>
 
           <div>
-            <p class="text-xs uppercase tracking-wider text-foreground/70 mb-3 body-secondary font-semibold">Plataforma</p>
-            <ul class="space-y-2.5 text-sm">
-              <li>
-                <a href="https://prisma.asimetrica.co" target="_blank" rel="noopener noreferrer" class="link-underline text-muted-foreground hover:text-primary transition-colors body-text">Prisma ↗</a>
-              </li>
-            </ul>
-          </div>
-
-          <div>
             <p class="text-xs uppercase tracking-wider text-foreground/70 mb-3 body-secondary font-semibold">Contacto</p>
             <ul class="space-y-2.5 text-sm">
-              <li>
-                <a href={waLink} target="_blank" rel="noopener noreferrer" class="link-underline text-muted-foreground hover:text-primary transition-colors body-text">WhatsApp</a>
-              </li>
-              <li>
-                <a href={linkedinLink} target="_blank" rel="noopener noreferrer" class="link-underline text-muted-foreground hover:text-primary transition-colors body-text">LinkedIn</a>
-              </li>
-              <li>
-                <button data-open-contact class="link-underline text-muted-foreground hover:text-primary transition-colors body-text">Solicitar diagnóstico</button>
-              </li>
+              <li><a href="https://prisma.asimetrica.co" target="_blank" rel="noopener noreferrer" class="link-underline text-muted-foreground hover:text-primary transition-colors body-text">Prisma ↗</a></li>
+              <li><a href={waLink} target="_blank" rel="noopener noreferrer" class="link-underline text-muted-foreground hover:text-primary transition-colors body-text">WhatsApp</a></li>
+              <li><a href={linkedinLink} target="_blank" rel="noopener noreferrer" class="link-underline text-muted-foreground hover:text-primary transition-colors body-text">LinkedIn</a></li>
+              <li><button data-open-contact class="link-underline text-muted-foreground hover:text-primary transition-colors body-text">Solicitar diagnóstico</button></li>
             </ul>
           </div>
         </div>

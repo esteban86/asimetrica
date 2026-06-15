@@ -6,6 +6,8 @@ import '@/styles/global.css';
 const {
   title = 'CFO Fraccional en Colombia | Asimétrica',
   description = 'CFO Fraccional y dirección financiera estratégica en Medellín y toda Colombia. Modelos financieros, flujo de caja y dashboards. Pide tu diagnóstico gratis.',
+  jsonLd: jsonLdProp,
+  preloadImage = '/plataformas.webp',
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
@@ -40,7 +42,7 @@ const services = [
   'Preparación para Inversión y Venta (Investment Readiness)',
 ];
 
-const jsonLd = {
+const jsonLd = jsonLdProp ?? {
   '@context': 'https://schema.org',
   '@graph': [
     {
@@ -133,8 +135,8 @@ const jsonLd = {
     <link rel="alternate" hreflang="es-co" href={canonical} />
     <link rel="alternate" hreflang="x-default" href={canonical} />
 
-    <!-- Preload del LCP (dashboard del hero) para mejorar el Largest Contentful Paint -->
-    <link rel="preload" as="image" href="/plataformas.webp" fetchpriority="high" />
+    <!-- Preload del LCP para mejorar el Largest Contentful Paint -->
+    {preloadImage && <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />}
 
     <!-- Satoshi (Fontshare). Inter llega self-host vía @fontsource-variable/inter. -->
     <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
