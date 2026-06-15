@@ -474,9 +474,11 @@
 /* Números tabulares: idioma del CFO (estado financiero) */
 .tnum { font-variant-numeric: tabular-nums; font-feature-settings: 'tnum' 1; }
 
-/* gradient-text: SOLO tokens (mint → púrpura), una palabra por pantalla */
+/* gradient-text: SOLO tokens (mint → púrpura), una palabra por pantalla.
+   OJO: usar background-image (no el shorthand `background`, que resetea
+   background-clip:text y deja el texto como una caja de degradado). */
 .gradient-text-primary {
-  background: linear-gradient(to right, hsl(var(--primary)), hsl(var(--accent)));
+  background-image: linear-gradient(to right, hsl(var(--primary)), hsl(var(--accent)));
 }
 
 /* ── El EJE de marca: hairline mint fuera de centro (lg+) ───────── */
