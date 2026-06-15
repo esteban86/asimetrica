@@ -591,3 +591,54 @@ html:not(.js) .axis-host::before { transform: scaleY(1); }
   .draw-line { stroke-dashoffset: 0 !important; }
   .brand-aster.spin, .led-dot { animation: none !important; }
 }
+
+/* ── Sidenotes / definiciones de jerga (estilo distill) ────────── */
+.dfn {
+  position: relative;
+  border-bottom: 1px dashed hsl(var(--primary) / 0.55);
+  color: hsl(var(--foreground));
+  cursor: help;
+  outline: none;
+}
+.dfn:hover, .dfn:focus-visible { border-bottom-color: hsl(var(--primary)); }
+.dfn-note {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 0.6rem);
+  transform: translateX(-50%) translateY(4px);
+  width: min(18rem, 80vw);
+  z-index: 30;
+  padding: 0.7rem 0.85rem;
+  border-radius: 0.6rem;
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border) / 0.6);
+  box-shadow: 0 12px 30px -8px rgb(0 0 0 / 0.55);
+  color: hsl(var(--muted-foreground));
+  font-size: 0.8rem;
+  line-height: 1.45;
+  text-align: left;
+  letter-spacing: normal;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+/* flecha del popover */
+.dfn-note::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: hsl(var(--card));
+}
+.dfn:hover .dfn-note,
+.dfn:focus-within .dfn-note,
+.dfn:focus-visible .dfn-note {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+@media (prefers-reduced-motion: reduce) {
+  .dfn-note { transition: none !important; transform: translateX(-50%) !important; }
+}

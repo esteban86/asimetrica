@@ -8,12 +8,13 @@ import IncomeStatementWaterfall from '@/components/IncomeStatementWaterfall.jsx'
 import BalanceSheetComposition from '@/components/BalanceSheetComposition.jsx';
 import CashFlowBridge from '@/components/CashFlowBridge.jsx';
 import DuPontTree from '@/components/DuPontTree.jsx';
+import VarianceBridge from '@/components/VarianceBridge.jsx';
 
 /**
  * @typedef {{ heading: string, paragraphs: string[], bullets?: string[] }} Section
  * @typedef {{ q: string, a: string }} FaqItem
  * @typedef {{ label: string, href: string }} LinkItem
- * @typedef {{ type: string, slug: string, primaryKeyword: string, metaTitle: string, metaDescription: string, breadcrumbLabel: string, h1: string, heroSubhead: string, sections: Section[], faq: FaqItem[], internalLinks: LinkItem[], cta: { heading: string, text: string }, keyStats?: {value:string,label:string}[], visuals?: any[] }} PageData
+ * @typedef {{ type: string, slug: string, primaryKeyword: string, metaTitle: string, metaDescription: string, breadcrumbLabel: string, h1: string, heroSubhead: string, sections: Section[], faq: FaqItem[], internalLinks: LinkItem[], cta: { heading: string, text: string }, keyStats?: {value:string,label:string}[], visuals?: any[], glossary?: {term:string,def:string}[] }} PageData
  */
 
 /** @type {PageData} */
@@ -112,6 +113,11 @@ const iconCheck = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20
     {page.slug === 'arbol-de-rentabilidad' && (
       <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
         <DuPontTree client:visible />
+      </div>
+    )}
+    {page.slug === 'fpa-presupuesto-forecast' && (
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
+        <VarianceBridge client:visible />
       </div>
     )}
 
@@ -224,4 +230,53 @@ const iconCheck = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20
       window.dispatchEvent(new Event('open-contact-modal'));
     });
   });
+</script>
+
+<script define:vars={{ glossary: page.glossary ?? [] }}>
+  /* global glossary */
+  // Sidenotes estilo distill: realza jerga en el cuerpo con una definición
+  // en hover/focus/tap. Opera sobre el texto ya escapado (sin innerHTML
+  // proveniente de datos), así que es seguro y respeta los '&' del contenido.
+  if (Array.isArray(glossary) && glossary.length) {
+    const article = document.querySelector('article');
+    // términos más largos primero, para que "rolling forecast" gane sobre "forecast"
+    const terms = [...glossary].sort((a, b) => b.term.length - a.term.length);
+    const paras = article ? article.querySelectorAll('p.body-text') : [];
+
+    const wrapFirst = ({ term, def }) => {
+      const needle = term.toLowerCase();
+      for (const p of paras) {
+        // recorre solo nodos de texto directos (no toca spans ya creados)
+        for (const node of [...p.childNodes]) {
+          if (node.nodeType !== Node.TEXT_NODE) continue;
+          const text = node.nodeValue;
+          const idx = text.toLowerCase().indexOf(needle);
+          if (idx === -1) continue;
+
+          const before = text.slice(0, idx);
+          const match = text.slice(idx, idx + term.length);
+          const after = text.slice(idx + term.length);
+
+          const span = document.createElement('span');
+          span.className = 'dfn';
+          span.setAttribute('tabindex', '0');
+          span.appendChild(document.createTextNode(match));
+          const note = document.createElement('span');
+          note.className = 'dfn-note';
+          note.setAttribute('role', 'tooltip');
+          note.textContent = def; // textContent => sin inyección de HTML
+          span.appendChild(note);
+
+          const frag = document.createDocumentFragment();
+          if (before) frag.appendChild(document.createTextNode(before));
+          frag.appendChild(span);
+          if (after) frag.appendChild(document.createTextNode(after));
+          p.replaceChild(frag, node);
+          return; // solo la primera aparición de cada término
+        }
+      }
+    };
+
+    terms.forEach(wrapFirst);
+  }
 </script>

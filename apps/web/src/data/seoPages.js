@@ -910,6 +910,14 @@ export const seoPages = [
     "metaTitle": "FP&A: Presupuesto y Forecast Empresarial | Asimétrica",
     "metaDescription": "Implementamos FP&A real en su empresa: modelo de 3 estados, presupuesto anual y rolling forecast con KPIs. Diagnóstico Flash gratis en 48h.",
     "breadcrumbLabel": "FP&A: Presupuesto y Forecast",
+    "glossary": [
+      { "term": "capital de trabajo", "def": "La plata atada en cuentas por cobrar e inventario menos lo que financian los proveedores: cuánto efectivo consume la operación día a día." },
+      { "term": "rolling forecast", "def": "Pronóstico que se actualiza cada mes o trimestre extendiendo siempre el horizonte, en vez de un presupuesto fijo que envejece con el año." },
+      { "term": "variaciones", "def": "La diferencia entre lo real y lo presupuestado, descompuesta en sus causas (ingresos, costos, gastos) para saber dónde actuar." },
+      { "term": "drivers", "def": "Las variables que mueven los números —precio, volumen, rotación— sobre las que de verdad se puede decidir." },
+      { "term": "EBITDA", "def": "Utilidad antes de intereses, impuestos, depreciación y amortización: una medida aproximada de la caja que genera la operación." },
+      { "term": "FP&A", "def": "Financial Planning & Analysis. La función que planea, proyecta y analiza los números para decidir con anticipación; no es contabilidad, que mira hacia atrás." }
+    ],
     "h1": "Presupuesto y forecast empresarial (FP&A) para tomar decisiones con anticipación",
     "heroSubhead": "Construimos la función de FP&A que su empresa necesita: un modelo financiero de tres estados, un presupuesto anual que se cumple y un rolling forecast que le avisa antes de que el problema llegue al banco. Sin hojas de cálculo sueltas ni sorpresas a fin de mes.",
     "sections": [
