@@ -642,3 +642,10 @@ html:not(.js) .axis-host::before { transform: scaleY(1); }
 @media (prefers-reduced-motion: reduce) {
   .dfn-note { transition: none !important; transform: translateX(-50%) !important; }
 }
+
+/* ── Centrado real de párrafos en bloques centrados ────────────── */
+/* El cap de legibilidad `p { max-width: 65ch }` deja los párrafos cortos
+   más angostos que su contenedor; con margin 0 se pegan a la izquierda y
+   `text-center` solo centra el texto dentro del bloque. Esto centra el
+   bloque mismo. Solo aplica a hijos directos de un contenedor centrado. */
+.text-center > p { margin-inline: auto; }
