@@ -57,9 +57,9 @@ const steps = [
 ];
 
 const plans = [
-  { name: 'ESENCIAL', price: '$1.900.000', tagline: 'Asesoría + Plataforma FP&A', lead: 'Para startups y empresas listas para dar el siguiente paso.', bullets: ['Tu contabilidad convertida en inteligencia financiera', 'Organiza la casa y entiende tu flujo de dinero', 'Decisiones con claridad y confianza'] },
-  { name: 'CRECIMIENTO', price: '$4.900.000', tagline: 'Asesoría + Plataforma FP&A', badge: 'Más Elegido', highlight: true, lead: 'Para empresas maduras en plena expansión.', bullets: ['Respaldo experto para escalar con tranquilidad', 'Entiende el impacto de cada decisión antes de ejecutarla', 'Crecimiento verdaderamente sostenible'] },
-  { name: 'ESTRATÉGICO', price: '$7.900.000', tagline: 'Asesoría + Plataforma FP&A', lead: 'Para compañías que exigen dirección financiera de alto nivel.', bullets: ['Tu CFO de cabecera, hombro a hombro', 'Aliados en la operación diaria y en las grandes decisiones', 'Cuidamos y maximizamos el valor de tu empresa'] },
+  { name: 'ESENCIAL', price: '$1.900.000', tagline: 'Asesoría + Plataforma FP&A', lead: 'Para startups y empresas listas para dar el siguiente paso.', features: ['Modelo de 3 Estados', 'Dashboard de KPIs', 'Árbol de Rentabilidad', 'Análisis de Deuda', 'Flujo de Caja 13 semanas', 'Comité Financiero · 2h/mes', 'Respuesta en 2 días'] },
+  { name: 'CRECIMIENTO', price: '$4.900.000', tagline: 'Asesoría + Plataforma FP&A', badge: 'Más Elegido', highlight: true, lead: 'Para empresas maduras en plena expansión.', features: ['Todo lo de Esencial, más:', 'Capital de Trabajo', 'Flujo de caja semanal', 'Presupuesto + 4h/mes', 'Sesión pre-junta', 'Valoración básica', 'Respuesta en 1 día'] },
+  { name: 'ESTRATÉGICO', price: '$7.900.000', tagline: 'Asesoría + Plataforma FP&A', lead: 'Para compañías que exigen dirección financiera de alto nivel.', features: ['Todo lo de Crecimiento, más:', 'Investment Readiness Pack', 'Valoración DCF', 'Data Room', 'Deck de junta directiva', 'Analítica avanzada', 'Respuesta el mismo día'] },
 ];
 
 const btnPrimary = 'group inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md font-medium transition-all duration-200 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring bg-primary text-primary-foreground hover:bg-primary/90 cursor-pointer';
@@ -431,11 +431,15 @@ const iconAster = '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" f
                 </p>
 
                 <ul class="space-y-3 mb-8">
-                  {plan.bullets.map((b) => (
-                    <li class="flex items-start gap-3 text-sm body-text">
-                      <span set:html={iconCheck} />
-                      <span class="text-muted-foreground leading-relaxed">{b}</span>
-                    </li>
+                  {plan.features.map((f) => (
+                    f.startsWith('Todo ') ? (
+                      <li class="text-xs uppercase tracking-wider text-primary font-semibold body-secondary pt-1">{f}</li>
+                    ) : (
+                      <li class="flex items-start gap-3 text-sm body-text">
+                        <span set:html={iconCheck} />
+                        <span class="text-muted-foreground leading-relaxed">{f}</span>
+                      </li>
+                    )
                   ))}
                 </ul>
 
