@@ -4,6 +4,7 @@ import Visual from '@/components/Visual.astro';
 import WorkingCapitalExplorer from '@/components/WorkingCapitalExplorer.jsx';
 import DcfExplorer from '@/components/DcfExplorer.jsx';
 import CashFlow13Explorer from '@/components/CashFlow13Explorer.jsx';
+import IncomeStatementWaterfall from '@/components/IncomeStatementWaterfall.jsx';
 
 /**
  * @typedef {{ heading: string, paragraphs: string[], bullets?: string[] }} Section
@@ -96,6 +97,11 @@ const iconCheck = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20
     {page.slug === 'flujo-de-caja-13-semanas' && (
       <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
         <CashFlow13Explorer client:visible />
+      </div>
+    )}
+    {page.slug === 'modelo-financiero-tres-estados' && (
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
+        <IncomeStatementWaterfall client:visible />
       </div>
     )}
 
