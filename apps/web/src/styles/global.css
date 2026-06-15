@@ -466,3 +466,126 @@
 @keyframes spark-draw {
   to { stroke-dashoffset: 0; }
 }
+
+/* ════════════════════════════════════════════════════════════════
+   CAPA "SALA DE MANDO + EJE DE MARCA"  (solo tokens existentes)
+   ════════════════════════════════════════════════════════════════ */
+
+/* Números tabulares: idioma del CFO (estado financiero) */
+.tnum { font-variant-numeric: tabular-nums; font-feature-settings: 'tnum' 1; }
+
+/* gradient-text: SOLO tokens (mint → púrpura), una palabra por pantalla */
+.gradient-text-primary {
+  background: linear-gradient(to right, hsl(var(--primary)), hsl(var(--accent)));
+}
+
+/* ── El EJE de marca: hairline mint fuera de centro (lg+) ───────── */
+.axis-host { position: relative; }
+.axis-host::before {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 38%;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, hsl(var(--primary) / 0.38) 12%, hsl(var(--primary) / 0.38) 88%, transparent);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+  z-index: 0;
+}
+.js .axis-host.visible::before { transform: scaleY(1); }
+html:not(.js) .axis-host::before { transform: scaleY(1); }
+@media (max-width: 1023px) { .axis-host::before { display: none; } }
+
+/* ── Números-outline monumentales (foliación, textura) ─────────── */
+.folio-outline {
+  font-family: 'Satoshi', 'Inter Variable', sans-serif;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 0.82;
+  color: transparent;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: hsl(var(--foreground) / 0.12);
+}
+.folio-outline.is-pain { -webkit-text-stroke-color: hsl(var(--secondary) / 0.28); }
+@media (forced-colors: active), print {
+  .folio-outline { color: hsl(var(--foreground) / 0.4); -webkit-text-stroke-width: 0; }
+}
+
+/* ── Asterisco-marca (eco del logo) ────────────────────────────── */
+@keyframes axis-spin { to { transform: rotate(360deg); } }
+.brand-aster { display: inline-block; transform-origin: 50% 50%; }
+.brand-aster.spin { animation: axis-spin 44s linear infinite; }
+.aster-watermark {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.06;
+  z-index: 0;
+  width: clamp(18rem, 34vw, 34rem);
+  height: auto;
+}
+
+/* ── Clip-reveal de headings de sección (observer-gated) ───────── */
+.js .reveal-lines .rl {
+  display: inline-block;
+  clip-path: inset(0 0 110% 0);
+  transition: clip-path 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: calc(var(--rl, 0) * 90ms);
+}
+.js .fade-in.visible .reveal-lines .rl,
+.js .reveal-lines.visible .rl { clip-path: inset(0 0 -12% 0); }
+
+/* ── Hero H1: reveal por animación ON-LOAD (no depende del observer) */
+.js .hero-reveal .rl {
+  display: inline-block;
+  clip-path: inset(0 0 110% 0);
+  animation: rl-reveal 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: calc(0.15s + var(--rl, 0) * 0.09s);
+}
+@keyframes rl-reveal { to { clip-path: inset(0 0 -12% 0); } }
+
+/* Blur→nítido SOLO en la palabra "retrovisor" (un uso = firma) */
+.js .focus-word {
+  filter: blur(7px);
+  opacity: 0.5;
+  animation: focus-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.6s forwards;
+}
+@keyframes focus-in { to { filter: blur(0); opacity: 1; } }
+
+/* ── Luz que nace del dato (radial detrás del panel) ───────────── */
+.data-light {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(ellipse at center, hsl(var(--primary) / 0.20), transparent 62%);
+  filter: blur(58px);
+}
+
+/* ── LED del eyebrow (respiración, no parpadeo) ────────────────── */
+@keyframes led-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.62; } }
+.led-dot { animation: led-pulse 3.2s ease-in-out infinite; }
+
+/* ── Dashboard del hero: asienta desde profundidad (lg+) ───────── */
+@media (min-width: 1024px) {
+  .js #hero-visual.fade-in .dash-tilt {
+    transform: perspective(1700px) rotateY(-14deg) rotateX(5deg) scale(0.965);
+    transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .js #hero-visual.fade-in.visible .dash-tilt {
+    transform: perspective(1700px) rotateY(-9deg) rotateX(3deg) rotate(0.4deg) scale(1);
+  }
+}
+
+/* ── Mini-sparklines del bento (se dibujan al revelar) ─────────── */
+.js .draw-line { stroke-dasharray: 320; stroke-dashoffset: 320; transition: stroke-dashoffset 1.5s cubic-bezier(0.22, 1, 0.36, 1); }
+.js .fade-in.visible .draw-line { stroke-dashoffset: 0; }
+
+/* ── reduced-motion: saltar todo lo nuevo a estado final ───────── */
+@media (prefers-reduced-motion: reduce) {
+  .axis-host::before { transform: scaleY(1) !important; transition: none !important; }
+  .reveal-lines .rl, .hero-reveal .rl { clip-path: inset(0) !important; animation: none !important; transition: none !important; }
+  .focus-word { filter: none !important; opacity: 1 !important; animation: none !important; }
+  .draw-line { stroke-dashoffset: 0 !important; }
+  .brand-aster.spin, .led-dot { animation: none !important; }
+}
