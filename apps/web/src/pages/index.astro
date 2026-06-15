@@ -57,9 +57,9 @@ const steps = [
 ];
 
 const plans = [
-  { name: 'ESENCIAL', price: '$1.900.000', tagline: 'Asesoría + Plataforma FP&A', desc: 'Ideal para startups y empresas listas para dar el siguiente paso. Tomamos tu información contable y la transformamos en inteligencia financiera para que logres organizar la casa, entender tu flujo de dinero y tomar tus decisiones con claridad y confianza.' },
-  { name: 'CRECIMIENTO', price: '$4.900.000', tagline: 'Asesoría + Plataforma FP&A', badge: 'Más Elegido', highlight: true, desc: 'Pensado para empresas maduras en expansión. Nos convertimos en tu respaldo experto para que escales con tranquilidad y responsabilidad, analizando a fondo tu operación para que entiendas las implicaciones financieras de cada decisión antes de ejecutarla, asegurando un crecimiento verdaderamente sostenible.' },
-  { name: 'ESTRATÉGICO', price: '$7.900.000', tagline: 'Asesoría + Plataforma FP&A', desc: 'Creado para compañías que exigen una dirección financiera de alto nivel. Actuamos como tu CFO de cabecera, acompañándote hombro a hombro como aliados tanto en la trinchera de la operación diaria como en la mesa de las grandes decisiones, cuidando y maximizando el valor de tu empresa en todo momento.' },
+  { name: 'ESENCIAL', price: '$1.900.000', tagline: 'Asesoría + Plataforma FP&A', lead: 'Para startups y empresas listas para dar el siguiente paso.', desc: 'Ideal para startups y empresas listas para dar el siguiente paso. Tomamos tu información contable y la transformamos en inteligencia financiera para que logres organizar la casa, entender tu flujo de dinero y tomar tus decisiones con claridad y confianza.' },
+  { name: 'CRECIMIENTO', price: '$4.900.000', tagline: 'Asesoría + Plataforma FP&A', badge: 'Más Elegido', highlight: true, lead: 'Para empresas maduras en plena expansión.', desc: 'Pensado para empresas maduras en expansión. Nos convertimos en tu respaldo experto para que escales con tranquilidad y responsabilidad, analizando a fondo tu operación para que entiendas las implicaciones financieras de cada decisión antes de ejecutarla, asegurando un crecimiento verdaderamente sostenible.' },
+  { name: 'ESTRATÉGICO', price: '$7.900.000', tagline: 'Asesoría + Plataforma FP&A', lead: 'Para compañías que exigen dirección financiera de alto nivel.', desc: 'Creado para compañías que exigen una dirección financiera de alto nivel. Actuamos como tu CFO de cabecera, acompañándote hombro a hombro como aliados tanto en la trinchera de la operación diaria como en la mesa de las grandes decisiones, cuidando y maximizando el valor de tu empresa en todo momento.' },
 ];
 
 const btnPrimary = 'group inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md font-medium transition-all duration-200 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring bg-primary text-primary-foreground hover:bg-primary/90 cursor-pointer';
@@ -427,11 +427,11 @@ const iconAster = '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" f
                   <div class="text-xs text-muted-foreground mt-1 body-secondary uppercase tracking-wider">{plan.tagline}</div>
                 </div>
 
-                <p class="hidden md:block text-sm text-muted-foreground leading-relaxed description mb-8 flex-1">
-                  {plan.desc}
+                <p class="text-sm text-foreground/90 leading-relaxed body-text text-center mb-4">
+                  {plan.lead}
                 </p>
 
-                <details class="md:hidden mb-6 group/d">
+                <details class="mb-8 group/d">
                   <summary class="cursor-pointer list-none flex items-center justify-center gap-1 py-2 text-sm text-primary body-text">
                     Ver detalle
                     <span class="transition-transform group-open/d:rotate-180" set:html={iconChevron} />
@@ -441,7 +441,7 @@ const iconAster = '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" f
                   </p>
                 </details>
 
-                <button data-open-contact class={`w-full inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md h-11 md:h-10 px-4 font-medium transition-all duration-200 active:scale-[0.98] cursor-pointer body-text ${plan.highlight ? 'bg-primary text-primary-foreground hover:bg-primary/90' : 'bg-muted text-foreground hover:bg-muted/80'}`}>
+                <button data-open-contact class={`mt-auto w-full inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md h-11 md:h-10 px-4 font-medium transition-all duration-200 active:scale-[0.98] cursor-pointer body-text ${plan.highlight ? 'bg-primary text-primary-foreground hover:bg-primary/90' : 'bg-muted text-foreground hover:bg-muted/80'}`}>
                   Solicitar Diagnóstico
                 </button>
               </div>
