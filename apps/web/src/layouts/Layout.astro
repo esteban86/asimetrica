@@ -4,8 +4,8 @@ import '@fontsource-variable/inter';
 import '@/styles/global.css';
 
 const {
-  title = 'Asimétrica — Finanzas Estratégicas | CFO Fraccional Colombia',
-  description = 'Dirección Financiera Estratégica para empresas colombianas que quieren crecer con inteligencia. CFO Fraccional, modelos financieros y dashboards accionables.',
+  title = 'CFO Fraccional en Colombia | Asimétrica',
+  description = 'CFO Fraccional y dirección financiera estratégica en Medellín y toda Colombia. Modelos financieros, flujo de caja y dashboards. Pide tu diagnóstico gratis.',
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
@@ -16,18 +16,53 @@ const cfBeacon = import.meta.env.PUBLIC_CF_BEACON_TOKEN;
 
 // Grafo de marca: une asimetrica.co (Organization + servicio) con
 // prisma.asimetrica.co (la plataforma) para que Google los lea como una entidad.
+const ORG = 'https://asimetrica.co/#organization';
+const phone = '+573001303558';
+const linkedin = 'https://www.linkedin.com/company/asim%C3%A9trica';
+const address = {
+  '@type': 'PostalAddress',
+  addressLocality: 'Medellín',
+  addressRegion: 'Antioquia',
+  addressCountry: 'CO',
+};
+const areaServed = [
+  { '@type': 'City', name: 'Medellín' },
+  { '@type': 'AdministrativeArea', name: 'Antioquia' },
+  { '@type': 'City', name: 'Bogotá' },
+  { '@type': 'Country', name: 'Colombia' },
+];
+const services = [
+  'CFO Fraccional',
+  'Dirección Financiera Estratégica',
+  'Modelo Financiero de 3 Estados (FP&A)',
+  'Flujo de Caja a 13 Semanas',
+  'Valoración de Empresas (DCF)',
+  'Preparación para Inversión y Venta (Investment Readiness)',
+];
+
 const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
     {
       '@type': 'Organization',
-      '@id': 'https://asimetrica.co/#organization',
+      '@id': ORG,
       name: 'Asimétrica',
       url: 'https://asimetrica.co',
       logo: 'https://asimetrica.co/logo.png',
+      image: 'https://asimetrica.co/og-image.png',
       description,
-      areaServed: 'CO',
-      knowsLanguage: 'es',
+      telephone: phone,
+      address,
+      areaServed,
+      knowsLanguage: 'es-CO',
+      sameAs: [linkedin, 'https://prisma.asimetrica.co'],
+      contactPoint: {
+        '@type': 'ContactPoint',
+        telephone: phone,
+        contactType: 'sales',
+        areaServed: 'CO',
+        availableLanguage: 'Spanish',
+      },
       owns: { '@id': 'https://prisma.asimetrica.co/#prisma' },
     },
     {
@@ -35,9 +70,32 @@ const jsonLd = {
       '@id': 'https://asimetrica.co/#service',
       name: 'Asimétrica — Dirección Financiera Estratégica',
       url: 'https://asimetrica.co',
-      provider: { '@id': 'https://asimetrica.co/#organization' },
-      areaServed: 'CO',
-      serviceType: ['CFO Fraccional', 'Dirección Financiera Estratégica', 'Modelos Financieros'],
+      image: 'https://asimetrica.co/og-image.png',
+      provider: { '@id': ORG },
+      telephone: phone,
+      address,
+      areaServed,
+      priceRange: '$$$',
+      currenciesAccepted: 'COP',
+      knowsLanguage: 'es-CO',
+      sameAs: [linkedin],
+      serviceType: services,
+    },
+    ...services.map((s, i) => ({
+      '@type': 'Service',
+      '@id': `https://asimetrica.co/#svc-${i}`,
+      name: s,
+      serviceType: s,
+      provider: { '@id': ORG },
+      areaServed: { '@type': 'Country', name: 'Colombia' },
+    })),
+    {
+      '@type': 'WebSite',
+      '@id': 'https://asimetrica.co/#website',
+      url: 'https://asimetrica.co',
+      name: 'Asimétrica',
+      inLanguage: 'es-CO',
+      publisher: { '@id': ORG },
     },
     {
       '@type': 'WebApplication',
@@ -50,7 +108,7 @@ const jsonLd = {
       offers: { '@type': 'Offer', price: '0', priceCurrency: 'COP' },
       description:
         'Inteligencia financiera con acceso libre a los estados financieros y el análisis de más de 145.000 empresas colombianas.',
-      publisher: { '@id': 'https://asimetrica.co/#organization' },
+      publisher: { '@id': ORG },
     },
   ],
 };
@@ -70,6 +128,13 @@ const jsonLd = {
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={canonical} />
+
+    <!-- hreflang (es-CO único locale) -->
+    <link rel="alternate" hreflang="es-co" href={canonical} />
+    <link rel="alternate" hreflang="x-default" href={canonical} />
+
+    <!-- Preload del LCP (dashboard del hero) para mejorar el Largest Contentful Paint -->
+    <link rel="preload" as="image" href="/plataformas.webp" fetchpriority="high" />
 
     <!-- Satoshi (Fontshare). Inter llega self-host vía @fontsource-variable/inter. -->
     <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
