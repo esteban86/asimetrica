@@ -19,9 +19,9 @@ const successPoints = [
 ];
 
 const pilares = [
-  { num: '01', title: 'CLARIDAD', color: 'secondary', desc: 'Sabes exactamente dónde estás parado: cuánto generas, cuánto gastas, cuánto queda y por qué.' },
+  { num: '01', title: 'CLARIDAD', color: 'primary', desc: 'Sabes exactamente dónde estás parado: cuánto generas, cuánto gastas, cuánto queda y por qué.' },
   { num: '02', title: 'DIRECCIÓN', color: 'primary', desc: 'Tienes un modelo que proyecta escenarios, anticipa crisis y guía cada decisión con datos confiables.' },
-  { num: '03', title: 'CRECIMIENTO', color: 'accent', desc: 'Liberas caja, optimizas capital de trabajo y estructuras la empresa para escalar o atraer inversión.' },
+  { num: '03', title: 'CRECIMIENTO', color: 'primary', desc: 'Liberas caja, optimizas capital de trabajo y estructuras la empresa para escalar o atraer inversión.' },
 ];
 
 // Herramientas redactadas como BENEFICIO (qué gana el cliente), no como feature.
@@ -69,6 +69,11 @@ const iconExternal = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height=
 const iconCheck = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-primary flex-shrink-0 mt-0.5" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>';
 const iconMenu = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>';
 const iconChevron = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>';
+const iconWhatsapp = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"/></svg>';
+const iconLinkedin = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>';
+
+const waLink = 'https://wa.me/573001303558?text=' + encodeURIComponent('Hola, vengo de la web y quiero más información sobre Asimétrica.');
+const linkedinLink = 'https://www.linkedin.com/company/asim%C3%A9trica';
 ---
 
 <Layout>
@@ -122,10 +127,7 @@ const iconChevron = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div class="fade-in text-center lg:text-left">
-              <div class="inline-flex items-center gap-2 text-xs font-semibold text-primary uppercase tracking-wider mb-5 body-secondary">
-                <span class="w-2 h-2 rounded-full bg-primary"></span>
-                CFO Fraccional · Colombia
-              </div>
+              <p class="eyebrow justify-center lg:justify-start">CFO Fraccional · Colombia</p>
               <h1 class="text-4xl md:text-5xl lg:text-6xl heading-primary mb-6">
                 Deja de dirigir tu empresa por el <span class="gradient-text-primary">retrovisor</span>.
               </h1>
@@ -144,7 +146,7 @@ const iconChevron = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="
             </div>
 
             <div class="fade-in">
-              <div class="rounded-xl overflow-hidden border border-border/[0.12] shadow-2xl">
+              <div class="product-shot overflow-hidden">
                 <img src="/plataformas.webp" alt="Dashboard de Asimétrica — Flujo de Caja 13 semanas" width="1400" height="788" fetchpriority="high" decoding="async" class="w-full h-auto block" />
               </div>
               <div class="flex flex-wrap justify-center lg:justify-start gap-x-5 gap-y-2 mt-4">
@@ -189,6 +191,7 @@ const iconChevron = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="
       <section id="problema" class="py-12 md:py-20 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="fade-in mb-10 max-w-3xl">
+            <p class="eyebrow">El reto</p>
             <h2 class="text-3xl md:text-4xl heading-section mb-5">
               El <span class="text-secondary">Problema</span>
             </h2>
@@ -211,12 +214,13 @@ const iconChevron = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="
         </div>
       </section>
 
-      <div class="gradient-separator"></div>
+      <div class="section-divider"></div>
 
       <!-- Qué es Asimétrica + Visión de éxito -->
       <section id="solucion" class="py-12 md:py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="fade-in mb-8">
+            <p class="eyebrow">Quiénes somos</p>
             <h2 class="text-3xl md:text-4xl heading-section mb-6">
               ¿Qué es <span class="text-primary">Asimétrica</span>?
             </h2>
@@ -235,7 +239,7 @@ const iconChevron = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="
             <h3 class="text-2xl heading-tertiary mb-8">Así se ve dirigir con Asimétrica</h3>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
               {successPoints.map((point, index) => (
-                <div class="bg-card rounded-lg p-6 border-l-2 border-primary" style={`transition-delay:${index * 80}ms`}>
+                <div class="card-surface p-6 border-l-2 border-l-primary" style={`transition-delay:${index * 80}ms`}>
                   <p class="text-base text-foreground leading-relaxed body-text">{point}</p>
                 </div>
               ))}
@@ -244,12 +248,13 @@ const iconChevron = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="
         </div>
       </section>
 
-      <div class="gradient-separator"></div>
+      <div class="section-divider"></div>
 
       <!-- Proceso (el plan) -->
       <section id="proceso" class="py-12 md:py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="fade-in mb-12 max-w-3xl">
+            <p class="eyebrow">El proceso</p>
             <h2 class="text-3xl md:text-4xl heading-section mb-4">
               Cómo <span class="text-primary">Trabajamos</span>
             </h2>
@@ -284,6 +289,7 @@ const iconChevron = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="
       <section class="py-12 md:py-20 bg-card/30">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="fade-in text-center mb-12">
+            <p class="eyebrow">El resultado</p>
             <h2 class="text-3xl md:text-4xl heading-section mb-4">
               Convertimos tu empresa en una que <span class="text-primary">construye patrimonio</span>.
             </h2>
@@ -305,6 +311,7 @@ const iconChevron = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="
       <section id="herramientas" class="py-12 md:py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="fade-in mb-4">
+            <p class="eyebrow">Qué incluye</p>
             <h2 class="text-3xl md:text-4xl heading-section mb-4">
               Lo que cambia en tu día a día
             </h2>
@@ -315,7 +322,7 @@ const iconChevron = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="
 
           <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 mt-8 md:mt-12">
             {tools.map((tool, index) => (
-              <div class="fade-in card-hover bg-card p-4 md:p-6 rounded-lg" style={`transition-delay:${index * 50}ms`}>
+              <div class="fade-in card-hover card-surface p-4 md:p-6" style={`transition-delay:${index * 50}ms`}>
                 <div class="text-xs font-semibold uppercase tracking-wider mb-2 body-secondary text-primary">
                   {tool.category}
                 </div>
@@ -327,7 +334,7 @@ const iconChevron = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="
         </div>
       </section>
 
-      <div class="gradient-separator"></div>
+      <div class="section-divider"></div>
 
       <!-- Prisma -->
       <section id="prisma" class="py-12 md:py-20 bg-card/30 relative overflow-hidden">
@@ -335,10 +342,7 @@ const iconChevron = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div class="fade-in">
-              <div class="inline-flex items-center gap-2 text-xs font-semibold text-primary uppercase tracking-wider mb-4 body-secondary">
-                <span class="w-2 h-2 rounded-full bg-primary"></span>
-                Plataforma gratuita
-              </div>
+              <p class="eyebrow">Plataforma gratuita</p>
               <h2 class="text-3xl md:text-4xl heading-section mb-6">
                 <span class="gradient-text-primary">Prisma</span> by Asimétrica
               </h2>
@@ -374,12 +378,13 @@ const iconChevron = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="
         </div>
       </section>
 
-      <div class="gradient-separator"></div>
+      <div class="section-divider"></div>
 
       <!-- Planes -->
       <section id="planes" class="py-12 md:py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="fade-in text-center mb-12">
+            <p class="eyebrow">Planes y precios</p>
             <h2 class="text-3xl md:text-4xl heading-section mb-4">
               Tres Planes. Un Solo Estándar de <span class="text-primary">Excelencia</span>.
             </h2>
@@ -387,7 +392,7 @@ const iconChevron = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="
 
           <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 items-stretch">
             {plans.map((plan, index) => (
-              <div class={`fade-in card-hover bg-card p-8 relative flex flex-col rounded-lg ${plan.highlight ? 'ring-2 ring-primary md:scale-105' : ''}`} style={`transition-delay:${index * 100}ms`}>
+              <div class={`fade-in card-hover card-surface p-8 relative flex flex-col ${plan.highlight ? 'ring-2 ring-primary md:scale-105' : ''}`} style={`transition-delay:${index * 100}ms`}>
                 {plan.badge && (
                   <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-semibold body-secondary">
                     {plan.badge}
@@ -429,6 +434,7 @@ const iconChevron = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="
       <section id="contacto" class="py-12 md:py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="fade-in text-center max-w-3xl mx-auto">
+            <p class="eyebrow justify-center">Empecemos</p>
             <h2 class="text-3xl md:text-4xl heading-section mb-6">
               ¿Listo para dejar de adivinar y empezar a <span class="text-primary">dirigir</span>?
             </h2>
@@ -448,13 +454,78 @@ const iconChevron = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-border/[0.08] pt-8 pb-28 md:py-8 bg-card/30">
+    <footer class="border-t border-border/[0.08] pt-16 pb-28 md:pb-12 bg-card/30">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center text-sm text-muted-foreground body-secondary">
-          <p>© 2026 Asimétrica · Finanzas Estratégicas · Colombia</p>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+          <div class="col-span-2 md:col-span-1">
+            <img src="/logo.png" alt="Asimétrica" width="120" height="32" class="h-7 w-auto mb-4" />
+            <p class="text-sm text-muted-foreground leading-relaxed body-secondary">Dirección financiera estratégica · CFO Fraccional.</p>
+            <p class="text-sm text-muted-foreground mt-2 body-secondary">Medellín, Colombia</p>
+          </div>
+
+          <div>
+            <p class="text-xs uppercase tracking-wider text-foreground/70 mb-3 body-secondary font-semibold">Navega</p>
+            <ul class="space-y-2.5 text-sm">
+              {['solucion', 'proceso', 'herramientas', 'planes'].map((s) => (
+                <li>
+                  <button data-scroll={s} class="link-underline capitalize text-muted-foreground hover:text-primary transition-colors body-text">
+                    {s === 'solucion' ? 'Solución' : s}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <p class="text-xs uppercase tracking-wider text-foreground/70 mb-3 body-secondary font-semibold">Plataforma</p>
+            <ul class="space-y-2.5 text-sm">
+              <li>
+                <a href="https://prisma.asimetrica.co" target="_blank" rel="noopener noreferrer" class="link-underline text-muted-foreground hover:text-primary transition-colors body-text">Prisma ↗</a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <p class="text-xs uppercase tracking-wider text-foreground/70 mb-3 body-secondary font-semibold">Contacto</p>
+            <ul class="space-y-2.5 text-sm">
+              <li>
+                <a href={waLink} target="_blank" rel="noopener noreferrer" class="link-underline text-muted-foreground hover:text-primary transition-colors body-text">WhatsApp</a>
+              </li>
+              <li>
+                <a href={linkedinLink} target="_blank" rel="noopener noreferrer" class="link-underline text-muted-foreground hover:text-primary transition-colors body-text">LinkedIn</a>
+              </li>
+              <li>
+                <button data-open-contact class="link-underline text-muted-foreground hover:text-primary transition-colors body-text">Solicitar diagnóstico</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-border/[0.06]">
+          <p class="text-sm text-muted-foreground body-secondary">© 2026 Asimétrica · Finanzas Estratégicas · Colombia</p>
+          <div class="flex items-center gap-2">
+            <a href={linkedinLink} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Asimétrica" class="inline-flex h-9 w-9 items-center justify-center rounded-md text-muted-foreground hover:text-primary hover:bg-card transition-colors">
+              <span set:html={iconLinkedin} />
+            </a>
+            <a href={waLink} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp de Asimétrica" class="inline-flex h-9 w-9 items-center justify-center rounded-md text-muted-foreground hover:text-primary hover:bg-card transition-colors">
+              <span class="scale-90" set:html={iconWhatsapp} />
+            </a>
+          </div>
         </div>
       </div>
     </footer>
+
+    <!-- WhatsApp flotante -->
+    <a
+      href={waLink}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Escríbenos por WhatsApp"
+      title="WhatsApp · respondemos rápido"
+      class="fixed bottom-24 right-4 md:bottom-6 md:right-6 z-40 inline-flex h-14 w-14 items-center justify-center rounded-full bg-card/90 backdrop-blur border border-border/[0.12] shadow-lg hover:scale-105 active:scale-95 transition-transform"
+    >
+      <span style="color:#25D366" set:html={iconWhatsapp} />
+    </a>
 
     <!-- CTA fija inferior (solo móvil), aparece al hacer scroll -->
     <div id="mobile-cta" class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-background/90 backdrop-blur-lg border-t border-border/[0.08] px-4 pt-3 translate-y-full transition-transform duration-300" style="padding-bottom: calc(0.75rem + env(safe-area-inset-bottom));">
