@@ -126,6 +126,12 @@ const jsonLd = jsonLdProp ?? {
     <!-- Marca .js cuanto antes: el contenido animado (.fade-in) solo se oculta si hay JS -->
     <script is:inline>document.documentElement.classList.add('js');</script>
 
+    {/* Consent Mode v2: por defecto la analítica queda DENEGADA hasta que el
+        usuario acepte (o hasta restaurar su decisión previa). Debe ir ANTES de GTM. */}
+    {gtmId && (
+      <script is:inline set:html={`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}var _c=null;try{_c=localStorage.getItem('asi-consent');}catch(e){}gtag('consent','default',{'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','analytics_storage':_c==='granted'?'granted':'denied','wait_for_update':500});`} />
+    )}
+
     <!-- Google Tag Manager. Activo solo si PUBLIC_GTM_ID está definido. -->
     {gtmId && (
       <script is:inline set:html={`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${gtmId}');`} />
@@ -190,5 +196,21 @@ const jsonLd = jsonLdProp ?? {
     )}
     <a href="#main" class="skip-link">Saltar al contenido principal</a>
     <slot />
+
+    {/* Consentimiento de cookies — sutil, abajo-izquierda. Solo si GTM está activo. */}
+    {gtmId && (
+      <>
+        <div id="cookie-consent" class="cookie-consent" hidden>
+          <p class="text-[0.8rem] leading-snug text-muted-foreground body-secondary">
+            Usamos cookies de <span class="text-foreground">Google Analytics</span> para medir el uso del sitio. Puedes aceptarlas o seguir sin ellas.
+          </p>
+          <div class="mt-3 flex items-center gap-2">
+            <button data-consent="granted" type="button" class="rounded-md bg-primary px-3 py-1.5 text-[0.8rem] font-medium text-primary-foreground transition-colors hover:bg-primary/90">Aceptar</button>
+            <button data-consent="denied" type="button" class="rounded-md px-3 py-1.5 text-[0.8rem] text-muted-foreground transition-colors hover:text-foreground">Rechazar</button>
+          </div>
+        </div>
+        <script is:inline set:html={`(function(){var el=document.getElementById('cookie-consent');if(!el)return;var s=null;try{s=localStorage.getItem('asi-consent');}catch(e){}if(!s){el.hidden=false;requestAnimationFrame(function(){el.classList.add('is-in');});}el.querySelectorAll('[data-consent]').forEach(function(b){b.addEventListener('click',function(){var v=b.getAttribute('data-consent');try{localStorage.setItem('asi-consent',v);}catch(e){}if(typeof gtag==='function'){gtag('consent','update',{'analytics_storage':v==='granted'?'granted':'denied'});}el.classList.remove('is-in');setTimeout(function(){el.hidden=true;},250);});});})();`} />
+      </>
+    )}
   </body>
 </html>
