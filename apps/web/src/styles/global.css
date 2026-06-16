@@ -457,6 +457,18 @@
   animation-delay: -3s;
 }
 
+/* Tarjeta P&L flotante del hero: barras de margen que crecen al cargar */
+.js .pl-fill {
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: pl-grow 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: calc(0.9s + var(--i, 0) * 0.12s);
+}
+@keyframes pl-grow { to { transform: scaleX(1); } }
+@media (prefers-reduced-motion: reduce) {
+  .pl-fill { transform: scaleX(1) !important; animation: none !important; }
+}
+
 /* Sparkline que se dibuja */
 .spark-path {
   stroke-dasharray: 280;
@@ -583,12 +595,186 @@ html:not(.js) .axis-host::before { transform: scaleY(1); }
 .js .draw-line { stroke-dasharray: 320; stroke-dashoffset: 320; transition: stroke-dashoffset 1.5s cubic-bezier(0.22, 1, 0.36, 1); }
 .js .fade-in.visible .draw-line { stroke-dashoffset: 0; }
 
+/* ── Reportería: barras que crecen + línea de crecimiento al revelar ── */
+.js .bar-rise {
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transform-box: fill-box;
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: calc(var(--i, 0) * 55ms);
+}
+.js .fade-in.visible .bar-rise { transform: scaleY(1); }
+.js .grow-line {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.35s;
+}
+.js .fade-in.visible .grow-line { stroke-dashoffset: 0; }
+.js .grow-dot {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  transition-delay: calc(0.55s + var(--i, 0) * 55ms);
+}
+.js .fade-in.visible .grow-dot { opacity: 1; }
+
+/* Reveal escalonado genérico (etiquetas de valor, chips, filas de tabla) */
+.js .pop-in {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: calc(var(--i, 0) * 70ms);
+}
+.js .fade-in.visible .pop-in { opacity: 1; transform: none; }
+
+/* Stepper de escenas: el activo en mint */
+.scene-step { transition: color 0.3s ease, opacity 0.3s ease; }
+.scene-step[data-active="true"] { color: hsl(var(--primary)); opacity: 1; }
+.scene-step[data-active="true"] .scene-dot { background: hsl(var(--primary)); box-shadow: 0 0 0 4px hsl(var(--primary) / 0.15); }
+
+/* ════════════════════════════════════════════════════════════════
+   REPORTERÍA — CAPA "PRODUCTO PREMIUM" (materiales, cromo, motion)
+   ════════════════════════════════════════════════════════════════ */
+
+/* Tarjeta-producto: superficie con doble luz, profundidad y ring sutil */
+.panel-pro {
+  position: relative;
+  background:
+    radial-gradient(120% 80% at 50% -10%, hsl(var(--primary) / 0.07), transparent 60%),
+    linear-gradient(180deg, hsl(225 28% 16%), hsl(225 30% 12%));
+  border: 1px solid hsl(var(--border) / 0.1);
+  border-radius: 1rem;
+  box-shadow:
+    0 1px 0 hsl(var(--foreground) / 0.06) inset,
+    0 30px 60px -32px rgb(0 0 0 / 0.75),
+    0 2px 10px -4px rgb(0 0 0 / 0.5);
+}
+.panel-pro::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px;
+  background: linear-gradient(140deg, hsl(var(--primary) / 0.45), transparent 35%, transparent 70%, hsl(var(--accent) / 0.4));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; opacity: 0.7;
+}
+
+/* Cromo tipo app (semáforo + título + chip de período) */
+.chrome {
+  display: flex; align-items: center; gap: 0.7rem;
+  padding-bottom: 0.85rem; margin-bottom: 1rem;
+  border-bottom: 1px solid hsl(var(--border) / 0.08);
+}
+.chrome-dots { display: inline-flex; gap: 5px; }
+.chrome-dots i { width: 8px; height: 8px; border-radius: 50%; background: hsl(var(--foreground) / 0.16); }
+.chip {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 0.28rem 0.6rem; border-radius: 999px;
+  background: hsl(var(--foreground) / 0.05); border: 1px solid hsl(var(--border) / 0.1);
+  color: hsl(var(--muted-foreground));
+}
+
+/* LED "en vivo" (respira + ping) */
+.live { position: relative; width: 7px; height: 7px; border-radius: 50%; background: hsl(var(--primary)); box-shadow: 0 0 8px hsl(var(--primary) / 0.8); }
+.live::after { content: ""; position: absolute; inset: -3px; border-radius: 50%; border: 1px solid hsl(var(--primary) / 0.6); animation: live-ping 2.6s cubic-bezier(0, 0, 0.2, 1) infinite; }
+@keyframes live-ping { 0% { transform: scale(0.6); opacity: 0.9; } 80%, 100% { transform: scale(2.2); opacity: 0; } }
+
+/* Sheen: una luz barre el panel cuando se revela */
+.sheen { position: absolute; inset: 0; border-radius: inherit; overflow: hidden; pointer-events: none; }
+.sheen::before {
+  content: ""; position: absolute; top: -10%; bottom: -10%; width: 45%; left: -70%;
+  background: linear-gradient(100deg, transparent, hsl(var(--foreground) / 0.07) 42%, hsl(var(--primary) / 0.12) 52%, transparent);
+  transform: skewX(-14deg); opacity: 0;
+}
+.js .scene.fade-in.visible .sheen::before { animation: sheen-sweep 1.5s cubic-bezier(0.22, 1, 0.36, 1) 0.2s 1 forwards; }
+@keyframes sheen-sweep { 0% { left: -70%; opacity: 0; } 12% { opacity: 1; } 100% { left: 130%; opacity: 0; } }
+
+/* KPI premium: número en degradado + brillo bajo */
+.kpi-pro { position: relative; overflow: hidden; }
+.kpi-pro::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: linear-gradient(hsl(var(--primary)), hsl(var(--accent))); opacity: 0.7; }
+
+/* Glow para líneas de datos (sin filtros SVG, compatible) */
+.glow-mint { filter: drop-shadow(0 0 5px hsl(var(--primary) / 0.55)); }
+.glow-accent { filter: drop-shadow(0 0 5px hsl(var(--accent) / 0.5)); }
+
+/* Área bajo la línea: se desvanece de abajo a arriba al revelar */
+.js .area-fade { opacity: 0; transition: opacity 0.9s ease 0.5s; }
+.js .scene.fade-in.visible .area-fade { opacity: 1; }
+
+/* Punto final que "aterriza" con pulso */
+.js .land-dot { opacity: 0; transform: scale(0); transform-box: fill-box; transform-origin: center; transition: opacity 0.4s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); transition-delay: 1.5s; }
+.js .scene.fade-in.visible .land-dot { opacity: 1; transform: scale(1); }
+.js .scene.fade-in.visible .land-pulse { animation: land-pulse 2.6s ease-out 1.8s infinite; }
+@keyframes land-pulse { 0% { transform: scale(0.5); opacity: 0.7; } 70%, 100% { transform: scale(2.4); opacity: 0; } }
+
+/* Mini-barras dentro de la tabla P&L (magnitud relativa) */
+.js .cell-bar { transform: scaleX(0); transform-origin: left; transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1); transition-delay: calc(0.2s + var(--i, 0) * 80ms); }
+.js .scene.fade-in.visible .cell-bar { transform: scaleX(1); }
+
+/* Foco de escena: la activa al frente, las demás retroceden (solo lg) */
+@media (min-width: 1024px) {
+  .scene { transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), filter 0.55s ease; }
+  .scene[data-dim="true"] { opacity: 0.4; transform: scale(0.97); filter: saturate(0.75); }
+}
+
+/* Riel de progreso del stepper (se llena con el scroll) */
+.rail { position: relative; padding-left: 1.4rem; }
+.rail::before { content: ""; position: absolute; left: 0; top: 4px; bottom: 4px; width: 2px; border-radius: 2px; background: hsl(var(--border) / 0.12); }
+.rail-fill { position: absolute; left: 0; top: 4px; width: 2px; border-radius: 2px; height: var(--rail, 0%); max-height: calc(100% - 8px); background: linear-gradient(hsl(var(--primary)), hsl(var(--accent))); box-shadow: 0 0 12px hsl(var(--primary) / 0.6); transition: height 0.15s linear; }
+
+/* Contador de escena (01 / 05) */
+.scene-counter .cur { font-variant-numeric: tabular-nums; }
+
+/* ── Scroll-scrubbing: el dibujo de datos sigue al scroll (--p 0→1) ── */
+.js [data-scrub] .bar-rise { transform: scaleY(var(--p, 0)); transition: none; }
+.js [data-scrub] .grow-line { stroke-dashoffset: calc(1 - var(--p, 0)); transition: none; }
+.js [data-scrub] .grow-dot,
+.js [data-scrub] .pop-in,
+.js [data-scrub] .area-fade { opacity: var(--p, 0); transform: none; transition: none; }
+.js [data-scrub] .cell-bar { transform: scaleX(var(--p, 0)); transition: none; }
+.js [data-scrub] .scrub-chip { opacity: clamp(0, calc((var(--p, 0) - 0.35) * 3), 1); transition: none; }
+.js [data-scrub] .land-dot { opacity: clamp(0, calc((var(--p, 0) - 0.82) * 6), 1); transform: scale(clamp(0, calc((var(--p, 0) - 0.82) * 6), 1)); transition: none; }
+.js [data-scrub] .land-pulse { opacity: 0; animation: none; }
+.js [data-scrub].at-end .land-pulse { opacity: 1; animation: land-pulse 2.6s ease-out infinite; }
+
+/* La luz "sheen" se dispara una vez cuando la escena entra (clase .played) */
+.js .scene.played .sheen::before { animation: sheen-sweep 1.5s cubic-bezier(0.22, 1, 0.36, 1) 0.15s 1 forwards; }
+
+/* ── Odómetro: dígitos que ruedan (reveal mecánico, gated por .played) ── */
+.odo { display: inline-flex; align-items: flex-end; }
+.odo-reel { display: inline-block; height: 1em; line-height: 1; overflow: hidden; vertical-align: bottom; }
+.odo-col { display: flex; flex-direction: column; transform: translateY(0); transition: transform 1.3s cubic-bezier(0.22, 1, 0.36, 1); transition-delay: calc(var(--k, 0) * 80ms); }
+.odo-col > span { height: 1em; line-height: 1; display: block; }
+.scene.played .odo-col { transform: translateY(calc(var(--d, 0) * -1em)); }
+
+/* ── Chips de % sobre la línea (estilo reporte) ── */
+.chip-pos { fill: hsl(163 100% 62% / 0.16); }
+.chip-neg { fill: hsl(4 92% 69% / 0.18); }
+
+/* ── Bracket de anotación (LTM) ── */
+.bracket { stroke: hsl(var(--muted-foreground) / 0.4); stroke-width: 1; fill: none; }
+
+/* ── Mini-desglose (costo de adquisición) ── */
+.mini-stat { border: 1px solid hsl(var(--border) / 0.08); border-radius: 0.6rem; background: hsl(var(--background) / 0.4); }
+.mini-stat.is-total { background: hsl(var(--primary) / 0.1); border-color: hsl(var(--primary) / 0.3); }
+
 /* ── reduced-motion: saltar todo lo nuevo a estado final ───────── */
 @media (prefers-reduced-motion: reduce) {
   .axis-host::before { transform: scaleY(1) !important; transition: none !important; }
   .reveal-lines .rl, .hero-reveal .rl { clip-path: inset(0) !important; animation: none !important; transition: none !important; }
   .focus-word { filter: none !important; opacity: 1 !important; animation: none !important; }
   .draw-line { stroke-dashoffset: 0 !important; }
+  .bar-rise { transform: none !important; }
+  .grow-line { stroke-dashoffset: 0 !important; }
+  .grow-dot { opacity: 1 !important; }
+  .pop-in { opacity: 1 !important; transform: none !important; }
+  .sheen::before, .live::after { animation: none !important; }
+  .area-fade { opacity: 1 !important; }
+  .land-dot { opacity: 1 !important; transform: none !important; }
+  .land-pulse { animation: none !important; }
+  .cell-bar { transform: none !important; }
+  .scene[data-dim="true"] { opacity: 1 !important; transform: none !important; filter: none !important; }
+  [data-scrub] .bar-rise { transform: scaleY(1) !important; }
+  [data-scrub] .grow-line { stroke-dashoffset: 0 !important; }
+  [data-scrub] .grow-dot, [data-scrub] .pop-in, [data-scrub] .area-fade, [data-scrub] .scrub-chip, [data-scrub] .land-dot { opacity: 1 !important; transform: none !important; }
+  .odo-col { transition: none !important; }
   .brand-aster.spin, .led-dot { animation: none !important; }
 }
 
