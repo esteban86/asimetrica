@@ -2,6 +2,14 @@
   "version": "0.0.1",
   "configurations": [
     {
+      "name": "astro-dev",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["astro", "dev", "--port", "4330", "--host"],
+      "cwd": "apps/web",
+      "port": 4330,
+      "autoPort": false
+    },
+    {
       "name": "astro-preview",
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "preview", "--prefix", "apps/web"],
