@@ -50,6 +50,13 @@ const ContactModal = () => {
       const result = await response.json();
       if (!result.success) throw new Error(result.message);
 
+      // Evento de conversión para GTM/GA4 (crea un trigger de evento personalizado
+      // "diagnostico_solicitado" en GTM → tag de GA4). Seguro si GTM no está activo.
+      if (typeof window !== 'undefined') {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: 'diagnostico_solicitado' });
+      }
+
       toast.success("¡Solicitud enviada! Te contactamos en menos de 48 horas.");
       setFormData({ nombre: '', email: '', empresa: '', telefono: '' });
       setOpen(false);

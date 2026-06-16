@@ -16,6 +16,10 @@ const ogImage = new URL('/og-image.png', Astro.site).href;
 // Cloudflare Web Analytics (sin cookies). Se renderiza solo si hay token.
 const cfBeacon = import.meta.env.PUBLIC_CF_BEACON_TOKEN;
 
+// Google Tag Manager. Define PUBLIC_GTM_ID (GTM-XXXXXXX) para activarlo.
+// El contenedor GTM gestiona el tag de GA4 (Measurement ID G-XXXX) desde su UI.
+const gtmId = import.meta.env.PUBLIC_GTM_ID;
+
 // Grafo de marca: une asimetrica.co (Organization + servicio) con
 // prisma.asimetrica.co (la plataforma) para que Google los lea como una entidad.
 const ORG = 'https://asimetrica.co/#organization';
@@ -121,6 +125,12 @@ const jsonLd = jsonLdProp ?? {
   <head>
     <!-- Marca .js cuanto antes: el contenido animado (.fade-in) solo se oculta si hay JS -->
     <script is:inline>document.documentElement.classList.add('js');</script>
+
+    <!-- Google Tag Manager. Activo solo si PUBLIC_GTM_ID está definido. -->
+    {gtmId && (
+      <script is:inline set:html={`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${gtmId}');`} />
+    )}
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0a0a0a" />
@@ -174,6 +184,10 @@ const jsonLd = jsonLdProp ?? {
     )}
   </head>
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    {gtmId && (
+      <noscript set:html={`<iframe src="https://www.googletagmanager.com/ns.html?id=${gtmId}" height="0" width="0" style="display:none;visibility:hidden"></iframe>`} />
+    )}
     <a href="#main" class="skip-link">Saltar al contenido principal</a>
     <slot />
   </body>

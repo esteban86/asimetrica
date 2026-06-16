@@ -44,6 +44,8 @@ jobs:
           PUBLIC_WEB3FORMS_KEY: ${{ secrets.VITE_WEB3FORMS_KEY }}
           # Token de Cloudflare Web Analytics (opcional; vacío = sin analítica).
           PUBLIC_CF_BEACON_TOKEN: ${{ secrets.CF_BEACON_TOKEN }}
+          # Google Tag Manager (opcional; vacío = sin GTM/GA4).
+          PUBLIC_GTM_ID: ${{ secrets.PUBLIC_GTM_ID }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
