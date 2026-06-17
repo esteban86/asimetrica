@@ -1439,12 +1439,14 @@ const iconAster = '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" f
   const heroVideo = document.getElementById('hero-video');
   if (heroVideo instanceof HTMLVideoElement) {
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduce) {
-      // Respeta "menos movimiento": pausa y deja el poster.
+    const isMobile = window.matchMedia('(max-width: 767px)').matches;
+    if (reduce || isMobile) {
+      // Móvil o "menos movimiento": queda el poster estático (sin reproducir,
+      // sin descargar el video → ahorra datos y evita el autoplay poco fiable).
       heroVideo.removeAttribute('autoplay');
+      heroVideo.preload = 'none';
       heroVideo.pause();
     } else {
-      // Refuerza el autoplay nativo (algunos móviles necesitan el nudge).
       const tryPlay = () => heroVideo.play().catch(() => {});
       tryPlay();
       heroVideo.addEventListener('loadeddata', tryPlay, { once: true });
