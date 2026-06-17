@@ -491,6 +491,11 @@
    background-clip:text y deja el texto como una caja de degradado). */
 .gradient-text-primary {
   background-image: linear-gradient(to right, hsl(var(--primary)), hsl(var(--accent)));
+  /* Aire a la derecha: con background-clip:text + letter-spacing negativo, el
+     último glifo (p. ej. la "r" de "retrovisor") se recortaba. El padding amplía
+     la caja del degradado; el margin negativo compensa para no mover el layout. */
+  padding-right: 0.08em;
+  margin-right: -0.08em;
 }
 
 /* ── El EJE de marca: hairline mint fuera de centro (lg+) ───────── */
