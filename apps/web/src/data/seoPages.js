@@ -1,6 +1,108 @@
 // Generado: contenido SEO + visuales de Fase 1 (10 páginas). Fuente única para servicios/recursos.
 export const seoPages = [
   {
+    "slug": "que-hace-un-gerente-financiero",
+    "type": "recurso",
+    "primaryKeyword": "funciones de un gerente financiero",
+    "metaTitle": "¿Qué hace un gerente financiero? Funciones y cuándo contratarlo | Asimétrica",
+    "metaDescription": "Qué hace un gerente financiero, sus funciones clave en una empresa y cómo saber cuándo tu pyme necesita uno —de planta o fraccional— en Colombia.",
+    "breadcrumbLabel": "Qué hace un gerente financiero",
+    "h1": "¿Qué hace un gerente financiero (y cuándo tu empresa necesita uno)?",
+    "heroSubhead": "Las funciones reales de un gerente financiero, en qué se diferencia de un contador, y las señales de que tu empresa ya necesita dirección financiera —sin tener que pagar un CFO de tiempo completo.",
+    "datePublished": "2026-06-18",
+    "dateModified": "2026-06-18",
+    "keyStats": [
+      { "value": "6", "label": "funciones núcleo de la dirección financiera" },
+      { "value": "~$240M", "label": "costo anual de un CFO de planta en Colombia" },
+      { "value": "$1.9M", "label": "desde, en el modelo fraccional al mes" },
+      { "value": "$500M–$50.000M", "label": "facturación donde más se necesita" }
+    ],
+    "sections": [
+      {
+        "heading": "Qué hace un gerente financiero, en una frase",
+        "paragraphs": [
+          "Un gerente financiero (en inglés, CFO o Chief Financial Officer) es el responsable de la estrategia financiera de una empresa: planea y proyecta la caja, protege los márgenes, decide cómo se financia el negocio y traduce los números en decisiones. No se limita a registrar lo que ya pasó —eso lo hace la contabilidad—; su trabajo es mirar hacia adelante y asegurar que la empresa tenga liquidez, rentabilidad y una estructura financiera sana para crecer.",
+          "Dicho simple: el contador te dice cómo te fue; el gerente financiero te ayuda a decidir qué hacer con esa información para que te vaya mejor."
+        ]
+      },
+      {
+        "heading": "Las funciones clave de un gerente financiero",
+        "paragraphs": [
+          "Más allá del título, la función financiera de una empresa se sostiene sobre unas pocas responsabilidades que se repiten en cualquier sector:"
+        ],
+        "bullets": [
+          "Planeación y forecast: construir el presupuesto, proyectar ingresos, costos y caja, y anticipar escenarios antes de que ocurran.",
+          "Gestión del flujo de caja: asegurar que nunca falte liquidez, con un horizonte claro de las próximas semanas y meses.",
+          "Rentabilidad y márgenes: entender qué productos, líneas o clientes generan valor y cuáles lo destruyen, y fijar la política de precios en consecuencia.",
+          "Financiación y estructura de capital: decidir cuándo y cómo tomar deuda, negociar con bancos e inversionistas y cuidar el costo del dinero.",
+          "Control y reportería: tener indicadores confiables y a tiempo para que la gerencia decida con datos, no con intuición.",
+          "Soporte a decisiones e inversión: evaluar nuevas inversiones, preparar a la empresa para levantar capital o vender, y sentarse en el comité directivo."
+        ]
+      },
+      {
+        "heading": "Gerente financiero vs. contador: no son lo mismo",
+        "paragraphs": [
+          "Es la confusión más común y vale la pena aclararla. El contador registra, concilia y cumple con las obligaciones tributarias: su mirada es hacia atrás y hacia el cumplimiento. El gerente financiero usa esa información para mirar hacia adelante: proyectar caja, proteger márgenes, estructurar deuda y guiar decisiones de inversión.",
+          "No compiten: se complementan. De hecho, un buen gerente financiero suele hacer más eficiente y estratégico el trabajo del equipo contable, porque le da propósito y dirección a los números."
+        ]
+      },
+      {
+        "heading": "Cuándo tu empresa necesita un gerente financiero",
+        "paragraphs": [
+          "Rara vez es una sola señal: es la acumulación de fricciones que indican que la complejidad financiera del negocio ya superó la capacidad instalada del equipo. Estas son las más frecuentes:"
+        ],
+        "bullets": [
+          "La empresa crece en ventas, pero no se refleja en la caja —vendes más y, aun así, el dinero no alcanza.",
+          "Tomas decisiones importantes (precios, inversiones, deuda) sin un modelo financiero que las respalde.",
+          "No sabes con certeza qué productos o clientes son realmente rentables.",
+          "Los reportes llegan tarde, incompletos o no le sirven a la gerencia para decidir.",
+          "Vas a buscar financiación, un socio o una venta, y sientes que tus cifras no están listas para mostrarse.",
+          "El dueño o el CEO termina haciendo de gerente financiero a ratos, robándole tiempo a su verdadero rol."
+        ]
+      },
+      {
+        "heading": "De planta o fraccional: la función sin el costo fijo",
+        "paragraphs": [
+          "Aquí está el dilema de la mayoría de las pymes colombianas: necesitan dirección financiera, pero un gerente financiero senior de tiempo completo cuesta del orden de $20.000.000 mensuales una vez se suman salario, prestaciones, parafiscales y bonos —más de $240 millones al año—. Para una empresa que factura entre $500 millones y $50.000 millones, ese cargo suele estar subutilizado buena parte del tiempo.",
+          "La alternativa es el modelo fraccional: un CFO o gerente financiero senior que trabaja para tu empresa unos días al mes, asumiendo la misma responsabilidad estratégica por una fracción del costo. Accedes a experiencia de primer nivel solo en la intensidad que tu empresa necesita, sin el gasto fijo de tenerlo en nómina.",
+          "Es exactamente la brecha que cerramos en Asimétrica: dirección financiera senior desde $1.900.000 al mes, con la plataforma incluida."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Cuál es la diferencia entre un gerente financiero y un CFO?",
+        "a": "En la práctica son el mismo rol: CFO (Chief Financial Officer) es el término en inglés para el director o gerente financiero, el ejecutivo a cargo de la estrategia financiera de la empresa. En Colombia se usan indistintamente gerente financiero, director financiero y CFO."
+      },
+      {
+        "q": "¿Una pyme necesita un gerente financiero de tiempo completo?",
+        "a": "Casi nunca al principio. Una empresa que factura entre $500 millones y $50.000 millones suele necesitar la función financiera, pero no la carga completa de un cargo de tiempo completo. Por eso el modelo fraccional —unos días al mes— se ajusta mucho mejor a su tamaño y a su presupuesto."
+      },
+      {
+        "q": "¿El gerente financiero reemplaza a mi contador?",
+        "a": "No. El contador registra, concilia y cumple con lo tributario mirando hacia atrás; el gerente financiero usa esa información para mirar hacia adelante y guiar decisiones. Trabajan juntos."
+      },
+      {
+        "q": "¿Qué es un gerente financiero fraccional?",
+        "a": "Es un gerente financiero (CFO) senior que trabaja para tu empresa a tiempo parcial, asumiendo la responsabilidad de la función financiera por una fracción del costo de uno de planta. Toma decisiones contigo, se sienta en tu comité y responde por los resultados de caja, margen y estructura financiera."
+      },
+      {
+        "q": "¿Cuánto cuesta un gerente financiero en Colombia?",
+        "a": "Un gerente financiero de tiempo completo ronda los $20.000.000 mensuales con prestaciones y bonos (más de $240 millones al año). En el modelo fraccional, con Asimétrica los planes empiezan en $1.900.000 al mes y se ajustan a la intensidad que la empresa necesita."
+      }
+    ],
+    "internalLinks": [
+      { "label": "CFO Fraccional", "href": "/servicios/cfo-fraccional" },
+      { "label": "Dirección financiera estratégica", "href": "/servicios/direccion-financiera-estrategica" },
+      { "label": "Flujo de caja a 13 semanas", "href": "/recursos/flujo-de-caja-13-semanas" },
+      { "label": "Optimizar el capital de trabajo", "href": "/recursos/optimizar-capital-de-trabajo" }
+    ],
+    "cta": {
+      "heading": "¿Tu empresa ya necesita dirección financiera?",
+      "text": "En el Diagnóstico Flash gratuito revisamos tu caja, tus márgenes y tu estructura financiera, y te decimos con franqueza si necesitas un gerente financiero —y de qué tipo."
+    }
+  },
+  {
     "slug": "cfo-fraccional",
     "type": "servicio",
     "primaryKeyword": "CFO fraccional Colombia",
