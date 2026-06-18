@@ -103,6 +103,278 @@ export const seoPages = [
     }
   },
   {
+    "slug": "cuanto-cuesta-un-cfo-en-colombia",
+    "type": "recurso",
+    "primaryKeyword": "cuánto cuesta un cfo en colombia",
+    "metaTitle": "¿Cuánto cuesta un CFO en Colombia? Costo real y alternativas 2026 | Asimétrica",
+    "metaDescription": "Cuánto cuesta un gerente financiero o CFO en Colombia en 2026: el costo cargado de uno de planta frente al modelo fraccional, y qué hace variar el precio.",
+    "breadcrumbLabel": "Cuánto cuesta un CFO en Colombia",
+    "h1": "¿Cuánto cuesta un CFO (gerente financiero) en Colombia en 2026?",
+    "heroSubhead": "El costo real de tener dirección financiera —el cargo cargado de un CFO de planta frente al modelo fraccional— y qué hace que el precio suba o baje.",
+    "datePublished": "2026-06-18",
+    "dateModified": "2026-06-18",
+    "keyStats": [
+      { "value": "~$20M", "label": "costo cargado mensual de un CFO de planta" },
+      { "value": "~$240M", "label": "lo mismo, al año" },
+      { "value": "$1.9M–$7.9M", "label": "rango del modelo fraccional al mes" },
+      { "value": "60–90%", "label": "ahorro típico frente al cargo de planta" }
+    ],
+    "sections": [
+      {
+        "heading": "La respuesta corta",
+        "paragraphs": [
+          "Un CFO (gerente financiero) de tiempo completo en Colombia tiene un costo cargado del orden de $20.000.000 mensuales —más de $240 millones al año— una vez se suman salario, prestaciones, parafiscales y bonos. El salario base es solo una parte de esa cifra; el costo real para la empresa siempre es mayor que lo que figura en el contrato.",
+          "La alternativa fraccional cubre la misma función por una fracción: en Asimétrica, desde $1.900.000 hasta $7.900.000 al mes según la intensidad que necesite la empresa. Por eso, para la mayoría de pymes, el modelo fraccional representa un ahorro del 60% al 90% frente a un cargo de planta subutilizado."
+        ]
+      },
+      {
+        "heading": "Por qué el costo cargado supera al salario",
+        "paragraphs": [
+          "Al pensar cuánto cuesta un gerente financiero, el error común es mirar solo el salario. El costo real para la empresa incluye varios componentes que se suman al sueldo base:"
+        ],
+        "bullets": [
+          "Prestaciones sociales: cesantías, intereses, prima y vacaciones.",
+          "Parafiscales y seguridad social a cargo del empleador.",
+          "Bonos y variable atados a resultados, frecuentes en cargos directivos.",
+          "Costos indirectos: puesto, equipos, beneficios y el tiempo de gestionar el cargo."
+        ]
+      },
+      {
+        "heading": "Qué hace variar el precio",
+        "paragraphs": [
+          "No todos los gerentes financieros cuestan lo mismo. El precio se mueve según:"
+        ],
+        "bullets": [
+          "Seniority y trayectoria: no es lo mismo un analista financiero que un CFO con experiencia de C-level.",
+          "Tamaño y complejidad de la empresa: más líneas de negocio, deuda o filiales exigen más capacidad.",
+          "Intensidad: cuántos días al mes y qué tan involucrado está en la operación.",
+          "Alcance: solo reportería y control, o también financiación, valoración y preparación para inversión."
+        ]
+      },
+      {
+        "heading": "Planta vs. fraccional: la comparación de costo",
+        "paragraphs": [
+          "Para una empresa que factura entre $500 millones y $50.000 millones al año, un CFO de planta suele estar subutilizado: paga el costo completo de un ejecutivo que, en la práctica, no necesita ocho horas diarias. El modelo fraccional invierte esa lógica: pagas solo por la intensidad que usas.",
+          "La cuenta es simple: unos $240 millones al año de un cargo de planta frente a, por ejemplo, $1.900.000 al mes (cerca de $22,8 millones al año) del plan fraccional más liviano. La misma responsabilidad estratégica, a una fracción del costo, y con la plataforma de FP&A incluida."
+        ]
+      }
+    ],
+    "faq": [
+      { "q": "¿Cuánto gana un gerente financiero en Colombia?", "a": "El salario base de un gerente financiero senior varía según el tamaño de la empresa y la trayectoria, pero el costo cargado para el empleador —sumando prestaciones, parafiscales y bonos— ronda los $20.000.000 mensuales. La empresa siempre paga más que el salario que figura en el contrato." },
+      { "q": "¿Cuánto cuesta un CFO fraccional?", "a": "En Asimétrica los planes van desde $1.900.000 hasta $7.900.000 al mes, según la intensidad y el alcance que necesite la empresa, e incluyen tanto la asesoría como la plataforma de FP&A." },
+      { "q": "¿Por qué un CFO fraccional cuesta tanto menos?", "a": "Porque pagas solo por la intensidad que usas —unos días al mes— en lugar del costo fijo de un ejecutivo de tiempo completo que en una pyme suele estar subutilizado. No es un servicio más barato: es el mismo nivel, dimensionado a tu necesidad real." },
+      { "q": "¿El precio incluye la plataforma?", "a": "Sí. Todos los planes incluyen la plataforma de inteligencia financiera (Prisma) además de la asesoría del CFO." }
+    ],
+    "internalLinks": [
+      { "label": "CFO Fraccional", "href": "/servicios/cfo-fraccional" },
+      { "label": "Qué hace un gerente financiero", "href": "/recursos/que-hace-un-gerente-financiero" },
+      { "label": "Dirección financiera estratégica", "href": "/servicios/direccion-financiera-estrategica" },
+      { "label": "CFO fraccional vs CFO de planta", "href": "/recursos/cfo-fraccional-vs-cfo-de-planta" }
+    ],
+    "cta": {
+      "heading": "Calcula cuánto te ahorrarías",
+      "text": "En el Diagnóstico Flash gratuito te mostramos qué intensidad de dirección financiera necesita tu empresa y cuánto cuesta —sin compromiso."
+    }
+  },
+  {
+    "slug": "cfo-fraccional-vs-cfo-de-planta",
+    "type": "recurso",
+    "primaryKeyword": "cfo fraccional vs cfo de planta",
+    "metaTitle": "CFO Fraccional vs. CFO de Planta: Cuál Necesita tu Empresa | Asimétrica",
+    "metaDescription": "CFO fraccional o CFO de planta: diferencias en costo, dedicación, velocidad y riesgo, y cómo decidir cuál conviene a tu empresa en Colombia.",
+    "breadcrumbLabel": "CFO fraccional vs CFO de planta",
+    "h1": "CFO fraccional vs. CFO de planta: ¿cuál necesita tu empresa?",
+    "heroSubhead": "Las diferencias reales entre contratar un gerente financiero de tiempo completo y un CFO fraccional —costo, dedicación, velocidad y riesgo— para que decidas con criterio.",
+    "datePublished": "2026-06-18",
+    "dateModified": "2026-06-18",
+    "sections": [
+      {
+        "heading": "La diferencia en una frase",
+        "paragraphs": [
+          "Un CFO de planta es un ejecutivo de tiempo completo en tu nómina; un CFO fraccional es el mismo perfil senior, pero trabajando para tu empresa unos días al mes por una fracción del costo. Ambos asumen la responsabilidad estratégica de las finanzas; cambian la dedicación, el costo y el riesgo.",
+          "Para la mayoría de empresas que facturan entre $500 millones y $50.000 millones, el fraccional encaja mejor: necesitan la función, no la carga completa de un cargo de tiempo completo."
+        ]
+      },
+      {
+        "heading": "Costo",
+        "paragraphs": [
+          "Un CFO de planta tiene un costo cargado del orden de $20.000.000 mensuales —más de $240 millones al año— con prestaciones y bonos. El fraccional, en Asimétrica, va desde $1.900.000 al mes: pagas solo la intensidad que usas. Para una pyme cuyo cargo de planta estaría subutilizado, la diferencia es un ahorro del 60% al 90%."
+        ]
+      },
+      {
+        "heading": "Dedicación y velocidad",
+        "paragraphs": [
+          "El de planta está disponible todos los días, lo que importa cuando la operación financiera es muy intensa y constante. El fraccional concentra su tiempo en lo estratégico y suele arrancar mucho más rápido: no hay un proceso de selección de meses ni una curva de contratación, empieza a aportar en semanas.",
+          "En la práctica, una pyme rara vez necesita dirección financiera ocho horas al día; necesita las decisiones correctas en los momentos correctos."
+        ]
+      },
+      {
+        "heading": "Riesgo y flexibilidad",
+        "paragraphs": [
+          "Contratar un CFO de planta equivocado es caro y lento de revertir. El modelo fraccional reduce ese riesgo: ajustas la intensidad hacia arriba o hacia abajo según el momento del negocio, sin la rigidez de un cargo fijo. Además, accedes a un equipo y a herramientas, no a una sola persona."
+        ]
+      },
+      {
+        "heading": "Cuándo conviene cada uno",
+        "paragraphs": [
+          "No siempre gana el fraccional. Una guía sencilla:"
+        ],
+        "bullets": [
+          "Fraccional: pymes en crecimiento, operación financiera de complejidad media, presupuesto ajustado, o que quieren ordenar la casa antes de escalar.",
+          "De planta: empresas grandes con operación financiera muy intensa y constante, equipos financieros amplios que dirigir, o estructuras (filiales, deuda compleja) que exigen presencia diaria.",
+          "Transición: muchas empresas empiezan con un CFO fraccional y, cuando el tamaño lo justifica, contratan uno de planta —a menudo con el fraccional ayudando en la selección."
+        ]
+      }
+    ],
+    "faq": [
+      { "q": "¿Un CFO fraccional rinde igual que uno de planta?", "a": "En lo estratégico, sí: es el mismo perfil senior y asume la misma responsabilidad. La diferencia es la dedicación —unos días al mes en lugar de tiempo completo—, no el nivel." },
+      { "q": "¿Cuándo conviene pasar de fraccional a planta?", "a": "Cuando la operación financiera se vuelve tan intensa y constante que justifica un cargo de tiempo completo: equipos financieros grandes, presencia diaria, complejidad alta. Muchas empresas hacen esa transición con el fraccional ayudando a contratar al de planta." },
+      { "q": "¿Cuánto se ahorra con un CFO fraccional?", "a": "Frente a un cargo de planta cargado en unos $240 millones al año, el modelo fraccional —desde $1.900.000 al mes— suele representar un ahorro del 60% al 90% para una pyme cuyo cargo de planta estaría subutilizado." }
+    ],
+    "internalLinks": [
+      { "label": "CFO Fraccional", "href": "/servicios/cfo-fraccional" },
+      { "label": "Cuánto cuesta un CFO en Colombia", "href": "/recursos/cuanto-cuesta-un-cfo-en-colombia" },
+      { "label": "Qué hace un gerente financiero", "href": "/recursos/que-hace-un-gerente-financiero" },
+      { "label": "Dirección financiera estratégica", "href": "/servicios/direccion-financiera-estrategica" }
+    ],
+    "cta": {
+      "heading": "¿Fraccional o de planta para tu caso?",
+      "text": "En el Diagnóstico Flash gratuito revisamos tu operación y te decimos con franqueza qué modelo te conviene —sin compromiso."
+    }
+  },
+  {
+    "slug": "cfo-fraccional-en-medellin",
+    "type": "servicio",
+    "primaryKeyword": "cfo fraccional medellín",
+    "metaTitle": "CFO Fraccional en Medellín | Dirección Financiera | Asimétrica",
+    "metaDescription": "CFO fraccional en Medellín y Antioquia: dirección financiera senior para empresas, por una fracción del costo de un CFO de planta. Diagnóstico gratis.",
+    "breadcrumbLabel": "CFO Fraccional en Medellín",
+    "h1": "CFO fraccional en Medellín: dirección financiera senior para empresas de Antioquia",
+    "heroSubhead": "Somos una firma de dirección financiera con sede en Medellín. Acompañamos a empresas de Antioquia con la función completa de un CFO —caja, márgenes, financiación y decisiones— por una fracción del costo de tenerlo en nómina.",
+    "keyStats": [
+      { "value": "Medellín", "label": "sede y base de operación" },
+      { "value": "$1.9M", "label": "desde, al mes" },
+      { "value": "48h", "label": "respondemos tu diagnóstico" },
+      { "value": "$500M–$50.000M", "label": "facturación de las empresas que atendemos" }
+    ],
+    "sections": [
+      {
+        "heading": "Dirección financiera con sede en Medellín",
+        "paragraphs": [
+          "Asimétrica es una firma de dirección financiera estratégica con base en Medellín. Trabajamos de cerca con empresas de la ciudad y de Antioquia que ya superaron lo que su equipo contable puede ofrecer, pero que todavía no justifican —ni necesitan— un CFO de tiempo completo en nómina.",
+          "Conocemos el tejido empresarial de la región. La cercanía importa: nos integramos a tu comité directivo y operamos como parte del equipo, no como un asesor que entrega un informe y se va."
+        ]
+      },
+      {
+        "heading": "Qué hacemos por las empresas de la región",
+        "paragraphs": [
+          "La misma función de un CFO senior, dimensionada a tu empresa:"
+        ],
+        "bullets": [
+          "Flujo de caja: liquidez bajo control, con un horizonte claro de las próximas semanas y meses.",
+          "Rentabilidad: qué líneas, productos y clientes generan valor —y cuáles no.",
+          "Financiación: estructura de deuda, relación con bancos y costo del dinero.",
+          "Preparación para crecer, invertir o vender, con cifras ordenadas y defendibles.",
+          "Reportería y dashboards en tiempo real, incluidos en todos los planes."
+        ]
+      },
+      {
+        "heading": "Por qué fraccional y no de planta",
+        "paragraphs": [
+          "Un CFO de planta en Colombia cuesta del orden de $20.000.000 mensuales con prestaciones y bonos. Para una empresa de Medellín que factura entre $500 millones y $50.000 millones, ese cargo suele estar subutilizado. El modelo fraccional te da la misma dirección financiera senior desde $1.900.000 al mes, en la intensidad que necesites."
+        ]
+      }
+    ],
+    "faq": [
+      { "q": "¿Atienden solo empresas de Medellín?", "a": "Tenemos sede en Medellín y trabajamos de cerca con empresas de la ciudad y de Antioquia, pero atendemos toda Colombia. Gran parte del trabajo de dirección financiera se hace con reuniones de comité y con datos, así que la ubicación no es una limitante." },
+      { "q": "¿Cuánto cuesta un CFO fraccional en Medellín?", "a": "Los planes van desde $1.900.000 al mes y se ajustan a la intensidad y el alcance que necesite tu empresa. Incluyen tanto la asesoría como la plataforma de FP&A." },
+      { "q": "¿Trabajan presencial o remoto?", "a": "Combinamos ambos. Estando en Medellín, podemos tener presencia en tu comité y en momentos clave, y operar con tus datos el resto del tiempo." }
+    ],
+    "internalLinks": [
+      { "label": "CFO Fraccional", "href": "/servicios/cfo-fraccional" },
+      { "label": "Cuánto cuesta un CFO en Colombia", "href": "/recursos/cuanto-cuesta-un-cfo-en-colombia" },
+      { "label": "Dirección financiera estratégica", "href": "/servicios/direccion-financiera-estrategica" },
+      { "label": "Qué hace un gerente financiero", "href": "/recursos/que-hace-un-gerente-financiero" }
+    ],
+    "cta": {
+      "heading": "¿Tienes una empresa en Medellín o Antioquia?",
+      "text": "Solicita tu Diagnóstico Flash gratuito. Revisamos tu caja, tus márgenes y tu estructura financiera, y te respondemos en menos de 48 horas."
+    }
+  },
+  {
+    "slug": "mi-empresa-vende-pero-no-tiene-plata",
+    "type": "recurso",
+    "primaryKeyword": "mi empresa vende pero no tiene plata",
+    "metaTitle": "Mi Empresa Vende Pero No Tiene Plata: Por Qué Pasa y Qué Hacer | Asimétrica",
+    "metaDescription": "Tu empresa factura y crece, pero el dinero no alcanza. Te explicamos por qué pasa (rentable pero sin caja) y los pasos para recuperar la liquidez.",
+    "breadcrumbLabel": "Mi empresa vende pero no tiene plata",
+    "h1": "Mi empresa vende pero no tiene plata: por qué pasa y qué hacer",
+    "heroSubhead": "Vendes más cada mes, en el papel eres rentable, y aun así el dinero no alcanza. No estás solo —y casi siempre tiene una explicación financiera concreta y solucionable.",
+    "datePublished": "2026-06-18",
+    "dateModified": "2026-06-18",
+    "sections": [
+      {
+        "heading": "Rentable no es lo mismo que tener caja",
+        "paragraphs": [
+          "Es una de las trampas más comunes y peligrosas de una empresa en crecimiento: el estado de resultados muestra utilidad, pero la cuenta bancaria está apretada. La razón es que la utilidad se registra cuando facturas, no cuando te pagan —y entre una cosa y otra hay un mundo de plata atrapada.",
+          "Una empresa puede ser rentable y, al mismo tiempo, quedarse sin liquidez. De hecho, crecer rápido suele empeorarlo: cada venta nueva exige comprar inventario y financiar cartera antes de cobrar."
+        ]
+      },
+      {
+        "heading": "Dónde se queda atrapado tu dinero",
+        "paragraphs": [
+          "Cuando una empresa vende pero no tiene plata, el dinero casi siempre está en uno de estos tres lugares:"
+        ],
+        "bullets": [
+          "Cartera: vendes a crédito y tus clientes te pagan a 30, 60 o 90 días, mientras tus costos no esperan.",
+          "Inventario: compras y produces para crecer, y esa plata se queda en bodega hasta que se vende.",
+          "Proveedores: si pagas más rápido de lo que cobras, financias a tus clientes con tu propia caja."
+        ]
+      },
+      {
+        "heading": "Por qué crecer lo empeora",
+        "paragraphs": [
+          "Suena contraintuitivo, pero crecer consume caja. A más ventas, más inventario que comprar y más cartera que financiar antes de cobrar. Si el negocio crece más rápido de lo que su caja aguanta, llega un punto en que vende mucho y no tiene con qué pagar la nómina o a los proveedores. Es el famoso crecer hacia la quiebra."
+        ]
+      },
+      {
+        "heading": "Qué hacer para recuperar la liquidez",
+        "paragraphs": [
+          "La buena noticia: casi siempre es solucionable sin salir a buscar deuda. Los primeros pasos:"
+        ],
+        "bullets": [
+          "Arma un flujo de caja a 13 semanas: deja de mirar solo el banco de hoy y proyecta las próximas semanas para anticiparte a los apretones.",
+          "Acelera la cartera: revisa plazos, descuentos por pronto pago y disciplina de cobro.",
+          "Optimiza el inventario: identifica lo que rota lento y libera la caja atrapada.",
+          "Renegocia plazos con proveedores para equilibrar lo que cobras y lo que pagas.",
+          "Separa rentabilidad de liquidez en tus reportes, para no volver a confundirlas."
+        ]
+      },
+      {
+        "heading": "Cuándo pedir ayuda",
+        "paragraphs": [
+          "Si el problema se repite mes a mes, no es mala suerte: es una señal de que la complejidad financiera del negocio ya superó la capacidad de tu equipo y necesitas dirección financiera. No necesariamente un CFO de tiempo completo —un CFO fraccional puede poner tu caja bajo control por una fracción del costo, y dejar el sistema funcionando."
+        ]
+      }
+    ],
+    "faq": [
+      { "q": "¿Cómo puede una empresa rentable quedarse sin plata?", "a": "Porque la utilidad se registra al facturar, no al cobrar. Entre que vendes y te pagan, el dinero queda atrapado en cartera e inventario. Una empresa puede mostrar utilidad en el papel y, al mismo tiempo, no tener caja para operar." },
+      { "q": "¿Qué es el capital de trabajo?", "a": "Es la plata que tu empresa necesita para operar día a día —financiar cartera e inventario mientras cobras. Cuando crece más rápido que tu caja, aparece el problema de vender mucho y no tener liquidez." },
+      { "q": "¿Tomar un crédito soluciona el problema?", "a": "A veces ayuda como puente, pero si la causa es operativa (cartera lenta, inventario alto), el crédito solo aplaza el problema y suma costo financiero. Primero conviene ordenar el ciclo de caja." },
+      { "q": "¿Necesito un CFO para resolver esto?", "a": "Si el apretón de caja se repite, sí conviene dirección financiera. No necesariamente de tiempo completo: un CFO fraccional puede poner tu flujo de caja bajo control y dejar el sistema funcionando, por una fracción del costo." }
+    ],
+    "internalLinks": [
+      { "label": "Flujo de caja a 13 semanas", "href": "/recursos/flujo-de-caja-13-semanas" },
+      { "label": "Optimizar el capital de trabajo", "href": "/recursos/optimizar-capital-de-trabajo" },
+      { "label": "CFO Fraccional", "href": "/servicios/cfo-fraccional" },
+      { "label": "Qué hace un gerente financiero", "href": "/recursos/que-hace-un-gerente-financiero" }
+    ],
+    "cta": {
+      "heading": "¿Tu empresa vende pero la caja no alcanza?",
+      "text": "En el Diagnóstico Flash gratuito revisamos dónde está atrapada tu plata y qué hacer para liberarla. Te respondemos en menos de 48 horas."
+    }
+  },
+  {
     "slug": "cfo-fraccional",
     "type": "servicio",
     "primaryKeyword": "CFO fraccional Colombia",
