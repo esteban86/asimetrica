@@ -1227,7 +1227,7 @@ const iconAster = '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" f
           </div>
 
           <div>
-            <p class="text-xs uppercase tracking-wider text-foreground/70 mb-3 body-secondary font-semibold">Servicios</p>
+            <p class="text-xs uppercase tracking-wider text-foreground/70 mb-3 body-secondary font-semibold"><a href="/servicios" class="hover:text-primary transition-colors">Servicios</a></p>
             <ul class="space-y-2.5 text-sm">
               {[
                 ['/servicios/cfo-fraccional', 'CFO Fraccional'],
@@ -1242,7 +1242,7 @@ const iconAster = '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" f
           </div>
 
           <div>
-            <p class="text-xs uppercase tracking-wider text-foreground/70 mb-3 body-secondary font-semibold">Recursos</p>
+            <p class="text-xs uppercase tracking-wider text-foreground/70 mb-3 body-secondary font-semibold"><a href="/recursos" class="hover:text-primary transition-colors">Recursos</a></p>
             <ul class="space-y-2.5 text-sm">
               {[
                 ['/recursos/flujo-de-caja-13-semanas', 'Flujo de caja 13 semanas'],
@@ -1281,7 +1281,7 @@ const iconAster = '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" f
         </div>
 
         <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-border/[0.06]">
-          <p class="text-sm text-muted-foreground body-secondary">© 2026 Asimétrica · Finanzas Estratégicas · Colombia</p>
+          <p class="text-sm text-muted-foreground body-secondary">© 2026 Asimétrica · Finanzas Estratégicas · Colombia · <a href="/privacidad" class="link-underline hover:text-primary transition-colors">Privacidad</a></p>
           <div class="flex items-center gap-2">
             <a href={linkedinLink} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Asimétrica" class="inline-flex h-9 w-9 items-center justify-center rounded-md text-muted-foreground hover:text-primary hover:bg-card transition-colors">
               <span set:html={iconLinkedin} />

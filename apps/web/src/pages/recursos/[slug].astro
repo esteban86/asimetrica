@@ -30,6 +30,8 @@ const jsonLd = {
       inLanguage: 'es-CO',
       author: { '@id': `${base}/#organization` },
       publisher: { '@id': `${base}/#organization` },
+      datePublished: page.datePublished || '2026-06-15',
+      dateModified: page.dateModified || page.datePublished || '2026-06-15',
       url: pageUrl,
       mainEntityOfPage: pageUrl,
     },

@@ -1,0 +1,37 @@
+# Asimétrica — CFO Fraccional y Dirección Financiera Estratégica en Colombia
+
+> Asimétrica es una firma colombiana de dirección financiera estratégica que ofrece servicios de CFO Fraccional para empresas que facturan entre $500 millones y $50.000 millones de pesos al año. Combina la asesoría de un director financiero senior con Prisma, su plataforma de inteligencia financiera. Sede en Medellín; atiende toda Colombia (incluida Bogotá). Diagnóstico inicial gratuito.
+
+## Qué es un CFO Fraccional
+
+Un CFO fraccional es un director financiero senior que trabaja para una empresa a tiempo parcial —unos días al mes— asumiendo la responsabilidad estratégica de un CFO de planta, por una fracción de su costo. En Colombia, un CFO de tiempo completo cuesta del orden de $20.000.000 mensuales (más de $240 millones al año) entre salario, prestaciones y bonos; el modelo fraccional cubre esa función desde $1.900.000/mes. A diferencia de un consultor, el CFO fraccional toma decisiones dentro del comité directivo y responde por los resultados de caja, margen y estructura financiera.
+
+## Servicios
+
+- [CFO Fraccional](https://asimetrica.co/servicios/cfo-fraccional): Dirección financiera senior a tiempo parcial para pymes colombianas.
+- [Dirección Financiera Estratégica](https://asimetrica.co/servicios/direccion-financiera-estrategica): Función financiera completa sin el costo de un CFO en nómina.
+- [Valoración de Empresas (DCF)](https://asimetrica.co/servicios/valoracion-de-empresas): Cuánto vale una empresa en Colombia y cómo se calcula.
+- [Preparación para Inversión y Venta](https://asimetrica.co/servicios/preparacion-para-inversion): Investment readiness, data room, memo y due diligence para founders.
+- [FP&A: Presupuesto y Forecast](https://asimetrica.co/servicios/fpa-presupuesto-forecast): Presupuesto, rolling forecast y análisis de variaciones.
+
+## Recursos y guías
+
+- [Flujo de Caja a 13 Semanas](https://asimetrica.co/recursos/flujo-de-caja-13-semanas): Guía práctica del modelo de liquidez de corto plazo.
+- [Modelo Financiero de 3 Estados](https://asimetrica.co/recursos/modelo-financiero-tres-estados): Cómo construir P&L, balance y flujo de caja integrados.
+- [Optimizar el Capital de Trabajo](https://asimetrica.co/recursos/optimizar-capital-de-trabajo): Liberar caja atrapada en cartera, inventario y proveedores.
+- [Árbol de Rentabilidad](https://asimetrica.co/recursos/arbol-de-rentabilidad): Análisis de rentabilidad por producto, línea y cliente.
+- [Cómo Valorar una Empresa en Colombia](https://asimetrica.co/recursos/como-valorar-una-empresa-en-colombia): Guía 2026 de métodos de valoración (DCF, múltiplos).
+
+## Prisma — plataforma de inteligencia financiera
+
+- [Prisma by Asimétrica](https://prisma.asimetrica.co): Acceso libre y gratuito a los estados financieros y el análisis de más de 145.000 empresas colombianas, a partir de fuentes públicas oficiales (Supersociedades, Superfinanciera, RUES). Incluye ratios de liquidez, rentabilidad y apalancamiento, scoring de riesgo (Altman Z, Piotroski, Beneish) y comparación por sector (código CIIU).
+
+## Para quién
+
+Empresas colombianas que facturan entre $500 millones y $50.000 millones al año, cuya complejidad financiera superó la capacidad de su equipo contable pero que aún no justifican un CFO de tiempo completo. También founders y dueños que preparan una ronda de inversión, la entrada de un socio o una venta.
+
+## Contacto
+
+- Sitio web: https://asimetrica.co
+- WhatsApp: +57 300 130 3558
+- Diagnóstico gratuito: https://asimetrica.co/#contacto

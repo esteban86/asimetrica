@@ -1,0 +1,91 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { seoPages } from '@/data/seoPages.js';
+
+const base = 'https://asimetrica.co';
+const items = seoPages.filter((p) => p.type === 'recurso');
+
+const title = 'Recursos y Guías Financieras | Asimétrica';
+const description =
+  'Guías prácticas de dirección financiera para empresas colombianas: flujo de caja a 13 semanas, modelo de 3 estados, capital de trabajo, rentabilidad y valoración.';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'CollectionPage',
+      '@id': `${base}/recursos#collection`,
+      name: 'Recursos de Asimétrica',
+      description,
+      url: `${base}/recursos`,
+      inLanguage: 'es-CO',
+      isPartOf: { '@id': `${base}/#website` },
+      about: { '@id': `${base}/#organization` },
+    },
+    {
+      '@type': 'ItemList',
+      itemListElement: items.map((p, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: p.breadcrumbLabel,
+        url: `${base}/recursos/${p.slug}`,
+      })),
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Inicio', item: base },
+        { '@type': 'ListItem', position: 2, name: 'Recursos', item: `${base}/recursos` },
+      ],
+    },
+  ],
+};
+---
+
+<Layout title={title} description={description} jsonLd={jsonLd} preloadImage={null}>
+  <main id="main" class="mx-auto max-w-5xl px-5 py-16 md:py-24">
+    <nav aria-label="Migas" class="mb-6 text-sm text-muted-foreground body-secondary">
+      <a href="/" class="link-underline hover:text-primary transition-colors">Inicio</a>
+      <span class="mx-2">/</span>
+      <span class="text-foreground">Recursos</span>
+    </nav>
+
+    <div class="flex items-start justify-between gap-4">
+      <div>
+        <h1 class="heading-secondary text-3xl md:text-4xl text-foreground">Recursos y guías financieras</h1>
+        <p class="mt-4 max-w-2xl text-muted-foreground body-text">
+          Guías prácticas sobre los temas que más mueven la aguja en la dirección financiera de una pyme
+          colombiana: liquidez, modelo financiero, rentabilidad y valoración.
+        </p>
+      </div>
+      <a
+        href="/recursos/rss.xml"
+        class="hidden shrink-0 text-sm text-muted-foreground hover:text-primary transition-colors body-secondary sm:inline-block"
+        aria-label="Feed RSS de recursos"
+      >
+        RSS
+      </a>
+    </div>
+
+    <div class="mt-10 grid gap-5 sm:grid-cols-2">
+      {items.map((p) => (
+        <a
+          href={`/recursos/${p.slug}`}
+          class="group block rounded-xl border border-border/[0.12] bg-card/40 p-6 card-hover transition-colors hover:border-primary/40"
+        >
+          <h2 class="text-lg font-semibold text-foreground heading-tertiary group-hover:text-primary transition-colors">
+            {p.breadcrumbLabel}
+          </h2>
+          <p class="mt-2 text-sm leading-relaxed text-muted-foreground body-text">{p.heroSubhead}</p>
+          <span class="mt-4 inline-block text-sm text-primary body-text">Leer guía →</span>
+        </a>
+      ))}
+    </div>
+
+    <div class="mt-12">
+      <a href="/servicios" class="link-underline text-sm text-muted-foreground hover:text-primary transition-colors body-text">
+        ¿Necesitas acompañamiento? Ver servicios →
+      </a>
+    </div>
+  </main>
+</Layout>

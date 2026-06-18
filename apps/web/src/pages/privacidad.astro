@@ -1,0 +1,112 @@
+---
+import Layout from '@/layouts/Layout.astro';
+
+const base = 'https://asimetrica.co';
+const title = 'Política de Privacidad y Tratamiento de Datos | Asimétrica';
+const description =
+  'Política de privacidad y tratamiento de datos personales de Asimétrica conforme a la Ley 1581 de 2012 (Colombia).';
+const updated = '2026-06-18';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${base}/privacidad`,
+  name: title,
+  description,
+  inLanguage: 'es-CO',
+  isPartOf: { '@id': `${base}/#website` },
+  about: { '@id': `${base}/#organization` },
+  dateModified: updated,
+};
+---
+
+<Layout title={title} description={description} jsonLd={jsonLd} preloadImage={null}>
+  <main id="main" class="mx-auto max-w-3xl px-5 py-16 md:py-24">
+    <nav aria-label="Migas" class="mb-6 text-sm text-muted-foreground body-secondary">
+      <a href="/" class="link-underline hover:text-primary transition-colors">Inicio</a>
+      <span class="mx-2">/</span>
+      <span class="text-foreground">Privacidad</span>
+    </nav>
+
+    <h1 class="heading-secondary text-3xl md:text-4xl text-foreground">Política de privacidad y tratamiento de datos</h1>
+    <p class="mt-3 text-sm text-muted-foreground body-secondary">Última actualización: 18 de junio de 2026</p>
+
+    <div class="prose-asi mt-8 space-y-6 text-muted-foreground body-text leading-relaxed">
+      <p>
+        En <strong class="text-foreground">Asimétrica</strong> respetamos tu privacidad. Esta política explica qué datos
+        personales tratamos, con qué finalidad y cómo puedes ejercer tus derechos, conforme a la Ley 1581 de 2012, el
+        Decreto 1377 de 2013 y demás normas de protección de datos personales en Colombia (Habeas Data).
+      </p>
+
+      <h2 class="heading-tertiary text-xl text-foreground">1. Responsable del tratamiento</h2>
+      <p>
+        Asimétrica, con domicilio en Medellín, Antioquia (Colombia), es responsable del tratamiento de los datos
+        recolectados a través de este sitio. Puedes contactarnos por WhatsApp al +57 300 130 3558 o mediante el
+        formulario de diagnóstico del sitio.
+      </p>
+
+      <h2 class="heading-tertiary text-xl text-foreground">2. Datos que recolectamos</h2>
+      <ul class="list-disc space-y-2 pl-5">
+        <li>
+          <strong class="text-foreground">Datos que nos entregas:</strong> al solicitar un diagnóstico nos compartes tu
+          nombre, correo electrónico, empresa y, opcionalmente, tu teléfono. El envío del formulario se procesa a través
+          del proveedor Web3Forms.
+        </li>
+        <li>
+          <strong class="text-foreground">Datos de navegación:</strong> con tu consentimiento, usamos Google Analytics 4
+          (vía Google Tag Manager) y Microsoft Clarity para medir el uso del sitio (páginas vistas, clics, mapas de calor
+          y grabaciones anónimas). Estas herramientas no se activan hasta que aceptas las cookies de analítica.
+        </li>
+      </ul>
+
+      <h2 class="heading-tertiary text-xl text-foreground">3. Finalidad</h2>
+      <p>
+        Usamos tus datos para responder tu solicitud y contactarte sobre nuestros servicios de dirección financiera; y los
+        datos de navegación, de forma agregada, para entender cómo se usa el sitio y mejorarlo. No vendemos tus datos
+        personales.
+      </p>
+
+      <h2 class="heading-tertiary text-xl text-foreground">4. Cookies y analítica</h2>
+      <p>
+        El sitio usa un esquema de consentimiento (Consent Mode): la analítica queda <strong class="text-foreground">desactivada
+        por defecto</strong> hasta que la aceptes en el aviso de cookies. Puedes rechazarla y seguir navegando, o cambiar
+        tu decisión borrando la cookie <code>asi-consent</code> de tu navegador. Esta preferencia se comparte con nuestra
+        plataforma Prisma (prisma.asimetrica.co).
+      </p>
+
+      <h2 class="heading-tertiary text-xl text-foreground">5. Terceros y transferencias</h2>
+      <p>
+        Para prestar el servicio usamos proveedores que pueden tratar datos fuera de Colombia: Web3Forms (envío del
+        formulario), Google (Analytics y Tag Manager) y Microsoft (Clarity). Cada uno trata los datos según sus propias
+        políticas de privacidad.
+      </p>
+
+      <h2 class="heading-tertiary text-xl text-foreground">6. Tus derechos</h2>
+      <p>
+        Como titular puedes conocer, actualizar, rectificar y suprimir tus datos, así como revocar la autorización
+        otorgada. Para ejercer estos derechos escríbenos por WhatsApp al +57 300 130 3558 o a través del formulario del
+        sitio, indicando tu solicitud. Atenderemos tu petición en los términos de la ley.
+      </p>
+
+      <h2 class="heading-tertiary text-xl text-foreground">7. Conservación</h2>
+      <p>
+        Conservamos tus datos solo durante el tiempo necesario para las finalidades descritas o mientras exista una
+        relación comercial o una obligación legal que lo justifique.
+      </p>
+
+      <h2 class="heading-tertiary text-xl text-foreground">8. Cambios</h2>
+      <p>
+        Podemos actualizar esta política. Publicaremos la versión vigente en esta página con su fecha de actualización.
+      </p>
+
+      <p class="text-sm text-muted-foreground/80">
+        Este documento es una base informativa y no constituye asesoría legal. Te recomendamos validarlo con tu asesor
+        jurídico antes de considerarlo definitivo.
+      </p>
+    </div>
+
+    <div class="mt-12">
+      <a href="/" class="link-underline text-sm text-muted-foreground hover:text-primary transition-colors body-text">← Volver al inicio</a>
+    </div>
+  </main>
+</Layout>
