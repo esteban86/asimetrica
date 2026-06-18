@@ -302,6 +302,73 @@ export const seoPages = [
     }
   },
   {
+    "slug": "cfo-fraccional-en-bogota",
+    "type": "servicio",
+    "primaryKeyword": "cfo fraccional bogotá",
+    "metaTitle": "CFO Fraccional en Bogotá | Dirección Financiera | Asimétrica",
+    "metaDescription": "CFO fraccional para empresas en Bogotá: dirección financiera senior por una fracción del costo de un CFO de planta. Atendemos toda la ciudad. Diagnóstico gratis.",
+    "breadcrumbLabel": "CFO Fraccional en Bogotá",
+    "h1": "CFO fraccional en Bogotá: dirección financiera senior sin el costo de un ejecutivo en nómina",
+    "heroSubhead": "Acompañamos a empresas de Bogotá con la función completa de un CFO —caja, márgenes, financiación y decisiones— por una fracción del costo de tenerlo en nómina. Operamos con tu comité y tus datos, con presencia cuando hace falta.",
+    "keyStats": [
+      { "value": "Bogotá", "label": "y toda la región central" },
+      { "value": "$1.9M", "label": "desde, al mes" },
+      { "value": "48h", "label": "respondemos tu diagnóstico" },
+      { "value": "$500M–$50.000M", "label": "facturación de las empresas que atendemos" }
+    ],
+    "sections": [
+      {
+        "heading": "Dirección financiera para empresas de Bogotá",
+        "paragraphs": [
+          "Bogotá concentra buena parte del tejido empresarial del país, y con él una realidad que se repite: empresas que crecieron lo suficiente como para necesitar dirección financiera de verdad, pero que todavía no justifican —ni necesitan— un CFO de tiempo completo en nómina.",
+          "Ahí entramos. En Asimétrica asumimos la función financiera de tu empresa como lo haría un CFO senior: nos sentamos en tu comité, tomamos decisiones contigo y respondemos por los resultados de caja, margen y estructura financiera. No es un asesor que entrega un informe y se va."
+        ]
+      },
+      {
+        "heading": "Qué hacemos por las empresas bogotanas",
+        "paragraphs": [
+          "La misma función de un CFO senior, dimensionada a tu empresa:"
+        ],
+        "bullets": [
+          "Flujo de caja: liquidez bajo control, con un horizonte claro de las próximas semanas y meses.",
+          "Rentabilidad: qué líneas, productos y clientes generan valor —y cuáles no.",
+          "Financiación: estructura de deuda, relación con bancos e inversionistas y costo del dinero.",
+          "Preparación para crecer, levantar capital o vender, con cifras ordenadas y defendibles.",
+          "Reportería y dashboards en tiempo real, incluidos en todos los planes."
+        ]
+      },
+      {
+        "heading": "Cómo trabajamos con empresas de Bogotá",
+        "paragraphs": [
+          "Seremos transparentes: nuestra sede está en Medellín. Eso no es una limitante para Bogotá —al contrario, es como opera la dirección financiera moderna. La mayor parte del trabajo de un CFO se hace sobre datos y en reuniones de comité, no detrás de un escritorio fijo.",
+          "Trabajamos con un modelo híbrido: comités y seguimiento por videollamada con la cadencia que tu empresa necesite, operación continua sobre tus datos en la plataforma, y presencia en Bogotá en los momentos que de verdad lo ameritan —cierres clave, junta directiva, due diligence. Tienes la misma dirección financiera senior, sin pagar por una silla ocupada ocho horas al día."
+        ]
+      },
+      {
+        "heading": "Por qué fraccional y no de planta",
+        "paragraphs": [
+          "Un CFO de planta en Colombia cuesta del orden de $20.000.000 mensuales con prestaciones y bonos —más de $240 millones al año—. Para una empresa de Bogotá que factura entre $500 millones y $50.000 millones, ese cargo suele estar subutilizado. El modelo fraccional te da la misma dirección financiera senior desde $1.900.000 al mes, en la intensidad que necesites, con la plataforma incluida."
+        ]
+      }
+    ],
+    "faq": [
+      { "q": "¿Tienen oficina en Bogotá?", "a": "Nuestra sede está en Medellín, pero atendemos empresas de Bogotá y la región central de forma habitual. El trabajo de dirección financiera se hace sobre datos y en comités —presenciales o por videollamada—, así que la ubicación no limita el acompañamiento. Viajamos a Bogotá para los momentos clave que lo ameritan." },
+      { "q": "¿Cómo funciona el trabajo si no están físicamente en Bogotá?", "a": "Con un modelo híbrido: comités y seguimiento por videollamada con la cadencia que necesites, operación continua sobre tus datos en la plataforma, y presencia en Bogotá en cierres, juntas o due diligence. En la práctica, tienes un CFO senior más disponible que uno de planta atado a una agenda." },
+      { "q": "¿Cuánto cuesta un CFO fraccional en Bogotá?", "a": "Los planes van desde $1.900.000 al mes y se ajustan a la intensidad y el alcance que necesite tu empresa. Incluyen tanto la asesoría como la plataforma de FP&A." },
+      { "q": "¿Atienden empresas fuera de Bogotá y Medellín?", "a": "Sí. Tenemos sede en Medellín, fuerte presencia en Bogotá y atendemos empresas de toda Colombia con el mismo modelo híbrido." }
+    ],
+    "internalLinks": [
+      { "label": "CFO Fraccional", "href": "/servicios/cfo-fraccional" },
+      { "label": "Cuánto cuesta un CFO en Colombia", "href": "/recursos/cuanto-cuesta-un-cfo-en-colombia" },
+      { "label": "Dirección financiera estratégica", "href": "/servicios/direccion-financiera-estrategica" },
+      { "label": "Qué hace un gerente financiero", "href": "/recursos/que-hace-un-gerente-financiero" }
+    ],
+    "cta": {
+      "heading": "¿Tienes una empresa en Bogotá?",
+      "text": "Solicita tu Diagnóstico Flash gratuito. Revisamos tu caja, tus márgenes y tu estructura financiera, y te respondemos en menos de 48 horas."
+    }
+  },
+  {
     "slug": "mi-empresa-vende-pero-no-tiene-plata",
     "type": "recurso",
     "primaryKeyword": "mi empresa vende pero no tiene plata",
