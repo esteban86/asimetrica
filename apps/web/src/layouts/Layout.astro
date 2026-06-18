@@ -136,7 +136,7 @@ const jsonLd = jsonLdProp ?? {
     {/* Consent Mode v2: por defecto la analítica queda DENEGADA hasta que el
         usuario acepte (o hasta restaurar su decisión previa). Debe ir ANTES de GTM. */}
     {gtmId && (
-      <script is:inline set:html={`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}var _c=null;try{_c=localStorage.getItem('asi-consent');}catch(e){}gtag('consent','default',{'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','analytics_storage':_c==='granted'?'granted':'denied','wait_for_update':500});`} />
+      <script is:inline set:html={`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}var _m=document.cookie.match(/(?:^|; )asi-consent=(granted|denied)/);var _c=_m?_m[1]:null;gtag('consent','default',{'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','analytics_storage':_c==='granted'?'granted':'denied','wait_for_update':500});`} />
     )}
 
     <!-- Google Tag Manager. Activo solo si PUBLIC_GTM_ID está definido. -->
@@ -147,7 +147,7 @@ const jsonLd = jsonLdProp ?? {
     {/* Microsoft Clarity. Se difiere hasta consentir: expone window.__loadClarity()
         y lo invoca solo si ya hay consentimiento guardado. */}
     {clarityId && (
-      <script is:inline set:html={`(function(){window.__loadClarity=function(){if(window.__clarityLoaded)return;window.__clarityLoaded=true;(function(c,l,a,r,i){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};var t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;var y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,'clarity','script','${clarityId}');};var c=null;try{c=localStorage.getItem('asi-consent');}catch(e){}if(c==='granted')window.__loadClarity();})();`} />
+      <script is:inline set:html={`(function(){window.__loadClarity=function(){if(window.__clarityLoaded)return;window.__clarityLoaded=true;(function(c,l,a,r,i){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};var t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;var y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,'clarity','script','${clarityId}');};var _m=document.cookie.match(/(?:^|; )asi-consent=(granted|denied)/);var c=_m?_m[1]:null;if(c==='granted')window.__loadClarity();})();`} />
     )}
 
     <meta charset="UTF-8" />
@@ -222,7 +222,7 @@ const jsonLd = jsonLdProp ?? {
             <button data-consent="denied" type="button" class="rounded-md px-3 py-1.5 text-[0.8rem] text-muted-foreground transition-colors hover:text-foreground">Rechazar</button>
           </div>
         </div>
-        <script is:inline set:html={`(function(){var el=document.getElementById('cookie-consent');if(!el)return;var s=null;try{s=localStorage.getItem('asi-consent');}catch(e){}if(!s){el.hidden=false;requestAnimationFrame(function(){el.classList.add('is-in');});}el.querySelectorAll('[data-consent]').forEach(function(b){b.addEventListener('click',function(){var v=b.getAttribute('data-consent');try{localStorage.setItem('asi-consent',v);}catch(e){}if(typeof gtag==='function'){gtag('consent','update',{'analytics_storage':v==='granted'?'granted':'denied'});}if(v==='granted'&&typeof window.__loadClarity==='function'){window.__loadClarity();}el.classList.remove('is-in');setTimeout(function(){el.hidden=true;},250);});});})();`} />
+        <script is:inline set:html={`(function(){var el=document.getElementById('cookie-consent');if(!el)return;var m=document.cookie.match(/(?:^|; )asi-consent=(granted|denied)/);var s=m?m[1]:null;if(!s){el.hidden=false;requestAnimationFrame(function(){el.classList.add('is-in');});}el.querySelectorAll('[data-consent]').forEach(function(b){b.addEventListener('click',function(){var v=b.getAttribute('data-consent');var dom=location.hostname.indexOf('asimetrica.co')>-1?';domain=.asimetrica.co':'';try{document.cookie='asi-consent='+v+';path=/;max-age=15552000'+dom+';SameSite=Lax';}catch(e){}if(typeof gtag==='function'){gtag('consent','update',{'analytics_storage':v==='granted'?'granted':'denied'});}if(v==='granted'&&typeof window.__loadClarity==='function'){window.__loadClarity();}el.classList.remove('is-in');setTimeout(function(){el.hidden=true;},250);});});})();`} />
       </>
     )}
   </body>
