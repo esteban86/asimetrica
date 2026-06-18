@@ -20,6 +20,13 @@ const cfBeacon = import.meta.env.PUBLIC_CF_BEACON_TOKEN;
 // El contenedor GTM gestiona el tag de GA4 (Measurement ID G-XXXX) desde su UI.
 const gtmId = import.meta.env.PUBLIC_GTM_ID;
 
+// Microsoft Clarity (mapas de calor + grabaciones). Define PUBLIC_CLARITY_ID.
+// Solo se carga tras consentir (mismo banner que GA) para respetar la privacidad.
+const clarityId = import.meta.env.PUBLIC_CLARITY_ID;
+
+// El banner de consentimiento aparece si hay cualquier herramienta de analítica.
+const needsConsent = gtmId || clarityId;
+
 // Grafo de marca: une asimetrica.co (Organization + servicio) con
 // prisma.asimetrica.co (la plataforma) para que Google los lea como una entidad.
 const ORG = 'https://asimetrica.co/#organization';
@@ -137,6 +144,12 @@ const jsonLd = jsonLdProp ?? {
       <script is:inline set:html={`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${gtmId}');`} />
     )}
 
+    {/* Microsoft Clarity. Se difiere hasta consentir: expone window.__loadClarity()
+        y lo invoca solo si ya hay consentimiento guardado. */}
+    {clarityId && (
+      <script is:inline set:html={`(function(){window.__loadClarity=function(){if(window.__clarityLoaded)return;window.__clarityLoaded=true;(function(c,l,a,r,i){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};var t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;var y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,'clarity','script','${clarityId}');};var c=null;try{c=localStorage.getItem('asi-consent');}catch(e){}if(c==='granted')window.__loadClarity();})();`} />
+    )}
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0a0a0a" />
@@ -197,19 +210,19 @@ const jsonLd = jsonLdProp ?? {
     <a href="#main" class="skip-link">Saltar al contenido principal</a>
     <slot />
 
-    {/* Consentimiento de cookies — sutil, abajo-izquierda. Solo si GTM está activo. */}
-    {gtmId && (
+    {/* Consentimiento de cookies — sutil, abajo-izquierda. Solo si hay analítica. */}
+    {needsConsent && (
       <>
         <div id="cookie-consent" class="cookie-consent" hidden>
           <p class="text-[0.8rem] leading-snug text-muted-foreground body-secondary">
-            Usamos cookies de <span class="text-foreground">Google Analytics</span> para medir el uso del sitio. Puedes aceptarlas o seguir sin ellas.
+            Usamos cookies de <span class="text-foreground">analítica</span> para entender cómo se usa el sitio y mejorarlo. Puedes aceptarlas o seguir sin ellas.
           </p>
           <div class="mt-3 flex items-center gap-2">
             <button data-consent="granted" type="button" class="rounded-md bg-primary px-3 py-1.5 text-[0.8rem] font-medium text-primary-foreground transition-colors hover:bg-primary/90">Aceptar</button>
             <button data-consent="denied" type="button" class="rounded-md px-3 py-1.5 text-[0.8rem] text-muted-foreground transition-colors hover:text-foreground">Rechazar</button>
           </div>
         </div>
-        <script is:inline set:html={`(function(){var el=document.getElementById('cookie-consent');if(!el)return;var s=null;try{s=localStorage.getItem('asi-consent');}catch(e){}if(!s){el.hidden=false;requestAnimationFrame(function(){el.classList.add('is-in');});}el.querySelectorAll('[data-consent]').forEach(function(b){b.addEventListener('click',function(){var v=b.getAttribute('data-consent');try{localStorage.setItem('asi-consent',v);}catch(e){}if(typeof gtag==='function'){gtag('consent','update',{'analytics_storage':v==='granted'?'granted':'denied'});}el.classList.remove('is-in');setTimeout(function(){el.hidden=true;},250);});});})();`} />
+        <script is:inline set:html={`(function(){var el=document.getElementById('cookie-consent');if(!el)return;var s=null;try{s=localStorage.getItem('asi-consent');}catch(e){}if(!s){el.hidden=false;requestAnimationFrame(function(){el.classList.add('is-in');});}el.querySelectorAll('[data-consent]').forEach(function(b){b.addEventListener('click',function(){var v=b.getAttribute('data-consent');try{localStorage.setItem('asi-consent',v);}catch(e){}if(typeof gtag==='function'){gtag('consent','update',{'analytics_storage':v==='granted'?'granted':'denied'});}if(v==='granted'&&typeof window.__loadClarity==='function'){window.__loadClarity();}el.classList.remove('is-in');setTimeout(function(){el.hidden=true;},250);});});})();`} />
       </>
     )}
   </body>

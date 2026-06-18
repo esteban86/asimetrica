@@ -14,15 +14,22 @@ const ContactModal = () => {
   const [open, setOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({ nombre: '', email: '', empresa: '', telefono: '' });
+  const startedRef = React.useRef(false);
 
   useEffect(() => {
-    const openHandler = () => setOpen(true);
+    const openHandler = () => { startedRef.current = false; setOpen(true); };
     window.addEventListener('open-contact-modal', openHandler);
     return () => window.removeEventListener('open-contact-modal', openHandler);
   }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    // Micro-conversión: el usuario empezó a llenar el formulario (una sola vez).
+    if (!startedRef.current && typeof window !== 'undefined') {
+      startedRef.current = true;
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: 'form_start' });
+    }
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 

@@ -1463,4 +1463,44 @@ const iconAster = '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" f
     { threshold: 0.2, rootMargin: '-100px 0px -55% 0px' }
   );
   document.querySelectorAll('main section[id]').forEach((s) => spyObserver.observe(s));
+
+  // ── Micro-conversiones → dataLayer (GTM las reenvía a GA4) ───────────────
+  // El Consent Mode decide si GA4 las almacena; aquí solo las emitimos.
+  // (scroll y clics salientes ya los captura GA4 con Enhanced Measurement.)
+  const track = (event, params = {}) => {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event, ...params });
+  };
+
+  // Clics: WhatsApp, Prisma y "Ver los planes" (delegado en document).
+  document.addEventListener('click', (e) => {
+    const target = e.target;
+    if (!(target instanceof Element)) return;
+    const link = target.closest('a');
+    if (link instanceof HTMLAnchorElement) {
+      if (link.href.startsWith('https://wa.me')) {
+        track('whatsapp_click', { link_url: link.href });
+        return;
+      }
+      if (link.href.startsWith('https://prisma.asimetrica.co')) {
+        track('prisma_click', { link_url: link.href });
+        return;
+      }
+    }
+    if (target.closest('[data-scroll="planes"]')) track('ver_planes_click');
+  });
+
+  // FAQ: primera apertura de cada pregunta.
+  document.querySelectorAll('#faq details').forEach((d) => {
+    d.addEventListener('toggle', () => {
+      if (!(d instanceof HTMLDetailsElement) || !d.open) return;
+      const q = d.querySelector('summary');
+      const faq_question = q && q.textContent ? q.textContent.trim().slice(0, 120) : '';
+      track('faq_open', { faq_question });
+    });
+  });
+
+  // Intención de contacto: apertura del modal de diagnóstico (un solo punto:
+  // todos los botones disparan el evento 'open-contact-modal').
+  window.addEventListener('open-contact-modal', () => track('contacto_intent'));
 </script>

@@ -41,6 +41,7 @@ jobs:
           PUBLIC_WEB3FORMS_KEY: ${{ secrets.VITE_WEB3FORMS_KEY }}
           PUBLIC_CF_BEACON_TOKEN: ${{ secrets.CF_BEACON_TOKEN }}
           PUBLIC_GTM_ID: ${{ secrets.PUBLIC_GTM_ID }}
+          PUBLIC_CLARITY_ID: ${{ secrets.PUBLIC_CLARITY_ID }}
 
       - name: Lighthouse CI
         run: npx --yes @lhci/cli@0.14.x autorun

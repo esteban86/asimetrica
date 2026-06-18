@@ -46,6 +46,8 @@ jobs:
           PUBLIC_CF_BEACON_TOKEN: ${{ secrets.CF_BEACON_TOKEN }}
           # Google Tag Manager (opcional; vacío = sin GTM/GA4).
           PUBLIC_GTM_ID: ${{ secrets.PUBLIC_GTM_ID }}
+          # Microsoft Clarity (opcional; vacío = sin Clarity).
+          PUBLIC_CLARITY_ID: ${{ secrets.PUBLIC_CLARITY_ID }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
