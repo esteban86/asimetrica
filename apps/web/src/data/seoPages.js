@@ -298,7 +298,7 @@ export const seoPages = [
     ],
     "cta": {
       "heading": "¿Tienes una empresa en Medellín o Antioquia?",
-      "text": "Solicita tu Diagnóstico Flash gratuito. Revisamos tu caja, tus márgenes y tu estructura financiera, y te respondemos en menos de 48 horas."
+      "text": "Solicita tu Diagnóstico Flash gratuito. Revisamos tu caja, tus márgenes y tu estructura financiera, y te contactamos lo antes posible."
     }
   },
   {
@@ -365,7 +365,7 @@ export const seoPages = [
     ],
     "cta": {
       "heading": "¿Tienes una empresa en Bogotá?",
-      "text": "Solicita tu Diagnóstico Flash gratuito. Revisamos tu caja, tus márgenes y tu estructura financiera, y te respondemos en menos de 48 horas."
+      "text": "Solicita tu Diagnóstico Flash gratuito. Revisamos tu caja, tus márgenes y tu estructura financiera, y te contactamos lo antes posible."
     }
   },
   {
@@ -438,7 +438,7 @@ export const seoPages = [
     ],
     "cta": {
       "heading": "¿Tu empresa vende pero la caja no alcanza?",
-      "text": "En el Diagnóstico Flash gratuito revisamos dónde está atrapada tu plata y qué hacer para liberarla. Te respondemos en menos de 48 horas."
+      "text": "En el Diagnóstico Flash gratuito revisamos dónde está atrapada tu plata y qué hacer para liberarla. Te contactamos lo antes posible."
     }
   },
   {

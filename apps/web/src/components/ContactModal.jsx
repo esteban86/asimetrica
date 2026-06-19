@@ -186,7 +186,7 @@ const ContactModal = () => {
               </div>
               <DialogTitle className="text-xl heading-tertiary">¡Solicitud enviada!</DialogTitle>
               <DialogDescription className="mt-2 text-muted-foreground body-text">
-                Te contactamos en menos de 48 horas para iniciar tu diagnóstico. Revisa tu correo —a veces caemos en la carpeta de promociones.
+                Te contactaremos lo antes posible para coordinar tu sesión inicial. Revisa tu correo —a veces caemos en la carpeta de promociones.
               </DialogDescription>
               <Button onClick={() => setOpen(false)} className="mt-6 w-full bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200 active:scale-[0.98]">
                 Listo
@@ -197,7 +197,7 @@ const ContactModal = () => {
               <DialogHeader>
                 <DialogTitle className="text-xl heading-tertiary">Solicitar Diagnóstico Gratis</DialogTitle>
                 <DialogDescription className="text-muted-foreground body-text">
-                  Déjanos tus datos y te contactamos en menos de 48 horas para iniciar tu diagnóstico. 100% confidencial.
+                  Déjanos tus datos y te contactamos lo antes posible para agendar tu sesión inicial. Tras recibir tu información financiera, te entregamos el diagnóstico en 48 horas. 100% confidencial.
                 </DialogDescription>
               </DialogHeader>
 
@@ -254,7 +254,7 @@ const ContactModal = () => {
                 </a>
 
                 <p className="text-xs text-muted-foreground text-center body-secondary">
-                  Te respondemos en 24–48h · Sin compromiso. Al enviar aceptas nuestra <a href="/privacidad" className="link-underline hover:text-primary">política de datos</a>.
+                  Te contactamos lo antes posible · Sin compromiso. Al enviar aceptas nuestra <a href="/privacidad" className="link-underline hover:text-primary">política de datos</a>.
                 </p>
               </form>
             </>
