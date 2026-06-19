@@ -48,6 +48,8 @@ jobs:
           PUBLIC_GTM_ID: ${{ secrets.PUBLIC_GTM_ID }}
           # Microsoft Clarity (opcional; vacío = sin Clarity).
           PUBLIC_CLARITY_ID: ${{ secrets.PUBLIC_CLARITY_ID }}
+          # Google Apps Script endpoint para la bitácora de leads (opcional).
+          PUBLIC_SHEET_ENDPOINT: ${{ secrets.PUBLIC_SHEET_ENDPOINT }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

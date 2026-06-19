@@ -42,6 +42,7 @@ jobs:
           PUBLIC_CF_BEACON_TOKEN: ${{ secrets.CF_BEACON_TOKEN }}
           PUBLIC_GTM_ID: ${{ secrets.PUBLIC_GTM_ID }}
           PUBLIC_CLARITY_ID: ${{ secrets.PUBLIC_CLARITY_ID }}
+          PUBLIC_SHEET_ENDPOINT: ${{ secrets.PUBLIC_SHEET_ENDPOINT }}
 
       - name: Lighthouse CI
         run: npx --yes @lhci/cli@0.14.x autorun

@@ -120,6 +120,25 @@ const ContactModal = () => {
         window.dataLayer.push({ event: 'diagnostico_solicitado' });
       }
 
+      // Bitácora opcional en Google Sheets (vía Google Apps Script). Fire-and-forget:
+      // no bloquea ni rompe el envío principal. Solo actúa si PUBLIC_SHEET_ENDPOINT existe.
+      // text/plain evita el preflight CORS de Apps Script.
+      const sheetEndpoint = import.meta.env.PUBLIC_SHEET_ENDPOINT;
+      if (sheetEndpoint) {
+        fetch(sheetEndpoint, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify({
+            token: 'asi-leads',
+            nombre: formData.nombre.trim(),
+            email: formData.email.trim(),
+            empresa: formData.empresa.trim(),
+            telefono: formData.telefono.trim(),
+          }),
+        }).catch(() => {});
+      }
+
       setFormData(EMPTY);
       setDone(true); // muestra el estado de éxito dentro del modal
     } catch (error) {
