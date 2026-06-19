@@ -8,6 +8,9 @@ import { toast } from "sonner";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const EMPTY = { nombre: '', email: '', empresa: '', telefono: '', botcheck: '' };
+const WA_LINK =
+  'https://wa.me/573001303558?text=' +
+  encodeURIComponent('Hola, vengo de la web y quiero más información sobre Asimétrica.');
 
 /**
  * Island de contacto. Se monta una sola vez (client:idle) y escucha el evento
@@ -81,6 +84,11 @@ const ContactModal = () => {
     setTouched({ nombre: true, email: true, empresa: true });
 
     if (Object.keys(nextErrors).length > 0) {
+      // Mide la fricción: qué campos fallan la validación (para GTM/GA4).
+      if (typeof window !== 'undefined') {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: 'form_error', form_fields: Object.keys(nextErrors).join(',') });
+      }
       const firstInvalid = required.find((f) => nextErrors[f]);
       const el = typeof document !== 'undefined' && document.getElementById(firstInvalid);
       if (el) el.focus();
@@ -125,7 +133,7 @@ const ContactModal = () => {
   };
 
   const inputClass = (name) =>
-    `bg-background text-foreground focus-visible:ring-primary ${
+    `bg-background text-foreground text-base sm:text-sm focus-visible:ring-primary ${
       errors[name] ? 'border-destructive focus-visible:ring-destructive' : 'border-input'
     }`;
 
@@ -197,7 +205,7 @@ const ContactModal = () => {
                   <Label htmlFor="telefono" className="text-foreground font-medium">
                     Teléfono <span className="text-muted-foreground font-normal">(opcional)</span>
                   </Label>
-                  <Input id="telefono" name="telefono" type="tel" inputMode="tel" autoComplete="tel" placeholder="+57 300 000 0000" value={formData.telefono} onChange={handleChange} disabled={isLoading} className="bg-background text-foreground border-input focus-visible:ring-primary" />
+                  <Input id="telefono" name="telefono" type="tel" inputMode="tel" autoComplete="tel" placeholder="+57 300 000 0000" value={formData.telefono} onChange={handleChange} disabled={isLoading} className="bg-background text-foreground border-input text-base sm:text-sm focus-visible:ring-primary" />
                 </div>
 
                 {/* Honeypot anti-spam: invisible para humanos; los bots lo llenan. */}
@@ -213,10 +221,21 @@ const ContactModal = () => {
                 />
 
                 <Button type="submit" className="w-full mt-2 bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200 active:scale-[0.98]" disabled={isLoading}>
-                  {isLoading ? "Enviando…" : "Enviar Solicitud"}
+                  {isLoading ? "Enviando…" : "Quiero mi diagnóstico gratis"}
                 </Button>
+
+                <div className="flex items-center gap-3 py-1" aria-hidden="true">
+                  <span className="h-px flex-1 bg-border/60"></span>
+                  <span className="text-xs text-muted-foreground body-secondary">o</span>
+                  <span className="h-px flex-1 bg-border/60"></span>
+                </div>
+                <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="flex w-full items-center justify-center gap-2 rounded-md border border-input py-2.5 text-sm text-foreground transition-colors hover:border-primary/50 hover:text-primary body-text">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884" /></svg>
+                  Prefiero WhatsApp
+                </a>
+
                 <p className="text-xs text-muted-foreground text-center body-secondary">
-                  Te respondemos en 24–48h · Sin compromiso · Tus datos no se comparten.
+                  Te respondemos en 24–48h · Sin compromiso. Al enviar aceptas nuestra <a href="/privacidad" className="link-underline hover:text-primary">política de datos</a>.
                 </p>
               </form>
             </>
