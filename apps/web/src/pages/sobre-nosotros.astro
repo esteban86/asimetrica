@@ -1,0 +1,126 @@
+---
+import Layout from '@/layouts/Layout.astro';
+
+const base = 'https://asimetrica.co';
+const title = 'Sobre Asimétrica | Dirección Financiera Estratégica en Colombia';
+const description =
+  'Qué es Asimétrica: una firma de dirección financiera estratégica (CFO Fraccional) para empresas colombianas, con sede en Medellín y la plataforma Prisma.';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  '@id': `${base}/sobre-nosotros`,
+  name: title,
+  description,
+  inLanguage: 'es-CO',
+  isPartOf: { '@id': `${base}/#website` },
+  about: { '@id': `${base}/#organization` },
+  mainEntity: { '@id': `${base}/#organization` },
+};
+
+const pilares = [
+  {
+    h: 'Decisiones, no informes',
+    p: 'No entregamos un diagnóstico y nos vamos. Nos integramos a tu comité directivo, tomamos decisiones contigo y respondemos por los resultados de caja, margen y estructura financiera.',
+  },
+  {
+    h: 'Senior, no junior',
+    p: 'La función completa de un director financiero con experiencia de nivel directivo, dimensionada al tamaño de tu empresa —no un analista que aprende sobre la marcha.',
+  },
+  {
+    h: 'Datos, no intuición',
+    p: 'Cada recomendación se respalda con números: modelos financieros, flujo de caja proyectado y dashboards en tiempo real, incluidos en todos los planes.',
+  },
+  {
+    h: 'Fracción, no nómina',
+    p: 'La dirección financiera que tu empresa necesita, en la intensidad que necesita, por una fracción del costo de un CFO de tiempo completo en nómina.',
+  },
+];
+
+const dominamos = [
+  'CFO Fraccional',
+  'Dirección financiera estratégica',
+  'FP&A: presupuesto y forecast',
+  'Flujo de caja y liquidez',
+  'Capital de trabajo',
+  'Rentabilidad por producto y cliente',
+  'Valoración de empresas (DCF)',
+  'Preparación para inversión y venta',
+];
+---
+
+<Layout title={title} description={description} jsonLd={jsonLd} preloadImage={null}>
+  <main id="main" class="mx-auto max-w-3xl px-5 py-16 md:py-24">
+    <nav aria-label="Migas" class="mb-6 text-sm text-muted-foreground body-secondary">
+      <a href="/" class="link-underline hover:text-primary transition-colors">Inicio</a>
+      <span class="mx-2">/</span>
+      <span class="text-foreground">Sobre nosotros</span>
+    </nav>
+
+    <h1 class="heading-secondary text-3xl md:text-4xl text-foreground">Sobre Asimétrica</h1>
+    <p class="mt-5 text-lg text-muted-foreground leading-relaxed body-text">
+      Asimétrica es una firma de <strong class="text-foreground">dirección financiera estratégica</strong> con sede en
+      Medellín que acompaña a empresas de toda Colombia. Le damos a las pymes la función completa de un CFO
+      —un <strong class="text-foreground">CFO Fraccional</strong>— por una fracción del costo de tenerlo en nómina.
+    </p>
+
+    <section class="mt-12">
+      <h2 class="heading-tertiary text-2xl text-foreground">Para quién trabajamos</h2>
+      <p class="mt-3 text-muted-foreground leading-relaxed body-text">
+        Acompañamos a empresas colombianas que facturan entre $500 millones y $50.000 millones al año: ya superaron
+        lo que su equipo contable puede ofrecer, pero todavía no justifican —ni necesitan— un director financiero de
+        tiempo completo. El CFO fraccional cierra exactamente esa brecha.
+      </p>
+    </section>
+
+    <section class="mt-12">
+      <h2 class="heading-tertiary text-2xl text-foreground">Cómo trabajamos</h2>
+      <div class="mt-5 grid gap-4 sm:grid-cols-2">
+        {pilares.map((x) => (
+          <div class="rounded-xl border border-border/[0.12] bg-card/40 p-5">
+            <h3 class="font-semibold text-foreground body-text">{x.h}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-muted-foreground body-text">{x.p}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="mt-12">
+      <h2 class="heading-tertiary text-2xl text-foreground">Prisma, nuestra plataforma</h2>
+      <p class="mt-3 text-muted-foreground leading-relaxed body-text">
+        Construimos <a href="https://prisma.asimetrica.co" target="_blank" rel="noopener noreferrer" class="link-underline text-primary">Prisma</a>,
+        una plataforma de inteligencia financiera de acceso libre que reúne los estados financieros y el análisis de
+        más de <strong class="text-foreground">145.000 empresas colombianas</strong>, a partir de fuentes públicas
+        oficiales (Supersociedades, Superfinanciera y RUES). Es la prueba de cómo trabajamos: con datos, no con
+        intuición. Toda la dirección financiera que hacemos se apoya en esa misma capacidad analítica.
+      </p>
+    </section>
+
+    <section class="mt-12">
+      <h2 class="heading-tertiary text-2xl text-foreground">Qué dominamos</h2>
+      <ul class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2 text-muted-foreground body-text">
+        {dominamos.map((d) => (
+          <li class="flex items-start gap-2">
+            <span class="mt-1 text-primary">·</span>
+            <span>{d}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="mt-14 rounded-2xl border border-border/[0.12] bg-card/40 p-8 text-center">
+      <h2 class="heading-tertiary text-2xl text-foreground">Conversemos</h2>
+      <p class="mt-3 text-muted-foreground leading-relaxed body-text">
+        En el Diagnóstico Flash gratuito revisamos tu caja, tus márgenes y tu estructura financiera, y te decimos con
+        franqueza en qué podemos ayudar. Te respondemos en menos de 48 horas.
+      </p>
+      <a href="/#contacto" class="mt-6 inline-block rounded-md bg-primary px-8 py-3 font-medium text-primary-foreground transition-colors hover:bg-primary/90 body-text">
+        Solicitar diagnóstico gratis
+      </a>
+    </section>
+
+    <div class="mt-12">
+      <a href="/" class="link-underline text-sm text-muted-foreground hover:text-primary transition-colors body-text">← Volver al inicio</a>
+    </div>
+  </main>
+</Layout>
